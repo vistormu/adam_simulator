@@ -1,26 +1,17 @@
-from src.simulation import Simulation
-from src.entities import Configuration, Data
-from src.core import Logger
+from adam import Simulation, Configuration, Data, ConfigurationLoader
 
 
 def main():
     sim: Simulation = Simulation()
-    sim.load_scene('scene')
+    initial_data: Data = sim.load_scene('scene')
 
-    configuration: Configuration = sim.get_data().configuration
+    configuration_list: list[Configuration] = ConfigurationLoader.load('configurations.csv')
 
-    done: bool = False
-    for step in range(10_000):
-        configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.001, 0.0)
-
-        Logger.debug(configuration.to_degrees())
-
-        sim.send_configuration(configuration)
-
+    for configuration in configuration_list:
         sim.render()
-        done = sim.step()
+        data: Data = sim.step(configuration)
 
-        if done:
+        if not sim.is_alive:
             break
 
     sim.close()

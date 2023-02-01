@@ -2,6 +2,8 @@
 
 ADAM (Autonomous Domestic Ambidextrous Manipulator) is a mobile robot manipulator consisting of a base with two Degrees of Freedom (DoF) and two Universal Robots UR3 of 6 DoF each.
 
+MuJoCo
+
 ## Installation
 
 ### Install miniconda (highly-recommended)
@@ -17,6 +19,31 @@ Then, enter the directory and install the required dependencies
 ```
 cd adam_simulator
 pip install -r requirements.txt
+```
+
+## Minimal Working Example
+```
+from adam import Simulation, Configuration, Data
+
+
+def main():
+    sim: Simulation = Simulation()
+    initial_data: Data = sim.load_scene('scene')
+
+    configuration: Configuration = initial_data.configuration
+
+    while sim.is_alive:
+        configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.001, 0.0)
+
+        sim.render()
+        data: Data = sim.step(configuration)
+
+    sim.close()
+
+
+if __name__ == '__main__':
+    main()
+
 ```
 
 ## API
