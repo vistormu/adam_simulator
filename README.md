@@ -22,7 +22,7 @@ pip install -r requirements.txt
 ```
 
 ## Minimal Working Example
-```
+```python
 from adam import Simulation, Configuration, Data
 
 
@@ -43,7 +43,6 @@ def main():
 
 if __name__ == '__main__':
     main()
-
 ```
 
 ## API
