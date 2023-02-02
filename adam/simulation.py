@@ -26,11 +26,14 @@ class Simulation:
 
     def _load_viewer(self) -> None:
         self.viewer = mujoco_viewer.MujocoViewer(self.model, self.data)
-
-        self.viewer.cam.elevation = -20
-        self.viewer.cam.azimuth = 135
-        self.viewer.cam.distance = 3.5
-        self.viewer.cam.lookat = (0, 0, 0.5)
+        
+        self.set_view((0,0,0.5), 135, -20, 3.5)
+        
+    def set_view(self, center: tuple[float, float, float], azimuth: float, elevation: float, distance: float):
+        self.viewer.cam.elevation = elevation
+        self.viewer.cam.azimuth = azimuth
+        self.viewer.cam.distance = distance
+        self.viewer.cam.lookat = center
 
     def step(self, configuration: Configuration) -> Data:
         # Send configuration

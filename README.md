@@ -21,7 +21,8 @@ cd adam_simulator
 pip install -r requirements.txt
 ```
 
-## Minimal Working Example
+## Minimal Working Examples
+
 ```python
 from adam import Simulation, Configuration, Data
 
@@ -45,8 +46,32 @@ if __name__ == '__main__':
     main()
 ```
 
+
+```python
+from adam import Simulation, Configuration, Data, ConfigurationLoader
+
+
+def main():
+    sim: Simulation = Simulation()
+    initial_data: Data = sim.load_scene('scene')
+    
+    configuration_list: list[Configuration] = ConfigurationLoader.load('configurations_test.csv')
+
+    for configuration in configuration_list:
+        sim.render()
+        
+        data: Data = sim.step(configuration)
+
+    sim.close()
+
+
+if __name__ == '__main__':
+    main()
+
+```
+
 ## API
-The API is object-oriented and consists of the following classes.
+The API is object-oriented and consists on the following classes.
 
 ### Entities
 The entities are the "brick" classes of the API.
