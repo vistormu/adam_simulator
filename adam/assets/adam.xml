@@ -85,6 +85,9 @@
         <mesh name="wrist_1_rubber" file="wrist_1_rubber.stl" />
         <mesh name="wrist_1_body" file="wrist_1_body.stl" />
         <mesh name="wrist_1_cap" file="wrist_1_cap.stl" />
+        <mesh name="wrist_2_rubber" file="wrist_2_rubber.stl" />
+        <mesh name="wrist_2_body" file="wrist_2_body.stl" />
+        <mesh name="wrist_2_cap" file="wrist_2_cap.stl" />
         <mesh name="body" file="body.stl" />
 
         <mesh name="wrist1" file="wrist1.stl" />
@@ -142,14 +145,17 @@
                         <!-- WRIST 1 -->
                         <body name="wrist_1_link" pos="0 0 0.21325" quat="1 0 1 0">
                             <inertial mass="0.8" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.00225 0.002085 0.002085" />
-                            <joint name="wrist_1_joint" class="size_0" /> 
-                            <!-- <geom mesh="wrist1" material="light_gray" class="visual" /> -->
+                            <joint name="wrist_1_joint" class="size_0" />
+                            <geom class="cylinder_collision" size="0.04 0.05" pos="0 0 0" quat="0.7071 0.7171 0 0"/>
+                            <geom mesh="wrist_2_rubber" material="black" class="visual" quat="0.7071 0 0 0.7071" pos="0.0015 0.0087 -0.0005"/>
+                            <geom mesh="wrist_2_body" material="dark_gray" class="visual" quat="0.5 -0.5 0.5 -0.5" pos="0.0015 0.084 -0.0005"/>
+                            <geom mesh="wrist_2_cap" material="blue" class="visual" quat="0.5 -0.5 -0.5 0.5" pos="0.0015 0.084 -0.007"/>
 
                             <!-- WRIST 2 -->
                             <body name="wrist_2_link" pos="0 0.08505 0">
                                 <inertial mass="0.8" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.00225 0.002085 0.002085" />
                                 <joint name="wrist_2_joint" class="size_0" axis="0 0 1"/>
-                                <!-- <geom mesh="wrist2" material="light_gray" class="visual" /> -->
+                                <geom class="cylinder_collision" size="0.04 0.05" pos="0 0 0"/>
 
                                 <!-- WRIST 3 -->
                                 <body name="wrist_3_link" pos="0 0 0.08535">
