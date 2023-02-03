@@ -1,3 +1,5 @@
 from .configuration import Configuration
-from .data import Data
+from .configuration_data import ConfigurationData
 from .collision import Collision
+from .collision_data import CollisionData
+from .data import Data

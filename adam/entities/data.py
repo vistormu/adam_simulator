@@ -1,10 +1,10 @@
 from dataclasses import dataclass
 
-from .configuration import Configuration
-from .collision import Collision
+from .configuration_data import ConfigurationData
+from .collision_data import CollisionData
 
 
 @dataclass
 class Data:
-    configuration: Configuration
-    collision: Collision
+    configuration: ConfigurationData
+    collision: CollisionData
