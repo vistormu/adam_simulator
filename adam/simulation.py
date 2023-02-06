@@ -2,9 +2,8 @@ import mujoco
 import mujoco_viewer
 import time
 
-from .core import Logger
 from .entities import Configuration, Data
-from .use_cases import CollisionDetector, DataManager
+from .use_cases import DataManager
 
 ASSETS_PATH: str = 'adam/assets/'
 
@@ -29,13 +28,13 @@ class Simulation:
 
         self.set_view((0, 0, 0.5), 135, -20, 3.5)
 
-    def set_view(self, center: tuple[float, float, float], azimuth: float, elevation: float, distance: float):
+    def set_view(self, center: tuple[float, float, float], azimuth: float, elevation: float, distance: float) -> None:
         self.viewer.cam.elevation = elevation
         self.viewer.cam.azimuth = azimuth
         self.viewer.cam.distance = distance
         self.viewer.cam.lookat = center
 
-    def step(self, right_configuration: Configuration, left_configuration: Configuration) -> Data:
+    def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data:
         # Send configuration
         self.data.qpos[:] = (*left_configuration, *right_configuration)
 

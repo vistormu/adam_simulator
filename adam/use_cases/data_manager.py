@@ -24,14 +24,7 @@ class DataManager:
         left_manipulator_collision: Collision = self.collision_detector.check_left_manipulator(self.geometry_1_list, self.geometry_2_list)
         right_manipulator_collision: Collision = self.collision_detector.check_right_manipulator(self.geometry_1_list, self.geometry_2_list)
 
-        left_manipulator_collision_vector: list[bool] = [True if part_list else False for part_list in left_manipulator_collision]
-        right_manipulator_collision_vector: list[bool] = [True if part_list else False for part_list in right_manipulator_collision]
-
-        configuration_data: ConfigurationData = ConfigurationData(left_manipulator_configuration,
-                                                                  right_manipulator_configuration)
-        collision_data: CollisionData = CollisionData(left_manipulator_collision_vector,
-                                                      right_manipulator_collision_vector,
-                                                      left_manipulator_collision,
-                                                      right_manipulator_collision)
+        configuration_data: ConfigurationData = ConfigurationData(left_manipulator_configuration, right_manipulator_configuration)
+        collision_data: CollisionData = CollisionData(left_manipulator_collision, right_manipulator_collision)
 
         return Data(configuration_data, collision_data)
