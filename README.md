@@ -19,6 +19,11 @@ It is highly recommended to install all the dependencies on a new virtual enviro
 conda create -n adam python==3.10.8
 conda activate adam
 ```
+### Install from pip
+The ADAM simulator is available as a pip package. For installing it just use:
+```
+pip install adam-sim
+```
 
 ### Install from source
 Firstly, clone the repository in your system.
@@ -37,12 +42,13 @@ pip install -r requirements.txt
 In this example, ADAM moves the left and right wrist_2 continuously.
 
 ```python
-from adam import Simulation, Configuration, Data
+from adam import Simulation
+from adam.entities import Configuration, Data
 
 
 def main():
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene('scene')
+    initial_data: Data = sim.load_scene()
 
     left_configuration: Configuration = initial_data.configuration.left_manipulator
     right_configuration: Configuration = initial_data.configuration.right_manipulator
@@ -64,14 +70,15 @@ if __name__ == '__main__':
 In this example, a list of configurations are loaded and tested on the left manipulator.
 
 ```python
-from adam import Simulation, Configuration, Data, ConfigurationLoader
+from adam import Simulation, ConfigurationsManager
+from adam.entities import Configuration, Data
 
 
 def main():
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene('scene')
+    initial_data: Data = sim.load_scene()
 
-    configuration_list: list[Configuration] = ConfigurationLoader.load('configurations_test.csv')
+    configuration_list: list[Configuration] = ConfigurationsManager.load('test')
 
     for configuration in configuration_list:
         sim.render()
@@ -164,9 +171,14 @@ class Simulation:
     def close(self) -> None
 ```
 
-### Configuration Loader class
-The ```ConfigurationLoader``` class loads a list of ```Configuration``` from a ```.csv``` file from the ```data``` directory.
+### Configurations Manager class
+The ```ConfigurationsManager``` class loads and saves a list of ```Configuration``` from a ```.csv``` file from a given directory.
 
 ```python
-def load(filename: str) -> list[Configuration]
+class ConfigurationsManager:
+    @staticmethod
+    def load(filename: str) -> list[Configuration]
+
+    @staticmethod
+    def save(filename: str, configuration_list: list[Configuration]) -> None
 ```

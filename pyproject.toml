@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "adam_sim"
+version = "0.0.4"
+authors = [
+  { name="Vistor"},
+]
+description = "A simulator of ADAM (Autonomous Domestic Ambidextrous Manipulator), a mobile robot manipulator consisting of a base with two Degrees of Freedom (DoF) and two Universal Robots UR3 of 6 DoF each."
+readme = "README.md"
+requires-python = ">=3.10"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dependencies = [
+    "numpy",
+    "mujoco",
+    "mujoco-python-viewer",
+    "pyyaml",
+    "pandas",
+]
+
+[tool.setuptools.package-data]
+adam = ["assets/*"]
+
+[project.urls]
+"Homepage" = "https://github.com/vistormu/adam_simulator"
+"Bug Tracker" = "https://github.com/vistormu/adam_simulator/issues"

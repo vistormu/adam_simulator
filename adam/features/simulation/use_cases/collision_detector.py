@@ -1,9 +1,6 @@
 import numpy as np
 
-from ..core import Logger
 from ..entities import Collision
-
-import time
 
 
 class CollisionDetector:

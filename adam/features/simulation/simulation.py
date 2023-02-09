@@ -2,10 +2,13 @@ import mujoco
 import mujoco_viewer
 import time
 
+import importlib.resources as pkg_resources
+
+from ... import assets
+
+
 from .entities import Configuration, Data
 from .use_cases import DataManager
-
-ASSETS_PATH: str = 'adam/assets/'
 
 
 class Simulation:
@@ -13,8 +16,12 @@ class Simulation:
         self.is_alive: bool = True
         self.data_manager: DataManager = DataManager()
 
-    def load_scene(self, scene: str) -> Data:
-        self.model = mujoco.MjModel.from_xml_path(ASSETS_PATH+scene+'.xml')  # type: ignore
+    def load_scene(self, filename: str | None = None) -> Data:
+        if filename is None:
+            with pkg_resources.path(assets, 'scene.xml') as path:
+                filename = path.name
+
+        self.model = mujoco.MjModel.from_xml_path(filename)  # type: ignore
         self.data = mujoco.MjData(self.model)  # type: ignore
         self._load_viewer()
 
@@ -47,7 +54,7 @@ class Simulation:
         self.data_manager.update(self.data)
         return self.data_manager.get()
 
-    def render(self, *, fps: int = 15) -> None:
+    def render(self, *, fps: int = 30) -> None:
         self.viewer.render()
         time.sleep(1/fps)
 

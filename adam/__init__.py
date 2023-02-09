@@ -1,4 +1,3 @@
 from .core import Logger
-from .entities import Configuration, Data, Collision, CollisionData, ConfigurationData
-from .simulation import Simulation
-from .configuration_loader import ConfigurationLoader
+from .features.simulation import Simulation
+from .features.configurations import ConfigurationsManager

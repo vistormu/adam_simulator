@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from .configuration import Configuration
+from ....core.entities.configuration import Configuration
 
 
 @dataclass
