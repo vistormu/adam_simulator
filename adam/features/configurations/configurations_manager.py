@@ -1,15 +1,15 @@
 import pandas as pd
+import pkg_resources
+
 
 from ...core.entities import Configuration
-
-DATA_PATH: str = 'adam/data/'
 
 
 class ConfigurationsManager:
     @staticmethod
     def load(filename: str) -> list[Configuration]:
         if filename == 'test':
-            filename = 'adam/features/configurations/data/configurations_test.csv'
+            filename = pkg_resources.resource_filename('adam', 'features/configurations/data/configurations_test.csv')
 
         data_frame: pd.DataFrame = pd.read_csv(filename)
 

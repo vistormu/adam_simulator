@@ -1,11 +1,7 @@
 import mujoco
 import mujoco_viewer
 import time
-
-import importlib.resources as pkg_resources
-
-from ... import assets
-
+import pkg_resources
 
 from .entities import Configuration, Data
 from .use_cases import DataManager
@@ -18,8 +14,7 @@ class Simulation:
 
     def load_scene(self, filename: str | None = None) -> Data:
         if filename is None:
-            with pkg_resources.path(assets, 'scene.xml') as path:
-                filename = path.name
+            filename = pkg_resources.resource_filename('adam', 'assets/scene.xml')
 
         self.model = mujoco.MjModel.from_xml_path(filename)  # type: ignore
         self.data = mujoco.MjData(self.model)  # type: ignore

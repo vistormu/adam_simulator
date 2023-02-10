@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "adam_sim"
-version = "0.0.4"
+version = "0.1.0"
 authors = [
   { name="Vistor"},
 ]
@@ -24,8 +24,11 @@ dependencies = [
     "pandas",
 ]
 
+# [tool.setuptools.packages.find]
+# where = ["adam"]
+
 [tool.setuptools.package-data]
-adam = ["assets/*"]
+"*" = ["*.csv", "*.stl", "*.xml"]
 
 [project.urls]
 "Homepage" = "https://github.com/vistormu/adam_simulator"
