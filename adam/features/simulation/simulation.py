@@ -36,6 +36,9 @@ class Simulation:
         self.viewer.cam.distance = distance
         self.viewer.cam.lookat = center
 
+    def extend_collisions(self, collision_dict: dict[int, str]) -> None:
+        self.data_manager.collision_detector.collision_dict.update(collision_dict)
+
     def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data:
         # Send configuration
         self.data.qpos[:] = (*left_configuration, *right_configuration)

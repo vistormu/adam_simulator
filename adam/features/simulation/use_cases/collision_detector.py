@@ -31,8 +31,8 @@ class CollisionDetector:
         if not geometry_1_id_list.size or not geometry_2_id_list.size:
             return Collision.empty()
 
-        geometry_1_list: list[str] = [self.collision_dict[geometry_1_id] for geometry_1_id in geometry_1_id_list]
-        geometry_2_list: list[str] = [self.collision_dict[geometry_2_id] for geometry_2_id in geometry_2_id_list]
+        geometry_1_list: list[str] = [self.collision_dict.get(geometry_1_id, 'unknown') for geometry_1_id in geometry_1_id_list]
+        geometry_2_list: list[str] = [self.collision_dict.get(geometry_2_id, 'unknown') for geometry_2_id in geometry_2_id_list]
 
         shoulder_collision_list: list[str] = []
         upperarm_collision_list: list[str] = []
@@ -80,8 +80,8 @@ class CollisionDetector:
         if not geometry_1_id_list.size or not geometry_2_id_list.size:
             return Collision.empty()
 
-        geometry_1_list: list[str] = [self.collision_dict[geometry_1_id] for geometry_1_id in geometry_1_id_list]
-        geometry_2_list: list[str] = [self.collision_dict[geometry_2_id] for geometry_2_id in geometry_2_id_list]
+        geometry_1_list: list[str] = [self.collision_dict.get(geometry_1_id, 'unknown') for geometry_1_id in geometry_1_id_list]
+        geometry_2_list: list[str] = [self.collision_dict.get(geometry_2_id, 'unknown') for geometry_2_id in geometry_2_id_list]
 
         shoulder_collision_list: list[str] = []
         upperarm_collision_list: list[str] = []

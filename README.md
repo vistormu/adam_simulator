@@ -166,6 +166,7 @@ class Simulation:
 
     def load_scene(self, scene: str) -> Data
     def set_view(self, center: tuple[float, float, float], azimuth: float, elevation: float, distance: float) -> None
+    def extend_collisions(collision_dict: dict[int, str]) -> None:
     def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data
     def render(self, *, fps: int = 15) -> None
     def close(self) -> None
