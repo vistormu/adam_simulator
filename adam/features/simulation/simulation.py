@@ -39,6 +39,14 @@ class Simulation:
     def extend_collisions(self, collision_dict: dict[int, str]) -> None:
         self.data_manager.collision_detector.collision_dict.update(collision_dict)
 
+    def check_collisions(self, left_configuration_list: list[Configuration], right_configuration_list: list[Configuration]) -> list[bool]:
+        collision_list: list[bool] = []
+        for left_configuration, right_configuration in zip(left_configuration_list, right_configuration_list):
+            data: Data = self.step(left_configuration, right_configuration)
+            collision_list.append(data.collision.left_manipulator.collided or data.collision.right_manipulator.collided)
+
+        return collision_list
+
     def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data:
         # Send configuration
         self.data.qpos[:] = (*left_configuration, *right_configuration)
