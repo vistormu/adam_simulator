@@ -1,3 +1,7 @@
+# 0.2.1
+- Added a method to export the adam scene to a given directory
+- Implemented a method to include the created map to the scene
+
 # 0.2.0
 - Added a whole new feature where bodies can be added to the scene by code.
 - Added a method to use the MuJoCo engine to just check the collisions on the given configuration list

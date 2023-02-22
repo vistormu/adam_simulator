@@ -1,3 +1,7 @@
+import pkg_resources
+
+from distutils.dir_util import copy_tree
+
 from .use_cases import XMLParser
 from .entities import Body
 
@@ -5,10 +9,12 @@ from .entities import Body
 class MapMaker:
     def __init__(self, filename: str) -> None:
         self.filename: str = filename
+        self.name: str = filename.split('/')[-1].split('.')[0]
         self.bodies: list[str] = []
         self.body_names: list[str] = []
 
     def create_xml(self) -> None:
+        # Wrap file
         content: str = XMLParser.create_element('worldbody', None, self.bodies)
         name: str = self.filename.split('/')[-1].split('.')[0]
         model_attr: str = XMLParser.create_attribute('model', name)
@@ -17,8 +23,21 @@ class MapMaker:
         with open(self.filename, 'w') as file:
             file.write(content)
 
+    @staticmethod
+    def export_scene(destination: str) -> None:
+        filename = pkg_resources.resource_filename('adam', 'assets/')
+        copy_tree(filename, destination)
+
     def add_to_scene(self, filename: str) -> None:
-        raise NotImplementedError()
+        line_to_add: str = f'\n\t<include file="{self.name}.xml"/>\n'
+
+        with open(filename, 'r') as f:
+            lines = f.readlines()
+
+        lines.insert(-2, line_to_add)
+
+        with open(filename, 'w') as f:
+            f.writelines(lines)
 
     def add_bodies(self, bodies: list[Body]) -> None:
         for body in bodies:
@@ -57,7 +76,7 @@ class MapMaker:
 
         self.bodies.append(body_element)
 
-    @staticmethod
+    @ staticmethod
     def _hex_to_rgba(hex_code: str, alpha: float) -> tuple[float, float, float, float]:
         hex: str = hex_code.lstrip('#')
         rgb: tuple[int, int, int] = tuple(int(hex[i:i+2], 16) for i in (0, 2, 4))

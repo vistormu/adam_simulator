@@ -193,7 +193,10 @@ from adam.entities import Data, Cube, Box, Capsule, Cylinder, Sphere
 
 
 def main():
-    map_maker: MapMaker = MapMaker('assets/obstacles.xml')
+    directory_path: str = 'tests/assets/'
+    filename: str = 'obstacles.xml'
+
+    map_maker: MapMaker = MapMaker(directory_path+filename)
 
     # Cube 1
     cube_1: Cube = Cube('cube_1')
@@ -235,10 +238,12 @@ def main():
 
     map_maker.add_bodies([cube_1, cube_2, cube_3, cube_4, box, capsule, cylinder, sphere])
 
+    map_maker.export_scene(directory_path)
     map_maker.create_xml()
+    map_maker.add_to_scene(directory_path + 'scene.xml')
 
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene('assets/scene.xml')
+    initial_data: Data = sim.load_scene('tests/assets/scene.xml')
 
     for _ in range(1000):
         sim.step(initial_data.configuration.left_manipulator, initial_data.configuration.right_manipulator)
