@@ -2,6 +2,7 @@ import mujoco
 import mujoco_viewer
 import time
 import pkg_resources
+import numpy as np
 
 from .entities import Configuration, Data
 from .use_cases import DataManager
@@ -12,13 +13,14 @@ class Simulation:
         self.is_alive: bool = True
         self.data_manager: DataManager = DataManager()
 
+        self.window: bool = False
+
     def load_scene(self, filename: str | None = None) -> Data:
         if filename is None:
             filename = pkg_resources.resource_filename('adam', 'assets/scene.xml')
 
         self.model = mujoco.MjModel.from_xml_path(filename)  # type: ignore
         self.data = mujoco.MjData(self.model)  # type: ignore
-        self._load_viewer()
 
         mujoco.mj_resetDataKeyframe(self.model, self.data, 0)  # type: ignore
 
@@ -37,15 +39,22 @@ class Simulation:
         self.viewer.cam.lookat = center
 
     def extend_collisions(self, collision_dict: dict[int, str]) -> None:
-        self.data_manager.collision_detector.collision_dict.update(collision_dict)
+        self.data_manager.collision_detector.extend_collisions(collision_dict)
 
-    def check_collisions(self, left_configuration_list: list[Configuration], right_configuration_list: list[Configuration]) -> list[bool]:
-        collision_list: list[bool] = []
-        for left_configuration, right_configuration in zip(left_configuration_list, right_configuration_list):
+    def check_collisions(self, left_configuration_list: list[Configuration], right_configuration_list: list[Configuration]) -> tuple[np.ndarray, np.ndarray]:
+        '''
+        returns: self_collision_array, env_collision_array
+        '''
+        self_collision_array: np.ndarray = np.zeros(len(left_configuration_list))
+        env_collision_array: np.ndarray = np.zeros(len(left_configuration_list))
+        for i, (left_configuration, right_configuration) in enumerate(zip(left_configuration_list, right_configuration_list)):
             data: Data = self.step(left_configuration, right_configuration)
-            collision_list.append(data.collision.left_manipulator.collided or data.collision.right_manipulator.collided)
+            if data.collision.left_manipulator.self_collision or data.collision.right_manipulator.self_collision:
+                self_collision_array[i] = 1
+            if data.collision.left_manipulator.env_collision or data.collision.right_manipulator.env_collision:
+                env_collision_array[i] = 1
 
-        return collision_list
+        return self_collision_array, env_collision_array
 
     def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data:
         # Send configuration
@@ -55,12 +64,16 @@ class Simulation:
         mujoco.mj_step(self.model, self.data)  # type: ignore
 
         # Get process
-        self.is_alive = self.viewer.is_alive
+        # self.is_alive = self.viewer.is_alive
 
         self.data_manager.update(self.data)
         return self.data_manager.get()
 
     def render(self, *, fps: int = 30) -> None:
+        if not self.window:
+            self._load_viewer()
+            self.window = True
+
         self.viewer.render()
         time.sleep(1/fps)
 

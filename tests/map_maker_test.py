@@ -55,6 +55,8 @@ def main():
     sim: Simulation = Simulation()
     initial_data: Data = sim.load_scene('tests/assets/scene.xml')
 
+    sim.extend_collisions({77: 'table'})
+
     for _ in range(1000):
         sim.step(initial_data.configuration.left_manipulator, initial_data.configuration.right_manipulator)
         sim.render()

@@ -1,3 +1,9 @@
+# 0.2.2
+- Added more info to the Collision class separating the self collision and the environment collision
+- Fixed a bug where not calling the render method loaded the MuJoCo screen
+- Updated the Logger class
+- Changed the check collisions function to return separately the self collisions and the env collisions as a numpy array
+
 # 0.2.1
 - Added a method to export the adam scene to a given directory
 - Implemented a method to include the created map to the scene

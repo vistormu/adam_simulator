@@ -2,6 +2,8 @@ from typing import NamedTuple
 
 class Collision(NamedTuple):
     collided: bool
+    self_collision: bool
+    env_collision: bool
     vector: list[bool]
     shoulder: list[str]
     upper_arm: list[str]
@@ -12,5 +14,5 @@ class Collision(NamedTuple):
     
     @classmethod
     def empty(cls):
-        return Collision(False, [], [], [], [], [], [], [])
+        return cls(False, False, False, [], [], [], [], [], [], [])
     
