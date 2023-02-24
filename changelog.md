@@ -1,3 +1,6 @@
+# 0.2.3
+- Fixed a bug in the close method of the Simulation class
+
 # 0.2.2
 - Added more info to the Collision class separating the self collision and the environment collision
 - Fixed a bug where not calling the render method loaded the MuJoCo screen

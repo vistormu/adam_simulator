@@ -78,4 +78,5 @@ class Simulation:
         time.sleep(1/fps)
 
     def close(self) -> None:
-        self.viewer.close()
+        if self.window:
+            self.viewer.close()
