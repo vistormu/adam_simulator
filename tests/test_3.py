@@ -6,7 +6,7 @@ def main():
     sim: Simulation = Simulation()
     initial_data: Data = sim.load_scene()
 
-    configuration_list: list[Configuration] = ConfigurationsManager.load('tests/data/pick_and_place.csv')
+    configuration_list: list[Configuration] = ConfigurationsManager.load('tests/data/test.csv')
 
     for configuration in configuration_list:
         sim.render()

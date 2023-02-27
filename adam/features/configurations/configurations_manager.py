@@ -6,8 +6,32 @@ from ...core.entities import Configuration
 
 
 class ConfigurationsManager:
+    '''
+    the ConfigurationsManager class manages the external communication with files
+
+    Methods
+    -------
+    load:
+        loads a list of configurations
+
+    save:
+        saves a list of configurations
+    '''
     @staticmethod
     def load(filename: str) -> list[Configuration]:
+        '''
+        loads a list of configurations
+
+        Parameters
+        ----------
+        filename : str
+            the path to the file to load
+
+        Returns
+        -------
+        out : list[~.entities.Configurations]
+            a list of configurations
+        '''
         if filename == 'test':
             filename = pkg_resources.resource_filename('adam', 'features/configurations/data/configurations_test.csv')
 
@@ -19,6 +43,17 @@ class ConfigurationsManager:
 
     @staticmethod
     def save(filename: str, configuration_list: list[Configuration]) -> None:
+        '''
+        saves a list of configurations
+
+        Parameters
+        ----------
+        filename : str
+            the path to the file to save
+
+        configuration_list : list[~.entities.Configurations]
+            a list of configurations
+        '''
         data: dict = {
             'theta_1': [configuration.q1 for configuration in configuration_list],
             'theta_2': [configuration.q2 for configuration in configuration_list],

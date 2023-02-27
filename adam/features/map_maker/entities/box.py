@@ -2,6 +2,15 @@ from .body import Body
 
 
 class Box(Body):
+    '''
+    the Box class inherits from the ~.entities.Body class
+
+    Parameters
+    ----------
+    name : str
+        a unique string identifier
+    '''
+
     def __init__(self, name: str) -> None:
         super().__init__()
         self.name = name

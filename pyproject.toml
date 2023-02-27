@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "adam_sim"
-version = "0.2.4"
+version = "0.3.0"
 authors = [
   { name="Vistor"},
 ]
@@ -22,6 +22,7 @@ dependencies = [
     "mujoco-python-viewer",
     "pyyaml",
     "pandas",
+    "matplotlib",
 ]
 
 [tool.setuptools.package-data]

@@ -9,7 +9,7 @@ def main():
     left_configuration: Configuration = initial_data.configuration.left_manipulator
     right_configuration: Configuration = initial_data.configuration.right_manipulator
 
-    while sim.is_alive:
+    for _ in range(100):
         left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
         right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
 

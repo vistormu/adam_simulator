@@ -37,7 +37,12 @@ cd adam_simulator
 pip install -r requirements.txt
 ```
 
+## API Reference
+Visit TMP
+
 ## Minimal Working Examples
+
+### Basic Usage
 
 In this example, ADAM moves the left and right wrist_2 continuously.
 
@@ -53,7 +58,7 @@ def main():
     left_configuration: Configuration = initial_data.configuration.left_manipulator
     right_configuration: Configuration = initial_data.configuration.right_manipulator
 
-    while sim.is_alive:
+    for _ in range(100):
         left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
         right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
 
@@ -67,7 +72,9 @@ if __name__ == '__main__':
     main()
 ```
 
-In this example, a list of configurations are loaded and tested on the left manipulator.
+### ConfigurationsManager example
+
+In this example, the test configurations are loaded to the left manipulator.
 
 ```python
 from adam import Simulation, ConfigurationsManager
@@ -92,100 +99,9 @@ if __name__ == '__main__':
     main()
 ```
 
-## API Reference
-The developed API aims to wrap the MuJoCo API in order to simply move the manipulators of ADAM. The API is object-oriented and gives type annotations.
+### MapMaker example
 
-**NOTE:** the documentation is still in progress.
-
-### Data class
-The ```Data``` class contains all the information related to the state of the manipulators. Currently the information offered is of the current configuration and the collision info.
-
-```python
-class Data:
-    configuration: ConfigurationData
-    collision: CollisionData
-```
-
-### Configuration Data class
-
-The ```ConfigurationData``` class contains the configuration data of the left are right manipulator separately.
-
-```python
-class ConfigurationData:
-    left_manipulator: Configuration
-    right_manipulator: Configuration
-```
-
-### Configuration class
-The ```Configuration``` class contains the information of a configuration of the manipulator.
-
-```python
-class Configuration(NamedTuple):
-    q1: float
-    q2: float
-    q3: float
-    q4: float
-    q5: float
-    q6: float
-
-    def to_degrees(self) -> Configuration
-    def to_radians(self) -> Configuration
-    def to_numpy(self) -> np.ndarray
-```
-
-### Collision Data class
-The ```CollisionData``` class contains the collision data of the left and right manipulator separately.
-
-```python
-class CollisionData:
-    left_manipulator: Collision
-    right_manipulator: Collision
-```
-
-### Collision class
-The ```Collision``` class contains all the information of the collision of a manipulator.
-
-```python
-class Collision(NamedTuple):
-    collided: bool
-    vector: list[bool]
-    shoulder: list[str]
-    upper_arm: list[str]
-    forearm: list[str]
-    wrist_1: list[str]
-    wrist_2: list[str]
-    wrist_3: list[str]
-```
-
-### Simulation class
-The ```Simulation``` class offers all the methods related to the simulation.
-
-```python
-class Simulation:
-    is_alive: bool
-
-    def load_scene(self, scene: str) -> Data
-    def set_view(self, center: tuple[float, float, float], azimuth: float, elevation: float, distance: float) -> None
-    def extend_collisions(collision_dict: dict[int, str]) -> None:
-    def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data
-    def render(self, *, fps: int = 15) -> None
-    def close(self) -> None
-```
-
-### Configurations Manager class
-The ```ConfigurationsManager``` class loads and saves a list of ```Configuration``` from a ```.csv``` file from a given directory.
-
-```python
-class ConfigurationsManager:
-    @staticmethod
-    def load(filename: str) -> list[Configuration]
-
-    @staticmethod
-    def save(filename: str, configuration_list: list[Configuration]) -> None
-```
-
-### Map Maker class
-The documentation of this feature is still work in progress. Here is a Minimal Working Example meanwhile.
+In this example, various bodies are created and then added to the scene
 
 ```python
 from adam import Simulation, MapMaker
@@ -237,13 +153,15 @@ def main():
     sphere.set_geometry(size=0.25, position=(0.5, -1.0, 0.0))
 
     map_maker.add_bodies([cube_1, cube_2, cube_3, cube_4, box, capsule, cylinder, sphere])
+    map_maker.make()
 
-    map_maker.export_scene(directory_path)
-    map_maker.create_xml()
-    map_maker.add_to_scene(directory_path + 'scene.xml')
+    Simulation.export_scene(directory_path)
+    map_maker.add_to(directory_path + 'scene.xml')
 
     sim: Simulation = Simulation()
     initial_data: Data = sim.load_scene('tests/assets/scene.xml')
+
+    sim.extend_collisions({77: 'table'})
 
     for _ in range(1000):
         sim.step(initial_data.configuration.left_manipulator, initial_data.configuration.right_manipulator)

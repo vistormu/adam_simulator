@@ -4,6 +4,44 @@ from typing import NamedTuple
 
 
 class Configuration(NamedTuple):
+    '''
+    the Configuration class is a NamedTuple that contains the values of the joint angles
+
+    Attributes
+    ----------
+    q1 : float
+        the value of the first joint
+
+    q2 : float
+        the value of the second joint
+
+    q3 : float
+        the value of the third joint
+
+    q4 : float
+        the value of the fourth joint
+
+    q5 : float
+        the value of the fifth joint
+
+    q6 : float
+        the value of the sixth joint
+
+    Methods
+    -------
+    to_degrees(self) -> ~.entities.Configuration
+        converts a configuration instance from radians to degrees
+
+    to_radians(self) -> ~.entities.Configuration
+        converts a configuration instance from degrees to radians
+
+    to_numpy(self) -> np.ndarray
+        converts a configuration instance to a numpy array
+
+    Notes
+    -----
+    the Configuration class supports addition, subtraction, division and multiplication
+    '''
     q1: float
     q2: float
     q3: float
@@ -55,10 +93,19 @@ class Configuration(NamedTuple):
                              self.q6/scalar)
 
     def to_degrees(self):
+        '''
+        converts the instance from radians to degrees
+        '''
         return self*180/np.pi
 
     def to_radians(self):
+        '''
+        converts the instance from degrees to radians
+        '''
         return self*np.pi/180
 
     def to_numpy(self) -> np.ndarray:
+        '''
+        converts the instance to a numpy array
+        '''
         return np.array(self)

@@ -30,6 +30,5 @@ TODO.md
 steps.md
 tmp.py
 main.py
-data/
 tests/assets/*
 MUJOCO_LOG.TXT

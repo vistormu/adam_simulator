@@ -22,10 +22,10 @@ def main():
     table_2.set_appearance(color='#b64545', alpha=0.3)
 
     map_maker.add_bodies([table, table_2])
+    map_maker.make()
 
-    map_maker.export_scene(directory_path)
-    map_maker.create_xml()
-    map_maker.add_to_scene(directory_path + 'scene.xml')
+    Simulation.export_scene(directory_path)
+    map_maker.add_to(directory_path + 'scene.xml')
 
     # Simulate
     sim: Simulation = Simulation()

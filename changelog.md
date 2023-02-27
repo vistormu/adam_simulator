@@ -1,3 +1,11 @@
+# 0.3.0
+- Deprecated the is_alive attribute of the ```Simulation``` class
+- Migrated the documentation to Read the Docs
+- Implemented a new feature to control the position of the manipulators via a slider
+- Added docstrings to the code
+- Modularized even more the ```Simulation``` class
+- Changed the name of some methods of the MapMaker class for the sake of clarity
+
 # 0.2.4
 - The set view method now stores the default value of the azimuth, elevation and center so they are not passed every time
 

@@ -47,10 +47,10 @@ def main():
     sphere.set_geometry(size=0.25, position=(0.5, -1.0, 0.0))
 
     map_maker.add_bodies([cube_1, cube_2, cube_3, cube_4, box, capsule, cylinder, sphere])
+    map_maker.make()
 
-    map_maker.export_scene(directory_path)
-    map_maker.create_xml()
-    map_maker.add_to_scene(directory_path + 'scene.xml')
+    Simulation.export_scene(directory_path)
+    map_maker.add_to(directory_path + 'scene.xml')
 
     sim: Simulation = Simulation()
     initial_data: Data = sim.load_scene('tests/assets/scene.xml')
