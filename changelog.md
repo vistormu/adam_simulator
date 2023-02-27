@@ -1,3 +1,6 @@
+# 0.2.4
+- The set view method now stores the default value of the azimuth, elevation and center so they are not passed every time
+
 # 0.2.3
 - Fixed a bug in the close method of the Simulation class
 

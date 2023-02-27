@@ -30,13 +30,24 @@ class Simulation:
     def _load_viewer(self) -> None:
         self.viewer = mujoco_viewer.MujocoViewer(self.model, self.data)
 
-        self.set_view((0, 0, 0.5), 135, -20, 3.5)
+        self.set_view(center=(0.0, 0.0, 0.5),
+                      azimuth=-135.0,
+                      elevation=-20.0,
+                      distance=3.5,
+                      )
 
-    def set_view(self, center: tuple[float, float, float], azimuth: float, elevation: float, distance: float) -> None:
-        self.viewer.cam.elevation = elevation
-        self.viewer.cam.azimuth = azimuth
-        self.viewer.cam.distance = distance
-        self.viewer.cam.lookat = center
+    def set_view(self, center: tuple[float, float, float] | None, azimuth: float | None, elevation: float | None, distance: float | None) -> None:
+        if center is not None:
+            self.viewer.cam.lookat = center
+
+        if azimuth is not None:
+            self.viewer.cam.azimuth = azimuth
+
+        if elevation is not None:
+            self.viewer.cam.elevation = elevation
+
+        if distance is not None:
+            self.viewer.cam.distance = distance
 
     def extend_collisions(self, collision_dict: dict[int, str]) -> None:
         self.data_manager.collision_detector.extend_collisions(collision_dict)
