@@ -38,7 +38,7 @@ pip install -r requirements.txt
 ```
 
 ## API Reference
-Visit TMP
+Visit [the official documentation](https://adam-simulator.readthedocs.io/en/latest/)
 
 ## Minimal Working Examples
 
