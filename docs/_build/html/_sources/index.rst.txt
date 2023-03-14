@@ -1,4 +1,4 @@
-Adam Simulator Package
+Adam SImulator Package
 ======================
 
 Welcome to the documentation for the Adam Simulator Package.
