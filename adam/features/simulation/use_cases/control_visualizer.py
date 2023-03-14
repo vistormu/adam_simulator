@@ -35,12 +35,12 @@ class ControlVisualizer:
         q6_axes = self.figure.add_axes((MARGIN,  1.0-TOP_SEP-GUTTER*5.0, 1.0-MARGIN*2.5, WIDTH))
 
         # Sliders
-        self._q1_slider: Slider = Slider(ax=q1_axes, label=r'$\theta_1$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[0], valstep=0.01, color='#aecdd2')
-        self._q2_slider: Slider = Slider(ax=q2_axes, label=r'$\theta_2$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[1], valstep=0.01, color='#aecdd2')
-        self._q3_slider: Slider = Slider(ax=q3_axes, label=r'$\theta_3$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[2], valstep=0.01, color='#aecdd2')
-        self._q4_slider: Slider = Slider(ax=q4_axes, label=r'$\theta_4$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[3], valstep=0.01, color='#aecdd2')
-        self._q5_slider: Slider = Slider(ax=q5_axes, label=r'$\theta_5$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[4], valstep=0.01, color='#aecdd2')
-        self._q6_slider: Slider = Slider(ax=q6_axes, label=r'$\theta_6$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[5], valstep=0.01, color='#aecdd2')
+        self._q1_slider: Slider = Slider(ax=q1_axes, label=r'$\theta_1$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[0], valstep=0.0001, color='#aecdd2', valfmt='%.4f')
+        self._q2_slider: Slider = Slider(ax=q2_axes, label=r'$\theta_2$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[1], valstep=0.0001, color='#aecdd2', valfmt='%.4f')
+        self._q3_slider: Slider = Slider(ax=q3_axes, label=r'$\theta_3$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[2], valstep=0.0001, color='#aecdd2', valfmt='%.4f')
+        self._q4_slider: Slider = Slider(ax=q4_axes, label=r'$\theta_4$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[3], valstep=0.0001, color='#aecdd2', valfmt='%.4f')
+        self._q5_slider: Slider = Slider(ax=q5_axes, label=r'$\theta_5$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[4], valstep=0.0001, color='#aecdd2', valfmt='%.4f')
+        self._q6_slider: Slider = Slider(ax=q6_axes, label=r'$\theta_6$', valmin=-np.pi, valmax=np.pi, valinit=initial_configuration[5], valstep=0.0001, color='#aecdd2', valfmt='%.4f')
 
     def _load_values(self, initial_configuration: np.ndarray) -> None:
         self.q1: float = initial_configuration[0]

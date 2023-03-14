@@ -1,3 +1,8 @@
+# 0.3.1
+- DEprecated the Logger class
+- Made the angles in the control mode more precise
+- Implemented a hide menu option in the render function
+
 # 0.3.0
 - Deprecated the is_alive attribute of the ```Simulation``` class
 - Migrated the documentation to Read the Docs

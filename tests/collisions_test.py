@@ -1,6 +1,7 @@
 import numpy as np
 
-from adam import Simulation, Logger, MapMaker
+from vclog import Logger
+from adam import Simulation, MapMaker
 from adam.entities import Data, Configuration, Box
 
 

@@ -13,7 +13,7 @@ def main():
         left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
         right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
 
-        sim.render()
+        sim.render(hide_menu=True)
         data: Data = sim.step(left_configuration, right_configuration)
 
     sim.close()

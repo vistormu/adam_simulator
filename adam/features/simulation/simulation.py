@@ -168,7 +168,7 @@ class Simulation:
         self.data_manager.update(self.controller.data)
         return self.data_manager.get()
 
-    def render(self, fps: int = 30) -> None:
+    def render(self, fps: int = 30, hide_menu: bool = False) -> None:
         '''
         a method to render the simulation and the configuration sliders
 
@@ -188,7 +188,7 @@ class Simulation:
 
         self.left_control_visualizer.render(fps)
         self.right_control_visualizer.render(fps)
-        self.viewer.render(fps)
+        self.viewer.render(fps, hide_menu)
 
     def close(self) -> None:
         '''

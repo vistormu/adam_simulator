@@ -17,7 +17,8 @@ class Viewer:
 
         self.is_active = True
 
-    def render(self, fps: int) -> None:
+    def render(self, fps: int, hide_menu: bool) -> None:
+        self.viewer._hide_menus = hide_menu
         self.viewer.render()
         time.sleep(1.0/fps)
 
