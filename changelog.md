@@ -1,5 +1,5 @@
 # 0.3.1
-- DEprecated the Logger class
+- Deprecated the Logger class
 - Made the angles in the control mode more precise
 - Implemented a hide menu option in the render function
 
