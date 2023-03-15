@@ -4,4 +4,3 @@ mujoco
 mujoco-python-viewer
 autopep8
 pandas
-nbsphinx
