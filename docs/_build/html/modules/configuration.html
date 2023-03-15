@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Attributes &mdash; adam-sim  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/sphinx_highlight.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            adam-sim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <!-- Local TOC -->
+              <div class="local-toc"><ul>
+<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a><ul>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.q1"><code class="docutils literal notranslate"><span class="pre">Configuration.q1</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.q2"><code class="docutils literal notranslate"><span class="pre">Configuration.q2</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.q3"><code class="docutils literal notranslate"><span class="pre">Configuration.q3</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.q4"><code class="docutils literal notranslate"><span class="pre">Configuration.q4</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.q5"><code class="docutils literal notranslate"><span class="pre">Configuration.q5</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.q6"><code class="docutils literal notranslate"><span class="pre">Configuration.q6</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.to_degrees"><code class="docutils literal notranslate"><span class="pre">Configuration.to_degrees()</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.to_numpy"><code class="docutils literal notranslate"><span class="pre">Configuration.to_numpy()</span></code></a></li>
+<li><a class="reference internal" href="#adam.core.entities.configuration.Configuration.to_radians"><code class="docutils literal notranslate"><span class="pre">Configuration.to_radians()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">adam-sim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Attributes</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/modules/configuration.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="module-adam.core.entities.configuration"></span><dl class="py class">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.core.entities.configuration.</span></span><span class="sig-name descname"><span class="pre">Configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q6</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam.core.entities.configuration.Configuration" title="Permalink to this definition"></a></dt>
+<dd><p>the Configuration class is a NamedTuple that contains the values of the joint angles</p>
+<section id="attributes">
+<h1>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h1>
+<dl class="simple">
+<dt>q1<span class="classifier">float</span></dt><dd><p>the value of the first joint</p>
+</dd>
+<dt>q2<span class="classifier">float</span></dt><dd><p>the value of the second joint</p>
+</dd>
+<dt>q3<span class="classifier">float</span></dt><dd><p>the value of the third joint</p>
+</dd>
+<dt>q4<span class="classifier">float</span></dt><dd><p>the value of the fourth joint</p>
+</dd>
+<dt>q5<span class="classifier">float</span></dt><dd><p>the value of the fifth joint</p>
+</dd>
+<dt>q6<span class="classifier">float</span></dt><dd><p>the value of the sixth joint</p>
+</dd>
+</dl>
+</section>
+<section id="methods">
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h1>
+<dl class="simple">
+<dt>to_degrees(self) -&gt; ~.entities.Configuration</dt><dd><p>converts a configuration instance from radians to degrees</p>
+</dd>
+<dt>to_radians(self) -&gt; ~.entities.Configuration</dt><dd><p>converts a configuration instance from degrees to radians</p>
+</dd>
+<dt>to_numpy(self) -&gt; np.ndarray</dt><dd><p>converts a configuration instance to a numpy array</p>
+</dd>
+</dl>
+</section>
+<section id="notes">
+<h1>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a></h1>
+<p>the Configuration class supports addition, subtraction, division and multiplication</p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.q1">
+<span class="sig-name descname"><span class="pre">q1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam.core.entities.configuration.Configuration.q1" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.q2">
+<span class="sig-name descname"><span class="pre">q2</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam.core.entities.configuration.Configuration.q2" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.q3">
+<span class="sig-name descname"><span class="pre">q3</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam.core.entities.configuration.Configuration.q3" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.q4">
+<span class="sig-name descname"><span class="pre">q4</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam.core.entities.configuration.Configuration.q4" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.q5">
+<span class="sig-name descname"><span class="pre">q5</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam.core.entities.configuration.Configuration.q5" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.q6">
+<span class="sig-name descname"><span class="pre">q6</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam.core.entities.configuration.Configuration.q6" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 5</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.to_degrees">
+<span class="sig-name descname"><span class="pre">to_degrees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adam.core.entities.configuration.Configuration.to_degrees" title="Permalink to this definition"></a></dt>
+<dd><p>converts the instance from radians to degrees</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.to_numpy">
+<span class="sig-name descname"><span class="pre">to_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#adam.core.entities.configuration.Configuration.to_numpy" title="Permalink to this definition"></a></dt>
+<dd><p>converts the instance to a numpy array</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam.core.entities.configuration.Configuration.to_radians">
+<span class="sig-name descname"><span class="pre">to_radians</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adam.core.entities.configuration.Configuration.to_radians" title="Permalink to this definition"></a></dt>
+<dd><p>converts the instance from degrees to radians</p>
+</dd></dl>
+
+</section>
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Vistor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

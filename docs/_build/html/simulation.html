@@ -1,53 +1,104 @@
-
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
-
-    <title>Methods &#8212; adam-sim  documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css" />
-    <link rel="stylesheet" type="text/css" href="_static/nature.css" />
-    <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
-    <script src="_static/doctools.js"></script>
-    <script src="_static/sphinx_highlight.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Methods &mdash; adam-sim  documentation</title>
+      <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js"></script>
+        <script src="_static/doctools.js"></script>
+        <script src="_static/sphinx_highlight.js"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
     <link rel="next" title="Parameters" href="map_maker.html" />
-    <link rel="prev" title="My Python Package" href="index.html" /> 
-  </head><body>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             accesskey="I">index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="map_maker.html" title="Parameters"
-             accesskey="N">next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="My Python Package"
-             accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">adam-sim  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Methods</a></li> 
-      </ul>
-    </div>  
+    <link rel="prev" title="Adam Simulator Package" href="index.html" /> 
+</head>
 
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
-          <div class="body" role="main">
-            
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="index.html" class="icon icon-home">
+            adam-sim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.check_collisions"><code class="docutils literal notranslate"><span class="pre">Simulation.check_collisions()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.close"><code class="docutils literal notranslate"><span class="pre">Simulation.close()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.control"><code class="docutils literal notranslate"><span class="pre">Simulation.control()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.export_scene"><code class="docutils literal notranslate"><span class="pre">Simulation.export_scene()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.extend_collisions"><code class="docutils literal notranslate"><span class="pre">Simulation.extend_collisions()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.load_scene"><code class="docutils literal notranslate"><span class="pre">Simulation.load_scene()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.render"><code class="docutils literal notranslate"><span class="pre">Simulation.render()</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.step"><code class="docutils literal notranslate"><span class="pre">Simulation.step()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="map_maker.html"><code class="docutils literal notranslate"><span class="pre">MapMaker</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="configurations_manager.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager</span></code></a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="collision_data.html"><code class="docutils literal notranslate"><span class="pre">CollisionData</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="collision.html"><code class="docutils literal notranslate"><span class="pre">Collision</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration_data.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationData</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="body.html"><code class="docutils literal notranslate"><span class="pre">Body</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="box.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="capsule.html"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cube.html"><code class="docutils literal notranslate"><span class="pre">Cube</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="cylinder.html"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="sphere.html"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">adam-sim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Methods</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/simulation.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <span class="target" id="module-adam.features.simulation.simulation"></span><dl class="py class">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.simulation.simulation.</span></span><span class="sig-name descname"><span class="pre">Simulation</span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.simulation.simulation.</span></span><span class="sig-name descname"><span class="pre">Simulation</span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation" title="Permalink to this definition"></a></dt>
 <dd><p>the Simulation class contains all the methods to control and render the ADAM robot.</p>
 <section id="methods">
-<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading">¶</a></h1>
+<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h1>
 <dl class="simple">
 <dt>load_scene:</dt><dd><p>loads a given MuJoCo scene. This method is mandatory to call</p>
 </dd>
@@ -68,10 +119,10 @@
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.check_collisions">
-<span class="sig-name descname"><span class="pre">check_collisions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_configuration_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">adam.core.entities.configuration.Configuration</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_configuration_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">adam.core.entities.configuration.Configuration</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.check_collisions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">check_collisions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_configuration_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="configuration.html#adam.core.entities.configuration.Configuration" title="adam.core.entities.configuration.Configuration"><span class="pre">adam.core.entities.configuration.Configuration</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_configuration_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="configuration.html#adam.core.entities.configuration.Configuration" title="adam.core.entities.configuration.Configuration"><span class="pre">adam.core.entities.configuration.Configuration</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.check_collisions" title="Permalink to this definition"></a></dt>
 <dd><p>a method to directly calculate the collisions on a given set of configurations</p>
 <section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading">¶</a></h2>
+<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>left_configuration_list<span class="classifier">list[~.entities.Configuration]</span></dt><dd><p>the list of configurations for the left manipulator</p>
 </dd>
@@ -80,7 +131,7 @@
 </dl>
 </section>
 <section id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading">¶</a></h2>
+<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>out<span class="classifier">tuple[np.ndarray, np.ndarray]</span></dt><dd><p>a tuple containing the self collisions and the environment collisions respectively. A given value of the array is 1 if a collision has been detected</p>
 </dd>
@@ -90,23 +141,23 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.close" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.close" title="Permalink to this definition"></a></dt>
 <dd><p>a method to close the rendering if any exists</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.control">
-<span class="sig-name descname"><span class="pre">control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Data</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.control" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">control</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'both'</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data.html#adam.features.simulation.entities.data.Data" title="adam.features.simulation.entities.data.Data"><span class="pre">Data</span></a></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.control" title="Permalink to this definition"></a></dt>
 <dd><p>a method to control directly the manipulators via sliders</p>
 <section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading">¶</a></h2>
+<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>mode<span class="classifier">str, optional</span></dt><dd><p>indicates the manipulator to control. Possible values: ‘left’, ‘right’, ‘both’. ‘both’ by default</p>
 </dd>
 </dl>
 </section>
 <section id="id2">
-<h2>Returns<a class="headerlink" href="#id2" title="Permalink to this heading">¶</a></h2>
+<h2>Returns<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>out<span class="classifier">~.entities.Data</span></dt><dd><p>the simulation data</p>
 </dd>
@@ -116,41 +167,41 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.export_scene">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">export_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.export_scene" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">export_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.export_scene" title="Permalink to this definition"></a></dt>
 <dd><p>exports the default ADAM scene to a given directory</p>
 <dl class="simple">
 <dt>destination<span class="classifier">str</span></dt><dd><p>the directory in which to export the scene</p>
 </dd>
 </dl>
 <section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading">¶</a></h2>
+<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a></h2>
 <p>Remember that the destination must end with ‘/’</p>
 </section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.extend_collisions">
-<span class="sig-name descname"><span class="pre">extend_collisions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collision_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.extend_collisions" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">extend_collisions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collision_dict</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.extend_collisions" title="Permalink to this definition"></a></dt>
 <dd><p>it extends the collisions dictionary to incorporate new geometries</p>
 <section id="id3">
-<h2>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading">¶</a></h2>
+<h2>Parameters<a class="headerlink" href="#id3" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>collision_dict<span class="classifier">dict[int, str]</span></dt><dd><p>the collision dictionary to incorporate</p>
 </dd>
 </dl>
 </section>
 <section id="id4">
-<h2>Notes<a class="headerlink" href="#id4" title="Permalink to this heading">¶</a></h2>
+<h2>Notes<a class="headerlink" href="#id4" title="Permalink to this heading"></a></h2>
 <p>in order to get the corresponding ids, please refer to the geometry_list.md on the GitHub page</p>
 </section>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.load_scene">
-<span class="sig-name descname"><span class="pre">load_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Data</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.load_scene" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">load_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data.html#adam.features.simulation.entities.data.Data" title="adam.features.simulation.entities.data.Data"><span class="pre">Data</span></a></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.load_scene" title="Permalink to this definition"></a></dt>
 <dd><p>loads a given MuJoCo scene.xml</p>
 <section id="id5">
-<h2>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading">¶</a></h2>
+<h2>Parameters<a class="headerlink" href="#id5" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>filename<span class="classifier">str, optional</span></dt><dd><p>the path to the scene.xml. By default it loads the integrated ADAM scene</p>
 </dd>
@@ -160,10 +211,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.render">
-<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_menu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.render" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">render</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fps</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hide_menu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.render" title="Permalink to this definition"></a></dt>
 <dd><p>a method to render the simulation and the configuration sliders</p>
 <section id="id6">
-<h2>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading">¶</a></h2>
+<h2>Parameters<a class="headerlink" href="#id6" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>fps<span class="classifier">int, optional</span></dt><dd><p>the fps of the simulation. 30 by default</p>
 </dd>
@@ -173,10 +224,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.simulation.simulation.Simulation.step">
-<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Configuration</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Configuration</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Data</span></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.step" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">step</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="configuration.html#adam.core.entities.configuration.Configuration" title="adam.core.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="configuration.html#adam.core.entities.configuration.Configuration" title="adam.core.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="data.html#adam.features.simulation.entities.data.Data" title="adam.features.simulation.entities.data.Data"><span class="pre">Data</span></a></span></span><a class="headerlink" href="#adam.features.simulation.simulation.Simulation.step" title="Permalink to this definition"></a></dt>
 <dd><p>a step forward on the dynamics of the simulation</p>
 <section id="id7">
-<h2>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading">¶</a></h2>
+<h2>Parameters<a class="headerlink" href="#id7" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>left_configuration<span class="classifier">~.entities.Configuration</span></dt><dd><p>the configuration to send to the left manipulator</p>
 </dd>
@@ -185,7 +236,7 @@
 </dl>
 </section>
 <section id="id8">
-<h2>Returns<a class="headerlink" href="#id8" title="Permalink to this heading">¶</a></h2>
+<h2>Returns<a class="headerlink" href="#id8" title="Permalink to this heading"></a></h2>
 <dl class="simple">
 <dt>out<span class="classifier">~.entities.Data</span></dt><dd><p>the simulation data</p>
 </dd>
@@ -198,82 +249,34 @@
 
 
 
-            <div class="clearer"></div>
+           </div>
           </div>
-        </div>
-      </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-  <div>
-    <h3><a href="index.html">Table of Contents</a></h3>
-    <ul>
-<li><a class="reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a><ul>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.check_collisions"><code class="docutils literal notranslate"><span class="pre">Simulation.check_collisions()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.close"><code class="docutils literal notranslate"><span class="pre">Simulation.close()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.control"><code class="docutils literal notranslate"><span class="pre">Simulation.control()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.export_scene"><code class="docutils literal notranslate"><span class="pre">Simulation.export_scene()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.extend_collisions"><code class="docutils literal notranslate"><span class="pre">Simulation.extend_collisions()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.load_scene"><code class="docutils literal notranslate"><span class="pre">Simulation.load_scene()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.render"><code class="docutils literal notranslate"><span class="pre">Simulation.render()</span></code></a></li>
-<li><a class="reference internal" href="#adam.features.simulation.simulation.Simulation.step"><code class="docutils literal notranslate"><span class="pre">Simulation.step()</span></code></a></li>
-</ul>
-</li>
-</ul>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="index.html" class="btn btn-neutral float-left" title="Adam Simulator Package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="map_maker.html" class="btn btn-neutral float-right" title="Parameters" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Vistor.</p>
   </div>
-  <div>
-    <h4>Previous topic</h4>
-    <p class="topless"><a href="index.html"
-                          title="previous chapter">My Python Package</a></p>
-  </div>
-  <div>
-    <h4>Next topic</h4>
-    <p class="topless"><a href="map_maker.html"
-                          title="next chapter">Parameters</a></p>
-  </div>
-  <div role="note" aria-label="source link">
-    <h3>This Page</h3>
-    <ul class="this-page-menu">
-      <li><a href="_sources/simulation.rst.txt"
-            rel="nofollow">Show Source</a></li>
-    </ul>
-   </div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="related" role="navigation" aria-label="related navigation">
-      <h3>Navigation</h3>
-      <ul>
-        <li class="right" style="margin-right: 10px">
-          <a href="genindex.html" title="General Index"
-             >index</a></li>
-        <li class="right" >
-          <a href="py-modindex.html" title="Python Module Index"
-             >modules</a> |</li>
-        <li class="right" >
-          <a href="map_maker.html" title="Parameters"
-             >next</a> |</li>
-        <li class="right" >
-          <a href="index.html" title="My Python Package"
-             >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="index.html">adam-sim  documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Methods</a></li> 
-      </ul>
-    </div>
-    <div class="footer" role="contentinfo">
-        &#169; Copyright 2023, Vistor.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 6.1.3.
-    </div>
-  </body>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
 </html>

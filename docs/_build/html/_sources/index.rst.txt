@@ -1,32 +1,16 @@
 Adam Simulator Package
 ======================
 
-Welcome to the documentation for the Adam Simulator Package.
+ADAM (Autonomous Domestic Ambidextrous Manipulator) is a mobile robot manipulator consisting of a base with two Degrees of Freedom (DoF) and two Universal Robots UR3 of 6 DoF each.
 
-Features
---------
+The simulation was built using [MuJoCo](https://mujoco.org/), a free and open source physics engine designed from the ground up for the purpose of model-based optimization, and in particular optimization through contacts.
 
-.. toctree::
-   :maxdepth: 2
-
-   simulation
-   map_maker
-   configurations_manager
-
-Entities
---------
+Index
+-----
 
 .. toctree::
    :maxdepth: 1
 
-   collision_data
-   collision
-   configuration_data
-   configuration
-   data
-   body
-   box
-   capsule
-   cube
-   cylinder
-   sphere
+   src/installation
+   src/api_reference
+   src/examples
