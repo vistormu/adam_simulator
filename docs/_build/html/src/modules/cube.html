@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; adam-sim  documentation</title>
+  <title>&lt;no title&gt; &mdash; adam-sim  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,7 +16,9 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="cylinder.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="capsule.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,9 +40,25 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#simulation-entities">Simulation entities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference.html#map-maker-entities">Map Maker entities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="body.html"><code class="docutils literal notranslate"><span class="pre">Body</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="box.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="capsule.html"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Cube</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.map_maker.entities.cube.Cube.set_geometry"><code class="docutils literal notranslate"><span class="pre">Cube.set_geometry()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="cylinder.html"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="sphere.html"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 
@@ -58,7 +76,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Parameters</li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/src/modules/cube.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,39 +91,44 @@
 <dt class="sig sig-object py" id="adam.features.map_maker.entities.cube.Cube">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.map_maker.entities.cube.</span></span><span class="sig-name descname"><span class="pre">Cube</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam.features.map_maker.entities.cube.Cube" title="Permalink to this definition"></a></dt>
 <dd><p>the Cube class inherits from the ~.entities.Body class</p>
-<section id="parameters">
-<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>name<span class="classifier">str</span></dt><dd><p>a unique string identifier</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>name</strong><span class="classifier">str</span></dt><dd><p>a unique string identifier</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.map_maker.entities.cube.Cube.set_geometry">
 <span class="sig-name descname"><span class="pre">set_geometry</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">position</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">orientation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">float</span><span class="p"><span class="pre">]</span></span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">center_location</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span><span class="w"> </span><span class="p"><span class="pre">|</span></span><span class="w"> </span><span class="pre">None</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.map_maker.entities.cube.Cube.set_geometry" title="Permalink to this definition"></a></dt>
 <dd><p>sets all the geometry parameters of the body</p>
-<section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>size<span class="classifier">float | tuple[float, float] | tuple[float, float, float]</span></dt><dd><p>the size of the body. It depends on the object type</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">float | tuple[float, float] | tuple[float, float, float]</span></dt><dd><p>the size of the body. It depends on the object type</p>
 </dd>
-<dt>position<span class="classifier">tuple[float, float, float], optional</span></dt><dd><p>the position of the body relative to the origin. (0.0, 0.0, 0.0) by default</p>
+<dt><strong>position</strong><span class="classifier">tuple[float, float, float], optional</span></dt><dd><p>the position of the body relative to the origin. (0.0, 0.0, 0.0) by default</p>
 </dd>
-<dt>orientation<span class="classifier">tuple[float, float, float, float], optional</span></dt><dd><p>the orientation of the body in quaternions. (1.0, 0.0, 0.0, 0.0) by default</p>
+<dt><strong>orientation</strong><span class="classifier">tuple[float, float, float, float], optional</span></dt><dd><p>the orientation of the body in quaternions. (1.0, 0.0, 0.0, 0.0) by default</p>
 </dd>
-<dt>center_location: str, optional</dt><dd><p>a WIP attribute</p>
+<dt><strong>center_location: str, optional</strong></dt><dd><p>a WIP attribute</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
-</section>
 </dd></dl>
 
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="capsule.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="cylinder.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

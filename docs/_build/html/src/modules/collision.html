@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Attributes &mdash; adam-sim  documentation</title>
+  <title>&lt;no title&gt; &mdash; adam-sim  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,7 +16,9 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="collision_data.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="configuration_data.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,9 +40,34 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#features">Features</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference.html#simulation-entities">Simulation entities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration_data.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationData</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Collision</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.collided"><code class="docutils literal notranslate"><span class="pre">Collision.collided</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.empty"><code class="docutils literal notranslate"><span class="pre">Collision.empty()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.env_collision"><code class="docutils literal notranslate"><span class="pre">Collision.env_collision</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.forearm"><code class="docutils literal notranslate"><span class="pre">Collision.forearm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.self_collision"><code class="docutils literal notranslate"><span class="pre">Collision.self_collision</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.shoulder"><code class="docutils literal notranslate"><span class="pre">Collision.shoulder</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.upper_arm"><code class="docutils literal notranslate"><span class="pre">Collision.upper_arm</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.vector"><code class="docutils literal notranslate"><span class="pre">Collision.vector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.wrist_1"><code class="docutils literal notranslate"><span class="pre">Collision.wrist_1</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.wrist_2"><code class="docutils literal notranslate"><span class="pre">Collision.wrist_2</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.simulation.entities.collision.Collision.wrist_3"><code class="docutils literal notranslate"><span class="pre">Collision.wrist_3</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="collision_data.html"><code class="docutils literal notranslate"><span class="pre">CollisionData</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="data.html"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#map-maker-entities">Map Maker entities</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 
@@ -58,7 +85,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Attributes</li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/src/modules/collision.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,37 +100,40 @@
 <dt class="sig sig-object py" id="adam.features.simulation.entities.collision.Collision">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.simulation.entities.collision.</span></span><span class="sig-name descname"><span class="pre">Collision</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collided</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">self_collision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">env_collision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">bool</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shoulder</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">upper_arm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">forearm</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrist_1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrist_2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">wrist_3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">str</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam.features.simulation.entities.collision.Collision" title="Permalink to this definition"></a></dt>
 <dd><p>the Collision class is a NamedTuple containing all the information of a collision</p>
-<section id="attributes">
-<h1>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>collided<span class="classifier">bool</span></dt><dd><p>indicates if a collision has been produced</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>collided</strong><span class="classifier">bool</span></dt><dd><p>indicates if a collision has been produced</p>
 </dd>
-<dt>self_collision<span class="classifier">bool</span></dt><dd><p>indicates is a self collision has been produced</p>
+<dt><strong>self_collision</strong><span class="classifier">bool</span></dt><dd><p>indicates is a self collision has been produced</p>
 </dd>
-<dt>env_collision<span class="classifier">bool</span></dt><dd><p>indicates if a collision with the environment has been produced</p>
+<dt><strong>env_collision</strong><span class="classifier">bool</span></dt><dd><p>indicates if a collision with the environment has been produced</p>
 </dd>
-<dt>vector<span class="classifier">list[bool]</span></dt><dd><p>a list containing the collision information on every link</p>
+<dt><strong>vector</strong><span class="classifier">list[bool]</span></dt><dd><p>a list containing the collision information on every link</p>
 </dd>
-<dt>shoulder<span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the shoulder</p>
+<dt><strong>shoulder</strong><span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the shoulder</p>
 </dd>
-<dt>upper_arm<span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the upper_arm</p>
+<dt><strong>upper_arm</strong><span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the upper_arm</p>
 </dd>
-<dt>forearm<span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the forearm</p>
+<dt><strong>forearm</strong><span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the forearm</p>
 </dd>
-<dt>wrist_1<span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the wrist 1</p>
+<dt><strong>wrist_1</strong><span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the wrist 1</p>
 </dd>
-<dt>wrist_2<span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the wrist 2</p>
+<dt><strong>wrist_2</strong><span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the wrist 2</p>
 </dd>
-<dt>wrist_3<span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the wrist 3</p>
-</dd>
-</dl>
-</section>
-<section id="methods">
-<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>empty(cls) -&gt; ~.entities.Collision</dt><dd><p>a class method that returns an empty instance of itself</p>
+<dt><strong>wrist_3</strong><span class="classifier">list[str]</span></dt><dd><p>the list of elements that have collided with the wrist 3</p>
 </dd>
 </dl>
+</dd>
+</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>empty(cls) -&gt; ~.entities.Collision</strong></p></td>
+<td><p>a class method that returns an empty instance of itself</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="adam.features.simulation.entities.collision.Collision.collided">
 <span class="sig-name descname"><span class="pre">collided</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">bool</span></em><a class="headerlink" href="#adam.features.simulation.entities.collision.Collision.collided" title="Permalink to this definition"></a></dt>
@@ -169,14 +200,16 @@
 <dd><p>Alias for field number 9</p>
 </dd></dl>
 
-</section>
 </dd></dl>
 
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="configuration_data.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="collision_data.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

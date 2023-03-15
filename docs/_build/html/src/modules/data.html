@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Attributes &mdash; adam-sim  documentation</title>
+  <title>&lt;no title&gt; &mdash; adam-sim  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,7 +16,9 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="body.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="collision_data.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,9 +40,21 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#features">Features</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference.html#simulation-entities">Simulation entities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuration_data.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationData</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision.html"><code class="docutils literal notranslate"><span class="pre">Collision</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="collision_data.html"><code class="docutils literal notranslate"><span class="pre">CollisionData</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#map-maker-entities">Map Maker entities</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 
@@ -58,7 +72,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Attributes</li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/src/modules/data.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,22 +87,26 @@
 <dt class="sig sig-object py" id="adam.features.simulation.entities.data.Data">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.simulation.entities.data.</span></span><span class="sig-name descname"><span class="pre">Data</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="configuration_data.html#adam.features.simulation.entities.configuration_data.ConfigurationData" title="adam.features.simulation.entities.configuration_data.ConfigurationData"><span class="pre">ConfigurationData</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">collision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="collision_data.html#adam.features.simulation.entities.collision_data.CollisionData" title="adam.features.simulation.entities.collision_data.CollisionData"><span class="pre">CollisionData</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam.features.simulation.entities.data.Data" title="Permalink to this definition"></a></dt>
 <dd><p>the Data class is a dataclass that contains all the information of the simulation</p>
-<section id="attributes">
-<h1>Attributes<a class="headerlink" href="#attributes" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>configuration<span class="classifier">~.entities.ConfigurationData</span></dt><dd><p>the data referring to the configuration of the robot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>configuration</strong><span class="classifier">~.entities.ConfigurationData</span></dt><dd><p>the data referring to the configuration of the robot</p>
 </dd>
-<dt>collision<span class="classifier">~.entities.CollisionData</span></dt><dd><p>the data referring to the collisions of the robot</p>
+<dt><strong>collision</strong><span class="classifier">~.entities.CollisionData</span></dt><dd><p>the data referring to the collisions of the robot</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="collision_data.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="body.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

@@ -5,7 +5,7 @@ Features
 --------
 .. toctree::
    :maxdepth: 1
-
+   
    modules/simulation
    modules/map_maker
    modules/configurations_manager

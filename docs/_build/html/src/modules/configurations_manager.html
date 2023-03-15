@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Methods &mdash; adam-sim  documentation</title>
+  <title>&lt;no title&gt; &mdash; adam-sim  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,7 +16,9 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="configuration.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="map_maker.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,9 +40,23 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference.html#features">Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simulation.html"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="map_maker.html"><code class="docutils literal notranslate"><span class="pre">MapMaker</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.configurations.configurations_manager.ConfigurationsManager.load"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager.load()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.configurations.configurations_manager.ConfigurationsManager.save"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager.save()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#simulation-entities">Simulation entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#map-maker-entities">Map Maker entities</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 
@@ -58,7 +74,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Methods</li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/src/modules/configurations_manager.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,57 +89,63 @@
 <dt class="sig sig-object py" id="adam.features.configurations.configurations_manager.ConfigurationsManager">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.configurations.configurations_manager.</span></span><span class="sig-name descname"><span class="pre">ConfigurationsManager</span></span><a class="headerlink" href="#adam.features.configurations.configurations_manager.ConfigurationsManager" title="Permalink to this definition"></a></dt>
 <dd><p>the ConfigurationsManager class manages the external communication with files</p>
-<section id="methods">
-<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>load:</dt><dd><p>loads a list of configurations</p>
-</dd>
-<dt>save:</dt><dd><p>saves a list of configurations</p>
-</dd>
-</dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>load:</strong></p></td>
+<td><p>loads a list of configurations</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>save:</strong></p></td>
+<td><p>saves a list of configurations</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.configurations.configurations_manager.ConfigurationsManager.load">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="configuration.html#adam.core.entities.configuration.Configuration" title="adam.core.entities.configuration.Configuration"><span class="pre">adam.core.entities.configuration.Configuration</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#adam.features.configurations.configurations_manager.ConfigurationsManager.load" title="Permalink to this definition"></a></dt>
 <dd><p>loads a list of configurations</p>
-<section id="parameters">
-<h2>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>filename<span class="classifier">str</span></dt><dd><p>the path to the file to load</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>the path to the file to load</p>
 </dd>
 </dl>
-</section>
-<section id="returns">
-<h2>Returns<a class="headerlink" href="#returns" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>out<span class="classifier">list[~.entities.Configurations]</span></dt><dd><p>a list of configurations</p>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>out</strong><span class="classifier">list[~.entities.Configurations]</span></dt><dd><p>a list of configurations</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.configurations.configurations_manager.ConfigurationsManager.save">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration_list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="configuration.html#adam.core.entities.configuration.Configuration" title="adam.core.entities.configuration.Configuration"><span class="pre">adam.core.entities.configuration.Configuration</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.configurations.configurations_manager.ConfigurationsManager.save" title="Permalink to this definition"></a></dt>
 <dd><p>saves a list of configurations</p>
-<section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>filename<span class="classifier">str</span></dt><dd><p>the path to the file to save</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>the path to the file to save</p>
 </dd>
-<dt>configuration_list<span class="classifier">list[~.entities.Configurations]</span></dt><dd><p>a list of configurations</p>
+<dt><strong>configuration_list</strong><span class="classifier">list[~.entities.Configurations]</span></dt><dd><p>a list of configurations</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
-</section>
 </dd></dl>
 
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="map_maker.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configuration.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 

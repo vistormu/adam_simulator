@@ -4,7 +4,7 @@
   <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Parameters &mdash; adam-sim  documentation</title>
+  <title>&lt;no title&gt; &mdash; adam-sim  documentation</title>
       <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
       <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
@@ -16,7 +16,9 @@
         <script src="../../_static/sphinx_highlight.js"></script>
     <script src="../../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../../genindex.html" />
-    <link rel="search" title="Search" href="../../search.html" /> 
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="&lt;no title&gt;" href="configurations_manager.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="simulation.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -38,9 +40,24 @@
   </form>
 </div>
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <ul>
+              <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../installation.html">Installation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../api_reference.html">API Reference</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../api_reference.html#features">Features</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="simulation.html"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">MapMaker</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.map_maker.map_maker.MapMaker.add_bodies"><code class="docutils literal notranslate"><span class="pre">MapMaker.add_bodies()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.map_maker.map_maker.MapMaker.add_to"><code class="docutils literal notranslate"><span class="pre">MapMaker.add_to()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam.features.map_maker.map_maker.MapMaker.make"><code class="docutils literal notranslate"><span class="pre">MapMaker.make()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="configurations_manager.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#simulation-entities">Simulation entities</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../api_reference.html#map-maker-entities">Map Maker entities</a></li>
+</ul>
+</li>
 <li class="toctree-l1"><a class="reference internal" href="../examples.html">Examples</a></li>
 </ul>
 
@@ -58,7 +75,8 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Parameters</li>
+          <li class="breadcrumb-item"><a href="../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
       <li class="wy-breadcrumbs-aside">
             <a href="../../_sources/src/modules/map_maker.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -72,67 +90,74 @@
 <dt class="sig sig-object py" id="adam.features.map_maker.map_maker.MapMaker">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam.features.map_maker.map_maker.</span></span><span class="sig-name descname"><span class="pre">MapMaker</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam.features.map_maker.map_maker.MapMaker" title="Permalink to this definition"></a></dt>
 <dd><p>the MapMaker class contains all the methods to create a map on top of a given scene</p>
-<section id="parameters">
-<h1>Parameters<a class="headerlink" href="#parameters" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>filename<span class="classifier">str</span></dt><dd><p>the path to the .xml file to generate</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>the path to the .xml file to generate</p>
 </dd>
 </dl>
-</section>
-<section id="methods">
-<h1>Methods<a class="headerlink" href="#methods" title="Permalink to this heading"></a></h1>
-<dl class="simple">
-<dt>add_bodies:</dt><dd><p>add the designed bodies to the map</p>
-</dd>
-<dt>make:</dt><dd><p>exports the map to an .xml file</p>
-</dd>
-<dt>add_to:</dt><dd><p>adds the created map to a given scene</p>
 </dd>
 </dl>
+<p class="rubric">Methods</p>
+<table class="docutils align-default">
+<tbody>
+<tr class="row-odd"><td><p><strong>add_bodies:</strong></p></td>
+<td><p>add the designed bodies to the map</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>make:</strong></p></td>
+<td><p>exports the map to an .xml file</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>add_to:</strong></p></td>
+<td><p>adds the created map to a given scene</p></td>
+</tr>
+</tbody>
+</table>
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.map_maker.map_maker.MapMaker.add_bodies">
 <span class="sig-name descname"><span class="pre">add_bodies</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">bodies</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="body.html#adam.features.map_maker.entities.body.Body" title="adam.features.map_maker.entities.body.Body"><span class="pre">adam.features.map_maker.entities.body.Body</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.map_maker.map_maker.MapMaker.add_bodies" title="Permalink to this definition"></a></dt>
 <dd><p>add the designed bodies to the map</p>
-<section id="id1">
-<h2>Parameters<a class="headerlink" href="#id1" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>bodies<span class="classifier">list[~.entities.Body]</span></dt><dd><p>the list of bodies to include to the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>bodies</strong><span class="classifier">list[~.entities.Body]</span></dt><dd><p>the list of bodies to include to the map</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.map_maker.map_maker.MapMaker.add_to">
 <span class="sig-name descname"><span class="pre">add_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.map_maker.map_maker.MapMaker.add_to" title="Permalink to this definition"></a></dt>
 <dd><p>adds the created map to a given scene</p>
-<section id="id2">
-<h2>Parameters<a class="headerlink" href="#id2" title="Permalink to this heading"></a></h2>
-<dl class="simple">
-<dt>filename<span class="classifier">str</span></dt><dd><p>the path to the .xml file to include the map</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>the path to the .xml file to include the map</p>
 </dd>
 </dl>
-</section>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam.features.map_maker.map_maker.MapMaker.make">
 <span class="sig-name descname"><span class="pre">make</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam.features.map_maker.map_maker.MapMaker.make" title="Permalink to this definition"></a></dt>
 <dd><p>exports the map to an .xml file</p>
-<section id="notes">
-<h2>Notes<a class="headerlink" href="#notes" title="Permalink to this heading"></a></h2>
+<p class="rubric">Notes</p>
 <p>The name of the file is specified at instancing the class</p>
-</section>
 </dd></dl>
 
-</section>
 </dd></dl>
 
 
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="simulation.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="configurations_manager.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
