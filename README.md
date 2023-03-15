@@ -37,7 +37,7 @@ cd adam_simulator
 pip install -r requirements.txt
 ```
 
-## API Reference
+## Documentation
 Visit [the official documentation](https://adam-simulator.readthedocs.io/en/latest/)
 
 ## Minimal Working Examples
