@@ -1,5 +1,9 @@
 # ADAM simulator
 
+[![pypi version](https://img.shields.io/pypi/v/adam-sim?logo=pypi)](https://pypi.org/project/adam-sim/)
+[![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://choosealicense.com/licenses/mit/)
+[![docs](https://badgen.net/badge/readthedocs/documentation/blue)](https://adam-simulator.readthedocs.io/en/latest/)
+
 ADAM (Autonomous Domestic Ambidextrous Manipulator) is a mobile robot manipulator consisting of a base with two Degrees of Freedom (DoF) and two Universal Robots UR3 of 6 DoF each.
 
 The simulation was built using [MuJoCo](https://mujoco.org/), a free and open source physics engine designed from the ground up for the purpose of model-based optimization, and in particular optimization through contacts.
@@ -9,8 +13,9 @@ The simulation was built using [MuJoCo](https://mujoco.org/), a free and open so
 Follow the next steps for installing the simulation on your device.
 
 **Requierements:**
-- Ubuntu
 - Python 3.10.0 or higher
+
+> **Note**: The Adam Simulator works on Linux, Windows and Mac.
 
 ### Install miniconda (highly-recommended)
 It is highly recommended to install all the dependencies on a new virtual environment. For more information check the conda documentation for [installation](https://conda.io/projects/conda/en/latest/user-guide/install/index.html) and [environment management](https://conda.io/projects/conda/en/latest/user-guide/tasks/manage-environments.html). For creating the environment use the following commands on the terminal.
