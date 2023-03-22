@@ -97,15 +97,11 @@
     </asset>
 
     <worldbody>
-        <light name="spotlight" mode="targetbodycom" target="wrist_2_link_left" pos="0 -1 2" />
-
         <!-- BODY -->
         <body name="body" pos="0 0 0">
             <inertial mass="10.0" pos="0 0 0"/>
             <geom mesh="body" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.02"/>
-            <geom class="box_collision" size="0.15 0.15 0.2" pos="0 0 1.0" />
-            <geom class="cylinder_collision" size="0.3 0.1" pos="0 0 0.1" />
-            <geom class="box_collision" size="0.2 0.2 0.4" pos="0 0 0.4" />
+            <geom type='mesh' mesh="body" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.02"/>
 
             <!-- LEFT MANIPULATOR -->
             <!-- BASE -->
@@ -177,6 +173,8 @@
                                         <geom mesh="end_effector_rubber" material="black" class="visual" quat="0.7071 0.7071 0 0" pos="0.001 0.04 -0.0025"/>
                                         <geom mesh="end_effector_body" material="light_gray" class="visual" quat="0.7071 0.7071 0 0" pos="0.001 0.04 -0.0025"/>
                                         <geom class="cylinder_collision" size="0.04 0.065" quat="0.7071 0.7071 0 0" pos="0 0.015 0"/>
+
+                                        <!-- TOOL -->
                                     </body>
                                 </body>
                             </body>

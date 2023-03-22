@@ -3,7 +3,7 @@ import numpy as np
 
 from distutils.dir_util import copy_tree
 
-from .entities import Configuration, Data
+from .entities import Configuration, AdamInfo
 from .use_cases import DataManager, ControlVisualizer, Viewer, Controller
 
 
@@ -48,7 +48,7 @@ class Simulation:
         self.left_control_mode: bool = False
         self.right_control_mode: bool = False
 
-    def load_scene(self, filename: str | None = None) -> Data:
+    def load_scene(self, filename: str | None = None) -> AdamInfo:
         '''
         loads a given MuJoCo scene.xml
 
@@ -56,14 +56,18 @@ class Simulation:
         ----------
         filename : str, optional
             the path to the scene.xml. By default it loads the integrated ADAM scene
+
+        Returns
+        -------
+        out : ~.entities.AdamInfo
+            the initial info of the robot
         '''
         if filename is None:
             filename = pkg_resources.resource_filename('adam', 'assets/scene.xml')
 
         self.controller.init(filename)
 
-        self.data_manager.update(self.controller.data)
-        return self.data_manager.get()
+        return self.data_manager.get(self.controller.data)
 
     def extend_collisions(self, collision_dict: dict[int, str]) -> None:
         '''
@@ -100,15 +104,15 @@ class Simulation:
         self_collision_array: np.ndarray = np.zeros(len(left_configuration_list))
         env_collision_array: np.ndarray = np.zeros(len(left_configuration_list))
         for i, (left_configuration, right_configuration) in enumerate(zip(left_configuration_list, right_configuration_list)):
-            data: Data = self.step(left_configuration, right_configuration)
-            if data.collision.left_manipulator.self_collision or data.collision.right_manipulator.self_collision:
+            info: AdamInfo = self.step(left_configuration, right_configuration)
+            if info.left_manipulator.collision.self_collision or info.right_manipulator.collision.self_collision:
                 self_collision_array[i] = 1
-            if data.collision.left_manipulator.env_collision or data.collision.right_manipulator.env_collision:
+            if info.left_manipulator.collision.env_collision or info.right_manipulator.collision.env_collision:
                 env_collision_array[i] = 1
 
         return self_collision_array, env_collision_array
 
-    def step(self, left_configuration: Configuration, right_configuration: Configuration) -> Data:
+    def step(self, left_configuration: Configuration, right_configuration: Configuration) -> AdamInfo:
         '''
         a step forward on the dynamics of the simulation
 
@@ -122,16 +126,15 @@ class Simulation:
 
         Returns
         -------
-        out : ~.entities.Data
+        out : ~.entities.AdamInfo
             the simulation data
         '''
         self.controller.set_configuration(left_configuration, right_configuration)
         self.controller.step()
 
-        self.data_manager.update(self.controller.data)
-        return self.data_manager.get()
+        return self.data_manager.get(self.controller.data)
 
-    def control(self, mode: str = 'both') -> Data:
+    def control(self, mode: str = 'both') -> AdamInfo:
         '''
         a method to control directly the manipulators via sliders
 
@@ -142,7 +145,7 @@ class Simulation:
 
         Returns
         -------
-        out : ~.entities.Data
+        out : ~.entities.AdamInfo
             the simulation data
         '''
         if mode == 'left':
@@ -165,17 +168,16 @@ class Simulation:
         self.controller.set_configuration(left_configuration, right_configuration)
         self.controller.step()
 
-        self.data_manager.update(self.controller.data)
-        return self.data_manager.get()
+        return self.data_manager.get(self.controller.data)
 
-    def render(self, fps: int = 30, hide_menu: bool = False) -> None:
+    def render(self, fps: int | None = None, hide_menu: bool = False) -> None:
         '''
         a method to render the simulation and the configuration sliders
 
         Parameters
         ----------
         fps : int, optional
-            the fps of the simulation. 30 by default
+            the fps of the simulation. None by default
         '''
         if not self.viewer.is_active:
             self.viewer.init(self.controller.model, self.controller.data)
@@ -186,8 +188,8 @@ class Simulation:
         if self.right_control_mode and not self.right_control_visualizer.is_active:
             self.right_control_visualizer.init(self.controller.get_right_configuration().to_numpy())
 
-        self.left_control_visualizer.render(fps)
-        self.right_control_visualizer.render(fps)
+        self.left_control_visualizer.render(60)
+        self.right_control_visualizer.render(60)
         self.viewer.render(fps, hide_menu)
 
     def close(self) -> None:

@@ -2,7 +2,7 @@ import numpy as np
 
 from vclog import Logger
 from adam import Simulation, MapMaker
-from adam.entities import Data, Configuration, Box
+from adam.entities import AdamInfo, Configuration, Box
 
 
 def main():
@@ -30,22 +30,22 @@ def main():
 
     # Simulate
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene('tests/assets/scene.xml')
+    initial_info: AdamInfo = sim.load_scene('tests/assets/scene.xml')
 
-    configuration: Configuration = initial_data.configuration.left_manipulator
+    configuration: Configuration = initial_info.left_manipulator.configuration
     configuration_list: list[Configuration] = [configuration]
 
     self_collision_counter: int = 0
     env_collision_counter: int = 0
     for _ in range(500):
-        sim.render(fps=120)
-        data: Data = sim.step(configuration, initial_data.configuration.right_manipulator)
+        sim.render(fps=120, hide_menu=True)
+        info: AdamInfo = sim.step(configuration, initial_info.right_manipulator.configuration)
 
-        if data.collision.left_manipulator.self_collision:
+        if info.left_manipulator.collision.self_collision:
             self_collision_counter += 1
             Logger.warning(f'self collision: {self_collision_counter}', flush=True)
 
-        if data.collision.left_manipulator.env_collision:
+        if info.left_manipulator.collision.env_collision:
             env_collision_counter += 1
             Logger.error(f'env collision: {env_collision_counter}', flush=True)
 
@@ -56,9 +56,9 @@ def main():
 
     # Standalone function
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene('tests/assets/scene.xml')
+    initial_info: AdamInfo = sim.load_scene('tests/assets/scene.xml')
 
-    self_collisions, env_collisions = sim.check_collisions(configuration_list, [initial_data.configuration.right_manipulator]*len(configuration_list))
+    self_collisions, env_collisions = sim.check_collisions(configuration_list, [initial_info.right_manipulator.configuration]*len(configuration_list))
 
     Logger.debug(np.sum(self_collisions) - self_collision_counter)
     Logger.debug(np.sum(env_collisions) - env_collision_counter)

@@ -1,16 +1,18 @@
 from adam import Simulation
-from adam.entities import Data
+from adam.entities import AdamInfo
+
+from vclog import Logger
 
 
 def main():
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene()
+    initial_info: AdamInfo = sim.load_scene()
 
     while True:
-        sim.render()
-        data: Data = sim.control('right')
+        sim.render(hide_menu=True)
+        info: AdamInfo = sim.control('left')
 
-    sim.close()
+        Logger.debug(info.left_manipulator.systems[1], flush=True)
 
 
 if __name__ == '__main__':

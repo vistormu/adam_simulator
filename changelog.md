@@ -1,3 +1,14 @@
+# 0.4.0
+- Changed the collision model of the body to be more precise
+- Added additional information about the systems in the returning info
+- Implemented three new entities for the simulator: point, vector and system
+- Fixed a bug where the menu could be hid
+- Changed radically the data structure of the returning info
+- Changed the name of the `Data` class to `AdamInfo`
+- Changed the fps to be maximum by default
+- Removed the light source from the robot
+- Changed the light source of the scene
+  
 # 0.3.1
 - Deprecated the Logger class
 - Made the angles in the control mode more precise

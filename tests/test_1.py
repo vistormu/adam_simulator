@@ -1,20 +1,20 @@
 from adam import Simulation
-from adam.entities import Configuration, Data
+from adam.entities import Configuration, AdamInfo
 
 
 def main():
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene()
+    initial_info: AdamInfo = sim.load_scene()
 
-    left_configuration: Configuration = initial_data.configuration.left_manipulator
-    right_configuration: Configuration = initial_data.configuration.right_manipulator
+    left_configuration: Configuration = initial_info.left_manipulator.configuration
+    right_configuration: Configuration = initial_info.right_manipulator.configuration
 
     for _ in range(100):
         left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
         right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
 
         sim.render(hide_menu=True)
-        data: Data = sim.step(left_configuration, right_configuration)
+        info: AdamInfo = sim.step(left_configuration, right_configuration)
 
     sim.close()
 

@@ -1,81 +1,79 @@
 # BODY
 1. Body mesh
-2. Body **collision** 1
-3. Body **collision** 2
-4. Body **collision** 3
+2. Body **collision**
 
 # RIGHT MANIPULATOR
-5. Base mesh
-6. Shoulder rubber mesh
-7. Shoulder body mesh
-8. Shoulder cap mesh
-9.  Shoulder screws mesh
-10. Shoulder **collision**
-11. Upperarm rubber mesh
-12. Upperarm body mesh
-13. Upperarm cap mesh
-14. Upperarm screws mesh
-15. Upperarm rubber 2 mesh
-16. Upperarm link body mesh
-17. Upperarm rubber 3 mesh
-18. Upperarm **collision**
-19. Forearm body mesh
-20. Forearm cap mesh
-21. Forearm rubber mesh
-22. Forearm body 2 mesh
-23. Forearm rubber 2 mesh
-24. Forearm link body mesh
-25. Forearm **collision** 1
-26. Forearm **collision** 2
-27. Wrist 1 rubber mesh
-28. Wrist 1 body mesh
-29. Wrist 1 cap mesh
-30. Wrist 1 **collision**
-31. Wrist 2 rubber mesh
-32. Wrist 2 body mesh
-33. Wrist 2 cap mesh
-34. Wrist 2 **collision**
-35. Wrist 3 rubber mesh
-36. Wrist 3 body mesh
-37. Wrist 3 cap mesh
-38. End effector rubber mesh
-39. End effector body mesh
-40. End effector **collision**
+3. Base mesh
+4. Shoulder rubber mesh
+5. Shoulder body mesh
+6. Shoulder cap mesh
+7.  Shoulder screws mesh
+8. Shoulder **collision**
+9. Upperarm rubber mesh
+10. Upperarm body mesh
+11. Upperarm cap mesh
+12. Upperarm screws mesh
+13. Upperarm rubber 2 mesh
+14. Upperarm link body mesh
+15. Upperarm rubber 3 mesh
+16. Upperarm **collision**
+17. Forearm body mesh
+18. Forearm cap mesh
+19. Forearm rubber mesh
+20. Forearm body 2 mesh
+21. Forearm rubber 2 mesh
+22. Forearm link body mesh
+23. Forearm **collision** 1
+24. Forearm **collision** 2
+25. Wrist 1 rubber mesh
+26. Wrist 1 body mesh
+27. Wrist 1 cap mesh
+28. Wrist 1 **collision**
+29. Wrist 2 rubber mesh
+30. Wrist 2 body mesh
+31. Wrist 2 cap mesh
+32. Wrist 2 **collision**
+33. Wrist 3 rubber mesh
+34. Wrist 3 body mesh
+35. Wrist 3 cap mesh
+36. End effector rubber mesh
+37. End effector body mesh
+38. End effector **collision**
     
 # RIGHT MANIPULATOR
-41. Base mesh
-42. Shoulder rubber mesh
-43. Shoulder body mesh
-44. Shoulder cap mesh
-45. Shoulder screws mesh
-46. Shoulder **collision**
-47. Upperarm rubber mesh
-48. Upperarm body mesh
-49. Upperarm cap mesh
-50. Upperarm screws mesh
-51. Upperarm rubber 2 mesh
-52. Upperarm link body mesh
-53. Upperarm rubber 3 mesh
-54. Upperarm **collision**
-55. Forearm body mesh
-56. Forearm cap mesh
-57. Forearm rubber mesh
-58. Forearm body 2 mesh
-59. Forearm rubber 2 mesh
-60. Forearm link body mesh
-61. Forearm **collision** 1
-62. Forearm **collision** 2
-63. Wrist 1 rubber mesh
-64. Wrist 1 body mesh
-65. Wrist 1 cap mesh
-66. Wrist 1 **collision**
-67. Wrist 2 rubber mesh
-68. Wrist 2 body mesh
-69. Wrist 2 cap mesh
-70. Wrist 2 **collision**
-71. Wrist 3 rubber mesh
-72. Wrist 3 body mesh
-73. Wrist 3 cap mesh
-74. End effector rubber mesh
-75. End effector body mesh
-76. End effector **collision**
+39. Base mesh
+40. Shoulder rubber mesh
+41. Shoulder body mesh
+42. Shoulder cap mesh
+43. Shoulder screws mesh
+44. Shoulder **collision**
+45. Upperarm rubber mesh
+46. Upperarm body mesh
+47. Upperarm cap mesh
+48. Upperarm screws mesh
+49. Upperarm rubber 2 mesh
+50. Upperarm link body mesh
+51. Upperarm rubber 3 mesh
+52. Upperarm **collision**
+53. Forearm body mesh
+54. Forearm cap mesh
+55. Forearm rubber mesh
+56. Forearm body 2 mesh
+57. Forearm rubber 2 mesh
+58. Forearm link body mesh
+59. Forearm **collision** 1
+60. Forearm **collision** 2
+61. Wrist 1 rubber mesh
+62. Wrist 1 body mesh
+63. Wrist 1 cap mesh
+64. Wrist 1 **collision**
+65. Wrist 2 rubber mesh
+66. Wrist 2 body mesh
+67. Wrist 2 cap mesh
+68. Wrist 2 **collision**
+69. Wrist 3 rubber mesh
+70. Wrist 3 body mesh
+71. Wrist 3 cap mesh
+72. End effector rubber mesh
+73. End effector body mesh
+74. End effector **collision**

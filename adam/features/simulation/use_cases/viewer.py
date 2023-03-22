@@ -5,6 +5,7 @@ import time
 class Viewer:
     def __init__(self) -> None:
         self.is_active: bool = False
+        self.hidden_menu: bool = False
 
     def init(self, model, data) -> None:
         self.viewer: MujocoViewer = MujocoViewer(model, data, title='ADAM Simulator')
@@ -17,10 +18,15 @@ class Viewer:
 
         self.is_active = True
 
-    def render(self, fps: int, hide_menu: bool) -> None:
-        self.viewer._hide_menus = hide_menu
+    def render(self, fps: int | None, hide_menu: bool) -> None:
+        if hide_menu and not self.hidden_menu:
+            self.viewer._hide_menus = True
+            self.hidden_menu = True
+
         self.viewer.render()
-        time.sleep(1.0/fps)
+
+        if fps is not None:
+            time.sleep(1.0/fps)
 
     def close(self) -> None:
         self.viewer.close()

@@ -2,10 +2,6 @@
 
     <include file="adam.xml"/>
 
-    <!-- <option>
-      <flag gravity="disable"/>
-    </option> -->
-
     <statistic center="0.3 0 0.4" extent="0.8"/>
 
     <visual>
@@ -21,7 +17,7 @@
     </asset>
 
     <worldbody>
-        <light pos="0 0 1.5" dir="0 0 -1" directional="true"/>
+        <light pos="1.0 1.0 5.0" dir="0 0 -1" directional="true"/>
         <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
     </worldbody>
 

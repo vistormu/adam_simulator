@@ -1,5 +1,5 @@
 from adam import Simulation, MapMaker
-from adam.entities import Data, Cube, Box, Capsule, Cylinder, Sphere
+from adam.entities import AdamInfo, Cube, Box, Capsule, Cylinder, Sphere
 
 
 def main():
@@ -53,12 +53,12 @@ def main():
     map_maker.add_to(directory_path + 'scene.xml')
 
     sim: Simulation = Simulation()
-    initial_data: Data = sim.load_scene('tests/assets/scene.xml')
+    initial_data: AdamInfo = sim.load_scene('tests/assets/scene.xml')
 
     sim.extend_collisions({77: 'table'})
 
     for _ in range(1000):
-        sim.step(initial_data.configuration.left_manipulator, initial_data.configuration.right_manipulator)
+        sim.step(initial_data.left_manipulator.configuration, initial_data.right_manipulator.configuration)
         sim.render()
 
 

@@ -9,28 +9,29 @@ In this example, ADAM moves the left and right wrist_2 continuously.
 .. code-block:: Python
 
     from adam import Simulation
-    from adam.entities import Configuration, Data
+    from adam.entities import Configuration, AdamInfo
 
 
     def main():
         sim: Simulation = Simulation()
-        initial_data: Data = sim.load_scene()
+        initial_info: AdamInfo = sim.load_scene()
 
-        left_configuration: Configuration = initial_data.configuration.left_manipulator
-        right_configuration: Configuration = initial_data.configuration.right_manipulator
+        left_configuration: Configuration = initial_info.left_manipulator.configuration
+        right_configuration: Configuration = initial_info.right_manipulator.configuration
 
         for _ in range(100):
             left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
             right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
 
-            sim.render()
-            data: Data = sim.step(left_configuration, right_configuration)
+            sim.render(hide_menu=True)
+            info: AdamInfo = sim.step(left_configuration, right_configuration)
 
         sim.close()
 
 
     if __name__ == '__main__':
         main()
+
 
 ConfigurationsManager Example
 -----------------------------
@@ -40,25 +41,26 @@ In this example, the test configurations are loaded to the left manipulator.
 .. code-block:: Python
 
     from adam import Simulation, ConfigurationsManager
-    from adam.entities import Configuration, Data
+    from adam.entities import Configuration, AdamInfo
 
 
     def main():
         sim: Simulation = Simulation()
-        initial_data: Data = sim.load_scene()
+        initial_info: AdamInfo = sim.load_scene()
 
         configuration_list: list[Configuration] = ConfigurationsManager.load('test')
 
         for configuration in configuration_list:
             sim.render()
 
-            data: Data = sim.step(configuration, initial_data.configuration.right_manipulator)
+            info: AdamInfo = sim.step(configuration, initial_info.right_manipulator.configuration)
 
         sim.close()
 
 
     if __name__ == '__main__':
         main()
+
 
 
 MapMaker example
@@ -69,7 +71,7 @@ In this example, various bodies are created and then added to the scene
 .. code-block:: Python
     
     from adam import Simulation, MapMaker
-    from adam.entities import Data, Cube, Box, Capsule, Cylinder, Sphere
+    from adam.entities import AdamInfo, Cube, Box, Capsule, Cylinder, Sphere
 
 
     def main():
@@ -123,12 +125,12 @@ In this example, various bodies are created and then added to the scene
         map_maker.add_to(directory_path + 'scene.xml')
 
         sim: Simulation = Simulation()
-        initial_data: Data = sim.load_scene('tests/assets/scene.xml')
+        initial_data: AdamInfo = sim.load_scene('tests/assets/scene.xml')
 
         sim.extend_collisions({77: 'table'})
 
         for _ in range(1000):
-            sim.step(initial_data.configuration.left_manipulator, initial_data.configuration.right_manipulator)
+            sim.step(initial_data.left_manipulator.configuration, initial_data.right_manipulator.configuration)
             sim.render()
 
 
