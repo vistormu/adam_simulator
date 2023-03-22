@@ -16,10 +16,11 @@ Simulation entities
    :maxdepth: 1
    
    modules/configuration
-   modules/configuration_data
    modules/collision
-   modules/collision_data
-   modules/data
+   modules/adam_info
+   modules/point
+   modules/vector
+   modules/system
 
 Map Maker entities
 ------------------
