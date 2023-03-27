@@ -1,3 +1,10 @@
+# 0.4.1
+- Split the body into four parts to better collision checking
+- Changed the systems of the returning info to match the DH transformations
+- Added mock attributes to the return info for future updates
+- Moved the base a tiny teeny bit up
+- The base of the robot is now black
+
 # 0.4.0
 - Changed the collision model of the body to be more precise
 - Added additional information about the systems in the returning info

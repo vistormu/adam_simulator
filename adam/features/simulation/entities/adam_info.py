@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 
 from .manipulator_data import ManipulatorData
+from .base_data import BaseData
 
 
 @dataclass
@@ -15,6 +16,10 @@ class AdamInfo:
 
     right_manipulator : ~.entities.CollisionData
         the data referring to the right manipulator of the robot
+
+    base : ~.entities.BaseData
+        the data referring to the base of the robot
     '''
     left_manipulator: ManipulatorData
     right_manipulator: ManipulatorData
+    base: BaseData

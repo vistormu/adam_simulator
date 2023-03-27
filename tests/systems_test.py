@@ -1,10 +1,9 @@
 import bgplot as bgp
 
 from bgplot.entities import OrientedPoint
-from vclog import Logger
 
 from adam import Simulation
-from adam.entities import AdamInfo
+from adam.entities import AdamInfo, Configuration
 
 
 def main():
@@ -21,14 +20,14 @@ def main():
 
     while True:
         sim.render(hide_menu=True)
-        info: AdamInfo = sim.control('left')
+        info: AdamInfo = sim.step(Configuration(1.1912, 0.1833, 0.6938, -0.9294, 3.1415, 0.0), initial_info.right_manipulator.configuration)
 
         left_systems: list[OrientedPoint] = [OrientedPoint.from_htm(system.to_htm()) for system in info.left_manipulator.systems]
         right_systems: list[OrientedPoint] = [OrientedPoint.from_htm(system.to_htm()) for system in info.right_manipulator.systems]
 
         figure.add_oriented_points(left_systems, style='.-', length=0.025)
         figure.add_oriented_points(right_systems, style='.-', length=0.025, color=bgp.Colors.red)
-        figure.update(120)
+        figure.show()
 
 
 if __name__ == '__main__':

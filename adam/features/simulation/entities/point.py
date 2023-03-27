@@ -35,3 +35,6 @@ class Point(NamedTuple):
 
     def __truediv__(self, scalar):
         return Point(self.x/scalar, self.y/scalar, self.z/scalar)
+
+    def __neg__(self):
+        return Point(-self.x, -self.y, -self.z)

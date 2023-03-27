@@ -94,14 +94,24 @@
         <mesh name="end_effector_rubber" file="end_effector_rubber.stl" />
         <mesh name="end_effector_body" file="end_effector_body.stl" />
         <mesh name="body" file="body.stl" />
+        <mesh name="body_1" file="body1.stl" />
+        <mesh name="body_2" file="body2.stl" />
+        <mesh name="body_3" file="body3.stl" />
+        <mesh name="body_4" file="body4.stl" />
     </asset>
 
     <worldbody>
         <!-- BODY -->
-        <body name="body" pos="0 0 0">
+        <body name="body" pos="0 0 0.027">
             <inertial mass="10.0" pos="0 0 0"/>
-            <geom mesh="body" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.02"/>
-            <geom type='mesh' mesh="body" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.02"/>
+            <geom mesh="body_1" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom mesh="body_2" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom mesh="body_3" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom mesh="body_4" material="black" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_1" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_2" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_3" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_4" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
 
             <!-- LEFT MANIPULATOR -->
             <!-- BASE -->

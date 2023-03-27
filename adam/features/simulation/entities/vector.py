@@ -42,6 +42,9 @@ class Vector(NamedTuple):
     def __truediv__(self, scalar):
         return Vector(self.u/scalar, self.v/scalar, self.w/scalar)
 
+    def __neg__(self):
+        return Vector(-self.u, -self.v, -self.w)
+
     def normalize(self):
         """
         normalizes the vector so its magnitude is unitary

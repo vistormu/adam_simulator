@@ -18,6 +18,8 @@ Simulation entities
    modules/configuration
    modules/collision
    modules/adam_info
+   modules/manipulator_data
+   modules/base_data
    modules/point
    modules/vector
    modules/system
