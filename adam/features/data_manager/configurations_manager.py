@@ -2,10 +2,10 @@ import pandas as pd
 import pkg_resources
 
 
-from ...core.entities import Configuration
+from ...entities import Configuration
 
 
-class ConfigurationsManager:
+class DataManager:
     '''
     the ConfigurationsManager class manages the external communication with files
 

@@ -1,7 +1,8 @@
 import numpy as np
 
 from .collision_detector import CollisionDetector
-from ..entities import AdamInfo, ManipulatorData, Collision, Configuration, System, BaseData, Point, Vector
+from ..entities import AdamInfo, ManipulatorData, Collision, BaseData
+from ....entities import Configuration, System, Point, Vector
 
 
 def _get_left_systems(data) -> list[System]:

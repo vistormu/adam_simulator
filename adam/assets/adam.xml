@@ -108,10 +108,10 @@
             <geom mesh="body_2" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
             <geom mesh="body_3" material="light_gray" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
             <geom mesh="body_4" material="black" class="visual" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
-            <geom type="mesh" mesh="body_1" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <!-- <geom type="mesh" mesh="body_1" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
             <geom type="mesh" mesh="body_2" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
             <geom type="mesh" mesh="body_3" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
-            <geom type="mesh" mesh="body_4" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_4" group='3' quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/> -->
 
             <!-- LEFT MANIPULATOR -->
             <!-- BASE -->

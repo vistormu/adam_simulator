@@ -1,3 +1,16 @@
+# 1.0.0
+- The Adam Simulator is stable enough to be released as a 1.0.0 version!
+- The `MapMaker` feature is now a standalone package
+- The `step` method of the `Simulation` class is separated into several methods
+- Added new methods to the `Simulation` class to control the manipulators and the base separately
+- The base can now be moved!
+- The manipulators can be controlled with velocity now
+- Implemented the velocity returning info for the manipulators and the base
+- The collisions of the manipulators are no longer cylinders but the .stl themselves
+- Changed the `ConfigurationsManager` class name to `DataManager`
+- The robot can now be controlled through Inverse Kinematics
+- Added materials and textures to the robot
+
 # 0.4.1
 - Split the body into four parts to better collision checking
 - Changed the systems of the returning info to match the DH transformations

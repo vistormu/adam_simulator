@@ -3,7 +3,8 @@ import numpy as np
 
 from distutils.dir_util import copy_tree
 
-from .entities import Configuration, AdamInfo
+from ...entities import Configuration, Vector
+from .entities import AdamInfo
 from .use_cases import DataManager, ControlVisualizer, Viewer, Controller
 
 
@@ -15,6 +16,11 @@ class Simulation:
     -------
     load_scene:
         loads a given MuJoCo scene. This method is mandatory to call
+
+    move_base:
+        moves the base of the robot
+
+    move
 
     step:
         step on the simulation's dynamics
@@ -112,6 +118,39 @@ class Simulation:
 
         return self_collision_array, env_collision_array
 
+    def set_base(self, velocity: Vector) -> None:
+        '''
+        a method to move the base of the robot
+
+        Parameters
+        ----------
+        velocity : ~.entities.Vector
+            the velocity of the base
+        '''
+        self.controller.move_base(velocity)
+
+    def set_left_manipulator(self, configuration: Configuration) -> None:
+        '''
+        a method to move the left manipulator
+
+        Parameters
+        ----------
+        configuration : ~.entities.Configuration
+            the configuration of the left manipulator
+        '''
+        self.controller.move_left_manipulator(configuration)
+
+    def set_right_manipulator(self, configuration: Configuration) -> None:
+        '''
+        a method to move the right manipulator
+
+        Parameters
+        ----------
+        configuration : ~.entities.Configuration
+            the configuration of the right manipulator
+        '''
+        self.controller.move_right_manipulator(configuration)
+
     def step(self, left_configuration: Configuration, right_configuration: Configuration) -> AdamInfo:
         '''
         a step forward on the dynamics of the simulation
@@ -129,7 +168,9 @@ class Simulation:
         out : ~.entities.AdamInfo
             the simulation data
         '''
-        self.controller.set_configuration(left_configuration, right_configuration)
+        # TMP
+        self.controller.set_left_configuration(left_configuration)
+        self.controller.set_right_configuration(right_configuration)
         self.controller.step()
 
         return self.data_manager.get(self.controller.data)
@@ -156,6 +197,7 @@ class Simulation:
             self.left_control_mode = True
             self.right_control_mode = True
 
+        # TODO: change to data manager
         left_configuration: Configuration = self.controller.get_left_configuration()
         right_configuration: Configuration = self.controller.get_right_configuration()
 

@@ -1,6 +1,6 @@
 import mujoco
 
-from ..entities import Configuration
+from ....entities import Configuration
 
 
 class Controller:
@@ -10,10 +10,19 @@ class Controller:
 
         mujoco.mj_resetDataKeyframe(self.model, self.data, 0)  # type: ignore
 
-    def set_configuration(self, left_configuration: Configuration, right_configuration: Configuration) -> None:
-        self.data.qpos[:] = (*left_configuration, *right_configuration)
+    def set_left_configuration(self, configuration: Configuration) -> None:
+        self.data.qpos[:6] = configuration
 
-    def set_velocity(self, velocity) -> None:
+    def set_right_configuration(self, configuration: Configuration) -> None:
+        self.data.qpos[6:] = configuration
+
+    def set_left_velocity(self, velocity: tuple[float, float, float]) -> None:
+        raise NotImplementedError()
+
+    def set_right_velocity(self, velocity: tuple[float, float, float]) -> None:
+        raise NotImplementedError()
+
+    def set_base_valocity(self, velocity: tuple[float, float, float]) -> None:
         raise NotImplementedError()
 
     def step(self) -> None:

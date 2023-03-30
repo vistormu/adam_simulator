@@ -1,8 +1,7 @@
 from typing import NamedTuple
 
 from .collision import Collision
-from ....core.entities.configuration import Configuration
-from .system import System
+from ....entities import Configuration, System
 
 
 class ManipulatorData(NamedTuple):

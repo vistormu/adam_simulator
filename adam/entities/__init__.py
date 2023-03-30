@@ -1,3 +1,5 @@
-from ..core.entities import Configuration
-from ..features.simulation.entities import AdamInfo, Collision, ManipulatorData
-from ..features.map_maker.entities import Body, Box, Capsule, Cube, Cylinder, Sphere
+from .configuration import Configuration
+from .point import Point
+from .vector import Vector
+from .system import System
+from ..features.simulation.entities import AdamInfo, Collision, ManipulatorData, BaseData

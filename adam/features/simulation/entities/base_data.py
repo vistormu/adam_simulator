@@ -1,7 +1,6 @@
 from dataclasses import dataclass
 
-from .point import Point
-from .vector import Vector
+from ....entities import Point, Vector
 
 
 @dataclass
