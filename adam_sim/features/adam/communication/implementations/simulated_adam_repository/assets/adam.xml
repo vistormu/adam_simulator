@@ -1,40 +1,21 @@
 <mujoco model="adam">    
     <default>
-        <joint axis="0 1 0" range="-6.28319 6.28319" />
-        <position ctrlrange="-6.2831 6.2831" />
-
         <!-- Reference: https://www.universal-robots.com/articles/ur/robot-care-maintenance/max-joint-torques/ -->
         <default class="size_0">
             <joint armature="0.1" damping="15" />
             <position kp="3000" forcerange="-12 12" />
-            <default class="size_0_limited">
-                <joint range="-3.1415 3.1415" />
-                <position ctrlrange="-3.1415 3.1415" />
-            </default>
         </default>
         <default class="size_1">
             <joint armature="0.1" damping="15" />
             <position kp="3000" forcerange="-28 28" />
-            <default class="size_1_limited">
-                <joint range="-3.1415 3.1415" />
-                <position ctrlrange="-3.1415 3.1415" />
-            </default>
         </default>
         <default class="size_2">
             <joint armature="0.1" damping="15" />
             <position kp="3000" forcerange="-56 56" />
-            <default class="size_2_limited">
-                <joint range="-3.1415 3.1415" />
-                <position ctrlrange="-3.1415 3.1415" />
-            </default>
         </default>
         <default class="size_3">
             <joint armature="0.1" damping="200" />
             <position kp="3500" forcerange="-150 150" />
-            <default class="size_3_limited">
-                <joint range="-3.1415 3.1415" />
-                <position ctrlrange="-3.1415 3.1415" />
-            </default>
         </default>
         <default class="size_4">
             <joint armature="0.1" damping="15" />
@@ -46,7 +27,6 @@
         <texture file="metal.png" name="metal" type="2d"/>
 
         <material name="light_gray" texture="metal" reflectance="0.2" texrepeat="5 5"  texuniform="true"/>
-
         <material name="black" rgba="0.1 0.1 0.1 1"/>
         <material name="dark_gray" rgba="0.278 0.278 0.278 1" />
         <material name="blue" rgba="0.49 0.678 0.8 1" />
@@ -105,7 +85,7 @@
                 <!-- SHOULDER -->
                 <body name="shoulder_link_left" pos="0 0 0.1519">
                     <inertial mass="2.0" pos="0 0 0" diaginertia="0.00809316 0.00809316 0.005625" />
-                    <joint name="shoulder_pan_joint_left" class="size_2" axis="0 0 1" />
+                    <joint name="shoulder_pan_joint_left" class="size_2" axis="0 0 1" range="-6.28319 6.28319"/>
                     <geom type="mesh" mesh="shoulder_rubber" material="black" quat="0.7071 0.7071 0 0" pos="0 0 -0.0675"/>
                     <geom type="mesh" mesh="shoulder_body" material="dark_gray" quat="0 1 0 0" pos="0 0.0675 -0.002"/>
                     <geom type="mesh" mesh="shoulder_cap" material="blue" quat="0 1 0 0" pos="0 0.0675 -0.002"/>
@@ -114,7 +94,7 @@
                     <!-- UPPERARM -->
                     <body name="upper_arm_link_left" pos="0 0.1198 0" quat="1 0 1 0">
                         <inertial mass="3.42" pos="0 0 0.121825" diaginertia="0.0217285 0.0217285 0.00961875" />
-                        <joint name="shoulder_lift_joint_left" class="size_2"/>
+                        <joint name="shoulder_lift_joint_left" class="size_2" axis="0 1 0" range="-6.28319 6.28319"/>
                         <geom type="mesh" mesh="upperarm_rubber" material="black" pos="0.002 -0.066 0"/>
                         <geom type="mesh" mesh="upperarm_body" material="dark_gray" pos="0.002 -0.066 0"/>
                         <geom type="mesh" mesh="upperarm_cap" material="blue" pos="0.002 -0.066 0"/>
@@ -129,7 +109,7 @@
                         <!-- FOREARM -->
                         <body name="forearm_link_left" pos="0 -0.0925 0.24365">
                             <inertial mass="1.26" pos="0 0 0.106625" diaginertia="0.00654681 0.00654681 0.00354375" />
-                            <joint name="elbow_joint_left" class="size_1_limited" />
+                            <joint name="elbow_joint_left" class="size_1" axis="0 1 0" range="-3.1415 3.1415"/>
                             <geom type="mesh" mesh="forearm_body_2" material="dark_gray" quat="0.5 0.5 -0.5 -0.5" pos="0.002 0.001 0"/>
                             <geom type="mesh" mesh="forearm_rubber_2" material="black" pos="0.002 0.001 -0.014"/>
                             <geom type="mesh" mesh="forearm_link_body" material="light_gray" pos="0.002 0.001 0.1125"/>
@@ -140,7 +120,7 @@
                             <!-- WRIST 1 -->
                             <body name="wrist_1_link_left" pos="0 0 0.21325" quat="1 0 1 0">
                                 <inertial mass="0.8" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.00225 0.002085 0.002085" />
-                                <joint name="wrist_1_joint_left" class="size_0" />
+                                <joint name="wrist_1_joint_left" class="size_0" axis="0 1 0" range="-6.28319 6.28319"/>
                                 <geom type="mesh" mesh="wrist_2_rubber" material="black" quat="0.7071 0 0 0.7071" pos="0.0015 0.0087 -0.0005"/>
                                 <geom type="mesh" mesh="wrist_2_body" material="dark_gray" quat="0.5 -0.5 0.5 -0.5" pos="0.0015 0.084 -0.0005"/>
                                 <geom type="mesh" mesh="wrist_2_cap" material="blue" quat="0.5 -0.5 -0.5 0.5" pos="0.0015 0.084 -0.007"/>
@@ -148,7 +128,7 @@
                                 <!-- WRIST 2 -->
                                 <body name="wrist_2_link_left" pos="0 0.08505 0">
                                     <inertial mass="0.8" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.00225 0.002085 0.002085" />
-                                    <joint name="wrist_2_joint_left" class="size_0" axis="0 0 1"/>
+                                    <joint name="wrist_2_joint_left" class="size_0" axis="0 0 1" range="-6.28319 6.28319"/>
                                     <geom type="mesh" mesh="wrist_3_rubber" material="black" quat="0.7071 0 0.7071 0" pos="0.001 -0.001 0.083"/>
                                     <geom type="mesh" mesh="wrist_3_body" material="dark_gray" quat="0 0.7071 0 -0.7071" pos="0.001 -0.001 0.083"/>
                                     <geom type="mesh" mesh="wrist_3_cap" material="blue" quat="0 0.7071 0 0.7071" pos="0.001 -0.008 0.083"/>
@@ -156,7 +136,7 @@
                                     <!-- WRIST 3 -->
                                     <body name="wrist_3_link_left" pos="0 0 0.08535">
                                         <inertial mass="0.35" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.000984375 0.000912187 0.000912187" />
-                                        <joint name="wrist_3_joint_left" class="size_0" />
+                                        <joint name="wrist_3_joint_left" class="size_0" axis="0 1 0" range="-6.28319 6.28319"/>
                                         <geom type="mesh" mesh="end_effector_rubber" material="black" quat="0.7071 0.7071 0 0" pos="0.001 0.04 -0.0025"/>
                                         <geom type="mesh" mesh="end_effector_body" material="light_gray" quat="0.7071 0.7071 0 0" pos="0.001 0.04 -0.0025"/>
 
@@ -178,7 +158,7 @@
                 <!-- SHOULDER -->
                 <body name="shoulder_link_right" pos="0 0 0.1519">
                     <inertial mass="2.0" pos="0 0 0" diaginertia="0.00809316 0.00809316 0.005625" />
-                    <joint name="shoulder_pan_joint_right" class="size_2" axis="0 0 1" />
+                    <joint name="shoulder_pan_joint_right" class="size_2" axis="0 0 1" range="-6.28319 6.28319"/>
                     <geom type="mesh" mesh="shoulder_rubber" material="black" quat="0.7071 0.7071 0 0" pos="0 0 -0.0675"/>
                     <geom type="mesh" mesh="shoulder_body" material="dark_gray" quat="0 1 0 0" pos="0 0.0675 -0.002"/>
                     <geom type="mesh" mesh="shoulder_cap" material="blue" quat="0 1 0 0" pos="0 0.0675 -0.002"/>
@@ -187,7 +167,7 @@
                     <!-- UPPERARM -->
                     <body name="upper_arm_link_right" pos="0 0.1198 0" quat="1 0 1 0">
                         <inertial mass="3.42" pos="0 0 0.121825" diaginertia="0.0217285 0.0217285 0.00961875" />
-                        <joint name="shoulder_lift_joint_right" class="size_2"/>
+                        <joint name="shoulder_lift_joint_right" class="size_2" axis="0 1 0" range="-6.28319 6.28319"/>
                         <geom type="mesh" mesh="upperarm_rubber" material="black" pos="0.002 -0.066 0"/>
                         <geom type="mesh" mesh="upperarm_body" material="dark_gray" pos="0.002 -0.066 0"/>
                         <geom type="mesh" mesh="upperarm_cap" material="blue" pos="0.002 -0.066 0"/>
@@ -202,7 +182,7 @@
                         <!-- FOREARM -->
                         <body name="forearm_link_right" pos="0 -0.0925 0.24365">
                             <inertial mass="1.26" pos="0 0 0.106625" diaginertia="0.00654681 0.00654681 0.00354375" />
-                            <joint name="elbow_joint_right" class="size_1_limited" />
+                            <joint name="elbow_joint_right" class="size_1" axis="0 1 0" range="-3.1415 3.1415"/>
                             <geom type="mesh" mesh="forearm_body_2" material="dark_gray" quat="0.5 0.5 -0.5 -0.5" pos="0.002 0.001 0"/>
                             <geom type="mesh" mesh="forearm_rubber_2" material="black" pos="0.002 0.001 -0.014"/>
                             <geom type="mesh" mesh="forearm_link_body" material="light_gray" pos="0.002 0.001 0.1125"/>
@@ -213,7 +193,7 @@
                             <!-- WRIST 1 -->
                             <body name="wrist_1_link_right" pos="0 0 0.21325" quat="1 0 1 0">
                                 <inertial mass="0.8" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.00225 0.002085 0.002085" />
-                                <joint name="wrist_1_joint_right" class="size_0" />
+                                <joint name="wrist_1_joint_right" class="size_0" axis="0 1 0" range="-6.28319 6.28319"/>
                                 <geom type="mesh" mesh="wrist_2_rubber" material="black" quat="0.7071 0 0 0.7071" pos="0.0015 0.0087 -0.0005"/>
                                 <geom type="mesh" mesh="wrist_2_body" material="dark_gray" quat="0.5 -0.5 0.5 -0.5" pos="0.0015 0.084 -0.0005"/>
                                 <geom type="mesh" mesh="wrist_2_cap" material="blue" quat="0.5 -0.5 -0.5 0.5" pos="0.0015 0.084 -0.007"/>
@@ -221,7 +201,7 @@
                                 <!-- WRIST 2 -->
                                 <body name="wrist_2_link_right" pos="0 0.08505 0">
                                     <inertial mass="0.8" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.00225 0.002085 0.002085" />
-                                    <joint name="wrist_2_joint_right" class="size_0" axis="0 0 1"/>
+                                    <joint name="wrist_2_joint_right" class="size_0" axis="0 0 1" range="-6.28319 6.28319"/>
                                     <geom type="mesh" mesh="wrist_3_rubber" material="black" quat="0.7071 0 0.7071 0" pos="0.001 -0.001 0.083"/>
                                     <geom type="mesh" mesh="wrist_3_body" material="dark_gray" quat="0 0.7071 0 -0.7071" pos="0.001 -0.001 0.083"/>
                                     <geom type="mesh" mesh="wrist_3_cap" material="blue" quat="0 0.7071 0 0.7071" pos="0.001 -0.008 0.083"/>
@@ -229,7 +209,7 @@
                                     <!-- WRIST 3 -->
                                     <body name="wrist_3_link_right" pos="0 0 0.08535">
                                         <inertial mass="0.35" pos="0 0 0" quat="0.5 0.5 -0.5 0.5" diaginertia="0.000984375 0.000912187 0.000912187" />
-                                        <joint name="wrist_3_joint_right" class="size_0" />
+                                        <joint name="wrist_3_joint_right" class="size_0" axis="0 1 0" range="-6.28319 6.28319"/>
                                         <geom type="mesh" mesh="end_effector_rubber" material="black" quat="0.7071 0.7071 0 0" pos="0.001 0.04 -0.0025"/>
                                         <geom type="mesh" mesh="end_effector_body" material="light_gray" quat="0.7071 0.7071 0 0" pos="0.001 0.04 -0.0025"/>
                                     </body>
@@ -243,22 +223,18 @@
     </worldbody>
 
     <actuator>
-        <position class="size_2" name="shoulder_pan_left" joint="shoulder_pan_joint_left" />
-        <position class="size_2" name="shoulder_lift_left" joint="shoulder_lift_joint_left" />
-        <position class="size_1_limited" name="elbow_left" joint="elbow_joint_left" />
-        <position class="size_0" name="wrist_1_left" joint="wrist_1_joint_left" />
-        <position class="size_0" name="wrist_2_left" joint="wrist_2_joint_left" />
-        <position class="size_0" name="wrist_3_left" joint="wrist_3_joint_left" />
-        <position class="size_2" name="shoulder_pan_right" joint="shoulder_pan_joint_right" />
-        <position class="size_2" name="shoulder_lift_right" joint="shoulder_lift_joint_right" />
-        <position class="size_1_limited" name="elbow_right" joint="elbow_joint_right" />
-        <position class="size_0" name="wrist_1_right" joint="wrist_1_joint_right" />
-        <position class="size_0" name="wrist_2_right" joint="wrist_2_joint_right" />
-        <position class="size_0" name="wrist_3_right" joint="wrist_3_joint_right" />
+        <position name="shoulder_pan_left" joint="shoulder_pan_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="shoulder_lift_left" joint="shoulder_lift_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="elbow_left" joint="elbow_joint_left" ctrlrange="-3.1415 3.1415"/>
+        <position name="wrist_1_left" joint="wrist_1_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_2_left" joint="wrist_2_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_3_left" joint="wrist_3_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="shoulder_pan_right" joint="shoulder_pan_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="shoulder_lift_right" joint="shoulder_lift_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="elbow_right" joint="elbow_joint_right" ctrlrange="-3.1415 3.1415"/>
+        <position name="wrist_1_right" joint="wrist_1_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_2_right" joint="wrist_2_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_3_right" joint="wrist_3_joint_right" ctrlrange="-6.2831 6.2831"/>
     </actuator>
-
-    <keyframe>
-        <key name="home" qpos="1.5708 0.58905 -0.098 -1.5708 3.1415 0 -1.5708 2.4435 0.0 -1.5708 3.1415 0.0" ctrl="1.5708 0.58905 -0.098 -1.5708 3.1415 0 -1.5708 2.4435 0.0 -1.5708 3.1415 0.0" />
-    </keyframe>
 
 </mujoco>

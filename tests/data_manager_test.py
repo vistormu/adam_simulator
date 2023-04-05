@@ -3,17 +3,22 @@ from adam_sim.entities import Configuration, AdamInfo, Point
 
 
 def main():
-    adam: Adam = Adam('simulated')
+    adam: Adam = Adam()
     initial_info: AdamInfo = adam.load()
 
-    configuration_list: list[Configuration] = DataManager.load_configurations('tests/data/limits.csv')
+    configuration_list: list[Configuration] = DataManager.load_configurations('test')
+
+    end_effector_positions: list[Point] = [initial_info.left_manipulator.systems[-1].position]
 
     for configuration in configuration_list:
         adam.render()
 
         adam.left_manipulator.set_to(configuration)
-
         info: AdamInfo = adam.step()
+
+        end_effector_positions.append(info.left_manipulator.systems[-1].position)
+
+    DataManager.save_end_effector_positions('tests/data/end_effector_positions_test.csv', end_effector_positions)
 
     end_effector_positions: list[Point] = DataManager.load_end_effector_positions('tests/data/end_effector_positions_test.csv')
 

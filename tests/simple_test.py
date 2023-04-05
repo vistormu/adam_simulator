@@ -5,7 +5,7 @@ from adam_sim.entities import Configuration, AdamInfo
 def main():
     adam: Adam = Adam()
 
-    initial_info: AdamInfo = adam.load()
+    initial_info: AdamInfo = adam.load('tests/assets/scene.xml')
 
     left_configuration: Configuration = initial_info.left_manipulator.configuration
     right_configuration: Configuration = initial_info.right_manipulator.configuration

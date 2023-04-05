@@ -1,6 +1,7 @@
 <mujoco model="adam scene">
     <compiler angle="radian" meshdir="meshes" texturedir="textures" autolimits="true"/>
     <statistic center="0.3 0 0.4" extent="0.8"/>
+    <option timestep="0.017"/>
 
     <include file="adam.xml"/>
 
@@ -18,9 +19,8 @@
     </asset>
 
     <worldbody>
-        <light pos="1.0 1.0 5.0" dir="0 0 -1" directional="true"/>
+        <light pos="2.0 2.0 3.0" dir="0 0 -1" directional="true"/>
         <geom name="floor" size="0 0 0.05" type="plane" material="groundplane"/>
     </worldbody>
 
 </mujoco>
-  

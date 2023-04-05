@@ -10,7 +10,7 @@ mu: list[int] = [-1, 1, -1, -1, 1, -1, 0]
 base_to: int = 3
 
 MAX_ITERATIONS: int = 20
-TOLERANCE: float = 0.01
+TOLERANCE: float = 0.005
 
 
 class Farm:

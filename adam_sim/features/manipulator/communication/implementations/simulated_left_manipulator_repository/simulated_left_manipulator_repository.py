@@ -10,8 +10,12 @@ class SimulatedLeftManipulatorRepository(ManipulatorRepository):
     def init(self, data) -> None:
         self.data = data
 
+        initial_configuration: Configuration = Configuration(1.5708, 0.58905, -0.098, -1.5708, 3.1415, 0.0)
+        self.data.qpos[0:6] = initial_configuration
+        self.data.ctrl[0:6] = initial_configuration
+
     def set_configuration(self, configuration: Configuration) -> None:
-        self.data.qpos[:6] = configuration
+        self.data.qpos[0:6] = configuration
 
     def get_configuration(self) -> Configuration:
         return Configuration(*self.data.qpos[0:6])

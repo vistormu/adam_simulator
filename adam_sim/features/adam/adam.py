@@ -1,9 +1,11 @@
 import pkg_resources
+import numpy as np
 
 from distutils.dir_util import copy_tree
 
 from ..base import Base
 from ..manipulator import Manipulator
+from ...entities import Configuration
 from .entities import AdamInfo
 from .use_cases import Viewer
 from .communication import get_adam_repository
@@ -130,6 +132,31 @@ class Adam:
         self.left_manipulator._control_visualizer.close()
         self.right_manipulator._control_visualizer.close()
         self._viewer.close()
+
+    def check_collisions(self, left_configurations: list[Configuration], right_configurations: list[Configuration]) -> tuple[np.ndarray, np.ndarray]:
+        '''
+        checks wether there are self collisions or environment collisions
+
+        Returns
+        -------
+        out : tuple[np.ndarray, np.ndarray]
+            the first element is an array of the environment collisions and the second element is an array of the self collisions
+        '''
+        env_collisions: np.ndarray = np.zeros(len(left_configurations)).astype(bool)
+        self_collisions: np.ndarray = np.zeros(len(left_configurations)).astype(bool)
+        for i, (left_configuration, right_configuration) in enumerate(zip(left_configurations, right_configurations)):
+            self.left_manipulator.set_to(left_configuration)
+            self.right_manipulator.set_to(right_configuration)
+
+            info: AdamInfo = self.step()
+
+            if info.left_manipulator.collision.env_collision or info.right_manipulator.collision.env_collision:
+                env_collisions[i] = True
+
+            if info.left_manipulator.collision.self_collision or info.right_manipulator.collision.self_collision:
+                self_collisions[i] = True
+
+        return (env_collisions, self_collisions)
 
     @staticmethod
     def export_scene(destination: str) -> None:

@@ -38,7 +38,7 @@ def main():
     adam.close()
 
     # Standalone function
-    self_collisions, env_collisions = adam.check_collisions(configuration_list, [initial_info.right_manipulator.configuration]*len(configuration_list))
+    env_collisions, self_collisions = adam.check_collisions(configuration_list, [initial_info.right_manipulator.configuration]*len(configuration_list))
 
     Logger.debug(np.sum(self_collisions) - self_collision_counter)
     Logger.debug(np.sum(env_collisions) - env_collision_counter)

@@ -39,7 +39,7 @@ class DataManager:
             a list of configurations
         '''
         if filename == 'test':
-            filename = pkg_resources.resource_filename('adam', 'features/data_manager/data/configurations_test.csv')
+            filename = pkg_resources.resource_filename('adam_sim', 'features/data_manager/data/configurations_test.csv')
 
         data_frame: pd.DataFrame = pd.read_csv(filename)
 
