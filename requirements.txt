@@ -2,6 +2,5 @@ numpy
 pyyaml
 mujoco
 mujoco-python-viewer
-autopep8
 pandas
 matplotlib

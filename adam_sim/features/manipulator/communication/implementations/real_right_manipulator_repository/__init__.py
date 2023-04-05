@@ -1,0 +1,1 @@
+from .real_right_manipulator_repository import RealRightManipulatorRepository

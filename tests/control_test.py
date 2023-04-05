@@ -1,18 +1,19 @@
-from adam import Simulation
-from adam.entities import AdamInfo
-
+from adam_sim import Adam
+from adam_sim.entities import AdamInfo
 from vclog import Logger
 
 
 def main():
-    sim: Simulation = Simulation()
-    initial_info: AdamInfo = sim.load_scene()
+    adam: Adam = Adam()
+    initial_info: AdamInfo = adam.load()
 
     while True:
-        sim.render(hide_menu=True)
-        info: AdamInfo = sim.control('left')
+        adam.render()
+        adam.left_manipulator.control()
+        adam.right_manipulator.control()
+        info: AdamInfo = adam.step()
 
-        Logger.debug(info.left_manipulator.collision.upper_arm, info.left_manipulator.collision.forearm, flush=True)
+        Logger.warning(info.left_manipulator.collision.vector, ' ', info.left_manipulator.collision.collided, flush=True)
 
 
 if __name__ == '__main__':

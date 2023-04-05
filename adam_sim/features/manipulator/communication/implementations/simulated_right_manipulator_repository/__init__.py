@@ -1,0 +1,1 @@
+from .simulated_right_manipulator_repository import SimulatedRightManipulatorRepository

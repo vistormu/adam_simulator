@@ -1,0 +1,1 @@
+from .adam_repository_factory import get_adam_repository

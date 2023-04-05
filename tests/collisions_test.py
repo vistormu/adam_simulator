@@ -1,23 +1,28 @@
 import numpy as np
 
 from vclog import Logger
-from adam import Simulation
-from adam.entities import AdamInfo, Configuration
+from adam_sim import Adam
+from adam_sim.entities import AdamInfo, Configuration
 
 
 def main():
-    # Simulate
-    sim: Simulation = Simulation()
-    initial_info: AdamInfo = sim.load_scene('tests/assets/scene.xml')
+    adam: Adam = Adam()
+    initial_info: AdamInfo = adam.load('tests/assets/scene.xml')
 
     configuration: Configuration = initial_info.left_manipulator.configuration
     configuration_list: list[Configuration] = [configuration]
 
     self_collision_counter: int = 0
     env_collision_counter: int = 0
-    for _ in range(500):
-        sim.render(fps=120, hide_menu=True)
-        info: AdamInfo = sim.step(configuration, initial_info.right_manipulator.configuration)
+
+    input('press enter to start')
+    for _ in range(1000):
+        adam.render()
+
+        adam.left_manipulator.set_to(configuration)
+        adam.right_manipulator.set_to(initial_info.right_manipulator.configuration)
+
+        info: AdamInfo = adam.step()
 
         if info.left_manipulator.collision.self_collision:
             self_collision_counter += 1
@@ -27,21 +32,18 @@ def main():
             env_collision_counter += 1
             Logger.error(f'env collision: {env_collision_counter}', flush=True)
 
-        configuration += Configuration(0.0, 0.01, 0.0, 0.0, 0.0, 0.0)
+        configuration += Configuration(0.0, 0.005, 0.0, 0.0, 0.0, 0.0)
         configuration_list.append(configuration)
 
-    sim.close()
+    adam.close()
 
     # Standalone function
-    sim: Simulation = Simulation()
-    initial_info: AdamInfo = sim.load_scene('tests/assets/scene.xml')
-
-    self_collisions, env_collisions = sim.check_collisions(configuration_list, [initial_info.right_manipulator.configuration]*len(configuration_list))
+    self_collisions, env_collisions = adam.check_collisions(configuration_list, [initial_info.right_manipulator.configuration]*len(configuration_list))
 
     Logger.debug(np.sum(self_collisions) - self_collision_counter)
     Logger.debug(np.sum(env_collisions) - env_collision_counter)
 
-    sim.close()
+    adam.close()
 
 
 if __name__ == '__main__':
