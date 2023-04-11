@@ -1,6 +1,9 @@
 from adam_sim import Adam, DataManager
 from adam_sim.entities import Configuration, AdamInfo, Point
 
+import time
+from vclog import Logger
+
 
 def main():
     adam: Adam = Adam()
@@ -25,9 +28,13 @@ def main():
     for point in end_effector_positions:
         adam.render()
 
+        before: float = time.time()
         adam.left_manipulator.move_to(point)
+        after: float = time.time()
 
         info: AdamInfo = adam.step()
+
+        Logger.info(f'Elapsed time: {(after - before)*1000:.2f} ms', flush=True)
 
     adam.close()
 

@@ -5,12 +5,10 @@ from ....entities import System, Point, Vector, Configuration
 a: list[float] = [-1.0, 0.0, 0.24365, 0.21325, 0.0, 0.0, 0.0]
 d: list[float] = [-1.0, 0.1519, 0.0, 0.0, 0.11235, 0.08535, 0.0819]
 alpha: list[float] = [-1.0, -np.pi/2, 0.0, 0.0, -np.pi/2, np.pi/2, 0.0]
-phi: list[int] = [-1, 1, 0, 0, 1, 1, 1]
-mu: list[int] = [-1, 1, -1, -1, 1, -1, 0]
 base_to: int = 3
 
 MAX_ITERATIONS: int = 20
-TOLERANCE: float = 0.005
+TOLERANCE: float = 0.0005
 
 
 class Farm:
@@ -32,12 +30,13 @@ class Farm:
             target = System(target.position, forward_systems[-1].x_axis, forward_systems[-1].y_axis, forward_systems[-1].z_axis)
             distance: float = np.linalg.norm(target.position-systems[-1].position).astype(float)
 
-            # if new_configuration[2] > 0.0:
-            #     new_configuration[1] = new_configuration[1] + new_configuration[2]
-            #     new_configuration[2] = -new_configuration[2]
-
-            # if iteration == MAX_ITERATIONS:
-            #     new_configuration = None
+            # if new_configuration.q3 > 0.0:
+            #     new_configuration = Configuration(new_configuration.q1,
+            #                                       new_configuration.q2 + new_configuration.q3,
+            #                                       -new_configuration.q3,
+            #                                       new_configuration.q4,
+            #                                       new_configuration.q5,
+            #                                       new_configuration.q6)
 
         return new_configuration
 
@@ -58,15 +57,16 @@ class Farm:
             new_z[i] = new_y[i+1]*np.sin(alpha[i+1]) + new_z[i+1]*np.cos(alpha[i+1])
             new_p[i] = new_p[i+1] - Point(*new_x[i+1])*a[i+1] - Point(*new_y[i+1])*d[i+1]*np.sin(alpha[i+1]) - Point(*new_z[i+1])*d[i+1]*np.cos(alpha[i+1])
 
-            j: int = i-2 if a[i]+d[i] == 0 else i-1
+            lamb: int = np.sign(np.abs(a[i]+d[i])).astype(int)
 
+            j: int = i + lamb - 2
             v: np.ndarray = np.array(p[j] - new_p[i]) - np.dot(p[j] - new_p[i], new_z[i])*np.array(new_z[i])
 
-            if a[i]+d[i] == 0:
-                mu[i] = np.sign(np.dot(v, x[i]))
+            mu = lamb*np.sign(-a[i]-d[i]*np.sin(alpha[i])) + (1-lamb)*np.sign(np.dot(v, x[i]))
+            phi: int = np.abs(np.sign(d[i])).astype(int)
 
-            new_x[i] = Vector(*((1-phi[i])*mu[i]*v + phi[i]*mu[i]*np.cross(v, new_z[i]))).normalize()
-            new_y[i] = Vector(*((1-phi[i])*mu[i]*np.cross(new_z[i], v) + phi[i]*mu[i]*v)).normalize()
+            new_x[i] = Vector(*((1-phi)*mu*v + phi*mu*np.cross(v, new_z[i]))).normalize()
+            new_y[i] = Vector(*((1-phi)*mu*np.cross(new_z[i], v) + phi*mu*v)).normalize()
 
         return [System(p_i, x_i, y_i, z_i) for (p_i, x_i, y_i, z_i) in zip(new_p, new_x, new_y, new_z)]
 
