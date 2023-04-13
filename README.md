@@ -1,4 +1,10 @@
-# ADAM simulator
+# ADAM Simulator
+
+<p align="center">
+    <a href="https://github.com/vistormu/adam_simulator">
+        <img src="https://raw.githubusercontent.com/vistormu/adam_simulator/master/docs/assets/adam.png">
+    </a>
+</p>
 
 [![pypi version](https://img.shields.io/pypi/v/adam-sim?logo=pypi)](https://pypi.org/project/adam-sim/)
 [![MIT License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat)](http://choosealicense.com/licenses/mit/)
