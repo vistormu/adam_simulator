@@ -4,3 +4,4 @@ mujoco
 mujoco-python-viewer
 pandas
 matplotlib
+paho-mqtt

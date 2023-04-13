@@ -1,7 +1,7 @@
 import numpy as np
 
 from ....repository import ManipulatorRepository
-from ......entities import Configuration, Point, Vector, System
+from ......entities import Configuration, Point, System, Velocity, Acceleration
 from ....entities import Collision, ManipulatorInfo
 from .use_cases import CollisionChecker
 
@@ -10,7 +10,7 @@ class SimulatedRightManipulatorRepository(ManipulatorRepository):
     def init(self, data) -> None:
         self.data = data
 
-        initial_configuration: Configuration = Configuration(-1.5708, 2.4435, 0.0, -1.5708, 3.1415, 0.0)
+        initial_configuration: Configuration = Configuration(-1.5708, 2.4435, 0.098, -1.5708, 3.1415, 0.0)
         self.data.qpos[6:12] = initial_configuration
         self.data.ctrl[6:12] = initial_configuration
 
@@ -20,11 +20,17 @@ class SimulatedRightManipulatorRepository(ManipulatorRepository):
     def get_configuration(self) -> Configuration:
         return Configuration(*self.data.qpos[6:12])
 
-    def set_velocity(self, velocity: Vector) -> None:
-        return super().set_velocity(velocity)
+    def set_velocity(self, velocity: Velocity) -> None:
+        self.data.qvel[6:12] = velocity
 
-    def get_velocity(self) -> Vector:
-        return super().get_velocity()
+    def get_velocity(self) -> Velocity:
+        return Velocity(*self.data.qvel[6:12])
+
+    def set_acceleration(self, acceleration: Acceleration) -> None:
+        return super().set_acceleration(acceleration)
+
+    def get_acceleration(self) -> Acceleration:
+        return Acceleration(*self.data.qacc[6:12])
 
     def get_collisions(self) -> Collision:
         return CollisionChecker.get(self.data.contact.geom1, self.data.contact.geom2)
@@ -51,5 +57,12 @@ class SimulatedRightManipulatorRepository(ManipulatorRepository):
         collisions: Collision = self.get_collisions()
         configuration: Configuration = self.get_configuration()
         systems: list[System] = self.get_systems()
+        velocity: Velocity = self.get_velocity()
+        acceleration: Acceleration = self.get_acceleration()
 
-        return ManipulatorInfo(collisions, configuration, systems, 0.0)
+        return ManipulatorInfo(systems=systems,
+                               end_effector=systems[-1],
+                               configuration=configuration,
+                               velocity=velocity,
+                               acceleration=acceleration,
+                               collision=collisions)

@@ -1,0 +1,25 @@
+<mujoco>
+    <default>
+        <!-- Reference: https://www.universal-robots.com/articles/ur/robot-care-maintenance/max-joint-torques/ -->
+        <default class="size_0">
+            <joint armature="0.1" damping="15" />
+            <position kp="3000" forcerange="-12 12" />
+        </default>
+        <default class="size_1">
+            <joint armature="0.1" damping="15" />
+            <position kp="3000" forcerange="-28 28" />
+        </default>
+        <default class="size_2">
+            <joint armature="0.1" damping="15" />
+            <position kp="3000" forcerange="-56 56" />
+        </default>
+        <default class="size_3">
+            <joint armature="0.1" damping="200" />
+            <position kp="3500" forcerange="-150 150" />
+        </default>
+        <default class="size_4">
+            <joint armature="0.1" damping="15" />
+            <position kp="3000" forcerange="-330 330" />
+        </default>
+    </default>
+</mujoco>

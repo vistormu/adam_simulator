@@ -1,5 +1,5 @@
 from ....repository import BaseRepository
-from ......entities import Point
+from ......entities import Point, System, Vector
 from ....entities import BaseInfo
 
 
@@ -11,4 +11,6 @@ class RealBaseRepository(BaseRepository):
         return super().get_position()
 
     def get_info(self) -> BaseInfo:
-        return super().get_info()
+        return BaseInfo(position=Point(0.0, 0.0, 0.0),
+                        system=System(Point(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0)),
+                        velocity = Vector(0.0, 0.0, 0.0))

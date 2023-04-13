@@ -17,7 +17,7 @@ class Farm:
         new_configuration: Configuration | None = None
 
         distance: float = np.linalg.norm(target.position-systems[-1].position).astype(float)
-        for iteration in range(1, MAX_ITERATIONS+1):
+        for _ in range(1, MAX_ITERATIONS+1):
             # Termination condition
             if distance <= TOLERANCE:
                 break

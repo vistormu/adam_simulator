@@ -1,0 +1,20 @@
+<mujoco model="adam">    
+    <include file="adam/defaults.xml"/>
+    <include file="adam/assets.xml"/>
+
+    <worldbody>
+        <body name="body" pos="0 0 0.027">
+            <inertial mass="10.0" pos="0 0 0"/>
+            <geom type="mesh" mesh="body_1" material="light_gray" quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_2" material="light_gray"  quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_3" material="light_gray"  quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+            <geom type="mesh" mesh="body_4" material="black"  quat="0.7071 0 0 0.7071" pos="0 0 -0.027"/>
+
+            <include file="adam/left_manipulator.xml"/>
+            <include file="adam/right_manipulator.xml"/>    
+        </body>
+    </worldbody>
+
+    <include file="adam/actuators.xml"/>
+
+</mujoco>

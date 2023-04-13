@@ -5,7 +5,7 @@ from typing import NamedTuple
 
 class Configuration(NamedTuple):
     '''
-    the Configuration class is a NamedTuple that contains the values of the joint angles
+    the Configuration class is a NamedTuple that contains the values of the joint angles. Unit: rad
 
     Attributes
     ----------
@@ -115,5 +115,10 @@ class Configuration(NamedTuple):
     def to_numpy(self) -> np.ndarray:
         '''
         converts the instance to a numpy array
+
+        Returns
+        -------
+        np.ndarray
+            the numpy array representation of the instance
         '''
         return np.array(self)

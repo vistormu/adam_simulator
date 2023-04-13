@@ -1,0 +1,16 @@
+<mujoco>
+    <actuator>
+        <position name="shoulder_pan_left" joint="shoulder_pan_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="shoulder_lift_left" joint="shoulder_lift_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="elbow_left" joint="elbow_joint_left" ctrlrange="-3.1415 3.1415"/>
+        <position name="wrist_1_left" joint="wrist_1_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_2_left" joint="wrist_2_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_3_left" joint="wrist_3_joint_left" ctrlrange="-6.2831 6.2831"/>
+        <position name="shoulder_pan_right" joint="shoulder_pan_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="shoulder_lift_right" joint="shoulder_lift_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="elbow_right" joint="elbow_joint_right" ctrlrange="-3.1415 3.1415"/>
+        <position name="wrist_1_right" joint="wrist_1_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_2_right" joint="wrist_2_joint_right" ctrlrange="-6.2831 6.2831"/>
+        <position name="wrist_3_right" joint="wrist_3_joint_right" ctrlrange="-6.2831 6.2831"/>
+    </actuator>
+</mujoco>

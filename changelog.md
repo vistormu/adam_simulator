@@ -4,10 +4,12 @@ The ADAM Simulator has seen a complete overhaul. Now instead of a simple simulat
 New features:
 - The base can now be moved!
 - The manipulators can be controlled with velocity now
-- The robot can now be controlled through Inverse Kinematics
+- The robotic manipulators can now be controlled through Inverse Kinematics
+- New entities: `Velocity`, which represents the angular velocity of a system; and `Acceleration`, which represents the angular acceleration of a system
+- Added a `connect` method to the `Adam` class to connect to the real robot
 
 API changes:
-- Now each actuator has its own controller. For that matter, most of the methods of the `Simulation` class have been deprecated. Check out the new API reference for more info.
+- Now each actuator has its own controller. For that matter, the `Simulation` class has been deprecated. Check out the new API reference for more info.
 - Changed the `ConfigurationsManager` class name to `DataManager`
 - Changed the `load_scene` method name to `load`
 - Changed the package name from `adam` to `adam_sim` to match the pip package name
@@ -18,13 +20,15 @@ Deprecations:
 - Deprecated the fps argument for the render method as it should always render in real-time
 
 General changes:
-- Implemented the velocity returning info for the manipulators and the base
+- Implemented the velocity and acceleration returning info for the manipulators and the base
 - The collisions of the manipulators are no longer cylinders but the .stl themselves
 - The menu is hidden by default
+- The `ManipulatorInfo` class now has a `end_effector` attribute
 
 Visual changes:
 - Added materials and textures to the robot
 - The environment now is prettier
+- The shoulder of the robot was upside down
 
 Improvements and fixes:
 - Now the collisions are checked much faster

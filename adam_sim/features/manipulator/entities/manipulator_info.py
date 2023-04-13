@@ -1,7 +1,7 @@
 from typing import NamedTuple
 
 from .collision import Collision
-from ....entities import Configuration, System
+from ....entities import Configuration, System, Velocity, Acceleration
 
 
 class ManipulatorInfo(NamedTuple):
@@ -10,19 +10,27 @@ class ManipulatorInfo(NamedTuple):
 
     Attributes
     ----------
-    collision : ~.entities.Collision
-        the collision data of the manipulator
+    systems : list[~.entities.System]
+        the list of systems of the manipulator
+
+    end_effector : ~.entities.System
+        the end effector of the manipulator
 
     configuration : ~.entities.Configuration
         the configuration data of the manipulator
 
-    systems : list[~.entities.System]
-        the list of systems of the manipulator
-
-    velocity : float
+    velocity : ~.entities.Velocity
         the velocity of the manipulator
+
+    acceleration : ~.entities.Acceleration
+        the acceleration of the manipulator
+
+    collision : ~.entities.Collision
+        the collision data of the manipulator
     '''
-    collision: Collision
-    configuration: Configuration
     systems: list[System]
-    velocity: float
+    end_effector: System
+    configuration: Configuration
+    velocity: Velocity
+    acceleration: Acceleration
+    collision: Collision

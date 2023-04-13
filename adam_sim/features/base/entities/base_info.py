@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 
-from ....entities import Point, Vector
+from ....entities import Point, Vector, System
 
 
 @dataclass
@@ -17,4 +17,5 @@ class BaseInfo:
         the velocity of the base of the robot
     '''
     position: Point
+    system: System
     velocity: Vector

@@ -3,15 +3,14 @@ from adam_sim.entities import Configuration, AdamInfo
 
 
 def main():
-    adam: Adam = Adam()
+    adam: Adam = Adam('real')
 
-    initial_info: AdamInfo = adam.load('tests/assets/scene.xml')
+    initial_info: AdamInfo = adam.connect('localhost', 1883, rate=30)
 
     left_configuration: Configuration = initial_info.left_manipulator.configuration
     right_configuration: Configuration = initial_info.right_manipulator.configuration
 
-    for _ in range(1000):
-        adam.render()
+    for _ in range(100):
 
         left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
         right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)

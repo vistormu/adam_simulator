@@ -65,6 +65,38 @@ class Adam:
         # Repository
         self._repository: AdamRepository = get_adam_repository(mode)
 
+        # Variables
+        self._mode: str = mode
+
+    def connect(self, host: str, port: int, rate: int = 30) -> AdamInfo:
+        '''
+        connects to a given host and port
+
+        Parameters
+        ----------
+        host : str
+            the host to connect to
+
+        port : int
+            the port to connect to
+        '''
+        if self._mode != 'real':
+            raise Exception('The connect method is only available in real mode')
+
+        self._repository.init(host, port, rate)
+
+        self.left_manipulator._repository.init()
+        self.right_manipulator._repository.init()
+        self.base._repository.init()
+
+        self.step()
+
+        left_manipulator_info = self.left_manipulator._repository.get_info()
+        right_manipulator_info = self.right_manipulator._repository.get_info()
+        base_info = self.base._repository.get_info()
+
+        return AdamInfo(left_manipulator_info, right_manipulator_info, base_info)
+
     def load(self, filename: str | None = None) -> AdamInfo:
         '''
         loads a given MuJoCo scene.xml
@@ -79,6 +111,9 @@ class Adam:
         out : ~.entities.AdamInfo
             the initial info of the robot
         '''
+        if self._mode != 'simulated':
+            raise Exception('The load method is only available in simulation mode')
+
         if filename is None:
             filename = pkg_resources.resource_filename('adam_sim', RESOURCE_FILE + 'scene.xml')
 
@@ -86,6 +121,8 @@ class Adam:
         self.left_manipulator._repository.init(self._repository.data)
         self.right_manipulator._repository.init(self._repository.data)
         self.base._repository.init(self._repository.data)
+
+        self.step()
 
         left_manipulator_info = self.left_manipulator._repository.get_info()
         right_manipulator_info = self.right_manipulator._repository.get_info()
@@ -119,6 +156,9 @@ class Adam:
         hide_menu : bool, optional
             whether to hide the menu or not. By default it is True
         '''
+        if self._mode != 'simulated':
+            raise Exception('The render method is only available in simulation mode')
+
         self._viewer.init(self._repository.model, self._repository.data)
 
         self.left_manipulator._control_visualizer.render(60)
@@ -170,5 +210,5 @@ class Adam:
         -----
         Remember that the destination must end with '/'
         '''
-        filename = pkg_resources.resource_filename('adam', RESOURCE_FILE)
-        copy_tree(filename, destination)
+        filename = pkg_resources.resource_filename('adam_sim', RESOURCE_FILE)
+        copy_tree(filename, destination + 'adam_scene/')

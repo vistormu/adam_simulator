@@ -4,6 +4,10 @@ from .repository import BaseRepository
 
 
 class Base:
+    '''
+    TMP
+    '''
+
     def __init__(self, id: str) -> None:
         self._repository: BaseRepository = get_base_repository(id)
 

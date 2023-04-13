@@ -1,0 +1,45 @@
+<mujoco>
+    <asset>
+        <texture file="metal.png" name="metal" type="2d"/>
+
+        <material name="light_gray" texture="metal" reflectance="0.2" texrepeat="5 5"  texuniform="true"/>
+        <material name="black" rgba="0.1 0.1 0.1 1"/>
+        <material name="dark_gray" rgba="0.278 0.278 0.278 1" />
+        <material name="blue" rgba="0.49 0.678 0.8 1" />
+
+        <mesh name="base" file="base.stl" />
+        <mesh name="shoulder_rubber" file="shoulder_rubber.stl" />
+        <mesh name="shoulder_body" file="shoulder_body.stl" />
+        <mesh name="shoulder_cap" file="shoulder_cap.stl" />
+        <mesh name="shoulder_screws" file="shoulder_screws.stl" />
+        <mesh name="upperarm_rubber" file="upperarm_rubber.stl" />
+        <mesh name="upperarm_body" file="upperarm_body.stl" />
+        <mesh name="upperarm_cap" file="upperarm_cap.stl" />
+        <mesh name="upperarm_screws" file="upperarm_screws.stl" />
+        <mesh name="upperarm_link_body" file="upperarm_link_body.stl" />
+        <mesh name="upperarm_rubber_2" file="upperarm_rubber_2.stl" />
+        <mesh name="upperarm_rubber_3" file="upperarm_rubber_3.stl" />
+        <mesh name="forearm_body" file="forearm_body.stl" />
+        <mesh name="forearm_body_2" file="forearm_body_2.stl" />
+        <mesh name="forearm_cap" file="forearm_cap.stl" />
+        <mesh name="forearm_link_body" file="forearm_link_body.stl" />
+        <mesh name="forearm_rubber" file="forearm_rubber.stl" />
+        <mesh name="forearm_rubber_2" file="forearm_rubber_2.stl" />
+        <mesh name="wrist_1_rubber" file="wrist_1_rubber.stl" />
+        <mesh name="wrist_1_body" file="wrist_1_body.stl" />
+        <mesh name="wrist_1_cap" file="wrist_1_cap.stl" />
+        <mesh name="wrist_2_rubber" file="wrist_2_rubber.stl" />
+        <mesh name="wrist_2_body" file="wrist_2_body.stl" />
+        <mesh name="wrist_2_cap" file="wrist_2_cap.stl" />
+        <mesh name="wrist_3_rubber" file="wrist_3_rubber.stl" />
+        <mesh name="wrist_3_body" file="wrist_3_body.stl" />
+        <mesh name="wrist_3_cap" file="wrist_3_cap.stl" />
+        <mesh name="end_effector_rubber" file="end_effector_rubber.stl" />
+        <mesh name="end_effector_body" file="end_effector_body.stl" />
+        <mesh name="body" file="body.stl" />
+        <mesh name="body_1" file="body1.stl" />
+        <mesh name="body_2" file="body2.stl" />
+        <mesh name="body_3" file="body3.stl" />
+        <mesh name="body_4" file="body4.stl" />
+    </asset>
+</mujoco>

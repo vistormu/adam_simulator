@@ -17,7 +17,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="&lt;no title&gt;" href="modules/simulation.html" />
+    <link rel="next" title="&lt;no title&gt;" href="modules/features/adam.html" />
     <link rel="prev" title="Installation" href="installation.html" /> 
 </head>
 
@@ -44,26 +44,23 @@
 <li class="toctree-l1"><a class="reference internal" href="installation.html">Installation</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">API Reference</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#features">Features</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/simulation.html"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/map_maker.html"><code class="docutils literal notranslate"><span class="pre">MapMaker</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/configurations_manager.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/features/adam.html"><code class="docutils literal notranslate"><span class="pre">Adam</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/features/base.html"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/features/manipulator.html"><code class="docutils literal notranslate"><span class="pre">Manipulator</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/features/data_manager.html"><code class="docutils literal notranslate"><span class="pre">DataManager</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#simulation-entities">Simulation entities</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/configuration_data.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationData</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/collision.html"><code class="docutils literal notranslate"><span class="pre">Collision</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/collision_data.html"><code class="docutils literal notranslate"><span class="pre">CollisionData</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/data.html"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#global-entities">Global entities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/global/configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/global/point.html"><code class="docutils literal notranslate"><span class="pre">Point</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/global/system.html"><code class="docutils literal notranslate"><span class="pre">System</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/global/vector.html"><code class="docutils literal notranslate"><span class="pre">Vector</span></code></a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#map-maker-entities">Map Maker entities</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="modules/body.html"><code class="docutils literal notranslate"><span class="pre">Body</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/box.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/capsule.html"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/cube.html"><code class="docutils literal notranslate"><span class="pre">Cube</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/cylinder.html"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="modules/sphere.html"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="#info-entities">Info entities</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/adam/adam_info.html"><code class="docutils literal notranslate"><span class="pre">AdamInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/base/base_info.html"><code class="docutils literal notranslate"><span class="pre">BaseInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="modules/entities/manipulator/manipulator_info.html"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -101,34 +98,31 @@
 <h2>Features<a class="headerlink" href="#features" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules/simulation.html"><code class="docutils literal notranslate"><span class="pre">Simulation</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/map_maker.html"><code class="docutils literal notranslate"><span class="pre">MapMaker</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/configurations_manager.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationsManager</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/features/adam.html"><code class="docutils literal notranslate"><span class="pre">Adam</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/features/base.html"><code class="docutils literal notranslate"><span class="pre">Base</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/features/manipulator.html"><code class="docutils literal notranslate"><span class="pre">Manipulator</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/features/data_manager.html"><code class="docutils literal notranslate"><span class="pre">DataManager</span></code></a></li>
 </ul>
 </div>
 </section>
-<section id="simulation-entities">
-<h2>Simulation entities<a class="headerlink" href="#simulation-entities" title="Permalink to this heading"></a></h2>
+<section id="global-entities">
+<h2>Global entities<a class="headerlink" href="#global-entities" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules/configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/configuration_data.html"><code class="docutils literal notranslate"><span class="pre">ConfigurationData</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/collision.html"><code class="docutils literal notranslate"><span class="pre">Collision</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/collision_data.html"><code class="docutils literal notranslate"><span class="pre">CollisionData</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/data.html"><code class="docutils literal notranslate"><span class="pre">Data</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/global/configuration.html"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/global/point.html"><code class="docutils literal notranslate"><span class="pre">Point</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/global/system.html"><code class="docutils literal notranslate"><span class="pre">System</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/global/vector.html"><code class="docutils literal notranslate"><span class="pre">Vector</span></code></a></li>
 </ul>
 </div>
 </section>
-<section id="map-maker-entities">
-<h2>Map Maker entities<a class="headerlink" href="#map-maker-entities" title="Permalink to this heading"></a></h2>
+<section id="info-entities">
+<h2>Info entities<a class="headerlink" href="#info-entities" title="Permalink to this heading"></a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="modules/body.html"><code class="docutils literal notranslate"><span class="pre">Body</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/box.html"><code class="docutils literal notranslate"><span class="pre">Box</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/capsule.html"><code class="docutils literal notranslate"><span class="pre">Capsule</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/cube.html"><code class="docutils literal notranslate"><span class="pre">Cube</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/cylinder.html"><code class="docutils literal notranslate"><span class="pre">Cylinder</span></code></a></li>
-<li class="toctree-l1"><a class="reference internal" href="modules/sphere.html"><code class="docutils literal notranslate"><span class="pre">Sphere</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/adam/adam_info.html"><code class="docutils literal notranslate"><span class="pre">AdamInfo</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/base/base_info.html"><code class="docutils literal notranslate"><span class="pre">BaseInfo</span></code></a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules/entities/manipulator/manipulator_info.html"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo</span></code></a></li>
 </ul>
 </div>
 </section>
@@ -139,7 +133,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="installation.html" class="btn btn-neutral float-left" title="Installation" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="modules/simulation.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="modules/features/adam.html" class="btn btn-neutral float-right" title="&lt;no title&gt;" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

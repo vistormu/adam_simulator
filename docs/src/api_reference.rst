@@ -6,32 +6,26 @@ Features
 .. toctree::
    :maxdepth: 1
    
-   modules/simulation
-   modules/map_maker
-   modules/configurations_manager
+   modules/features/adam
+   modules/features/base
+   modules/features/manipulator
+   modules/features/data_manager
 
-Simulation entities
+Global entities
 -------------------
 .. toctree::
    :maxdepth: 1
    
-   modules/configuration
-   modules/collision
-   modules/adam_info
-   modules/manipulator_data
-   modules/base_data
-   modules/point
-   modules/vector
-   modules/system
+   modules/entities/global/configuration
+   modules/entities/global/point
+   modules/entities/global/system
+   modules/entities/global/vector
 
-Map Maker entities
-------------------
+Info entities
+-------------------
 .. toctree::
    :maxdepth: 1
-
-   modules/body
-   modules/box
-   modules/capsule
-   modules/cube
-   modules/cylinder
-   modules/sphere
+   
+   modules/entities/adam/adam_info
+   modules/entities/base/base_info
+   modules/entities/manipulator/manipulator_info

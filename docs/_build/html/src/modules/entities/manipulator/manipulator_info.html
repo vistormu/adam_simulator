@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>&lt;no title&gt; &mdash; adam-sim  documentation</title>
+      <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <!--[if lt IE 9]>
+    <script src="../../../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script data-url_root="../../../../" id="documentation_options" src="../../../../_static/documentation_options.js"></script>
+        <script src="../../../../_static/doctools.js"></script>
+        <script src="../../../../_static/sphinx_highlight.js"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" />
+    <link rel="next" title="Examples" href="../../../examples.html" />
+    <link rel="prev" title="&lt;no title&gt;" href="../base/base_info.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            adam-sim
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../../installation.html">Installation</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../../api_reference.html">API Reference</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../../api_reference.html#features">Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../api_reference.html#global-entities">Global entities</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../../api_reference.html#info-entities">Info entities</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../adam/adam_info.html"><code class="docutils literal notranslate"><span class="pre">AdamInfo</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="../base/base_info.html"><code class="docutils literal notranslate"><span class="pre">BaseInfo</span></code></a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.collision"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo.collision</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.configuration"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo.configuration</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.end_effector"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo.end_effector</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.systems"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo.systems</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.velocity"><code class="docutils literal notranslate"><span class="pre">ManipulatorInfo.velocity</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../../examples.html">Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">adam-sim</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../api_reference.html">API Reference</a></li>
+      <li class="breadcrumb-item active">&lt;no title&gt;</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../../../../_sources/src/modules/entities/manipulator/manipulator_info.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <span class="target" id="module-adam_sim.features.manipulator.entities.manipulator_info"></span><dl class="py class">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam_sim.features.manipulator.entities.manipulator_info.</span></span><span class="sig-name descname"><span class="pre">ManipulatorInfo</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">collision</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Collision</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">configuration</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../global/configuration.html#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">systems</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../global/system.html#adam_sim.entities.system.System" title="adam_sim.entities.system.System"><span class="pre">adam_sim.entities.system.System</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_effector</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="../global/system.html#adam_sim.entities.system.System" title="adam_sim.entities.system.System"><span class="pre">System</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo" title="Permalink to this definition"></a></dt>
+<dd><p>the <cite>ManipulatorInfo</cite> class is a named tuple that contains all the information of the manipulator of the robot</p>
+<dl class="field-list simple">
+<dt class="field-odd">Attributes<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>collision</strong><span class="classifier">~.entities.Collision</span></dt><dd><p>the collision data of the manipulator</p>
+</dd>
+<dt><strong>configuration</strong><span class="classifier">~.entities.Configuration</span></dt><dd><p>the configuration data of the manipulator</p>
+</dd>
+<dt><strong>systems</strong><span class="classifier">list[~.entities.System]</span></dt><dd><p>the list of systems of the manipulator</p>
+</dd>
+<dt><strong>velocity</strong><span class="classifier">float</span></dt><dd><p>the velocity of the manipulator</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.collision">
+<span class="sig-name descname"><span class="pre">collision</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">Collision</span></em><a class="headerlink" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.collision" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 0</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.configuration">
+<span class="sig-name descname"><span class="pre">configuration</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../global/configuration.html#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></em><a class="headerlink" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.configuration" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 1</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.end_effector">
+<span class="sig-name descname"><span class="pre">end_effector</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference internal" href="../global/system.html#adam_sim.entities.system.System" title="adam_sim.entities.system.System"><span class="pre">System</span></a></em><a class="headerlink" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.end_effector" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 3</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.systems">
+<span class="sig-name descname"><span class="pre">systems</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../global/system.html#adam_sim.entities.system.System" title="adam_sim.entities.system.System"><span class="pre">adam_sim.entities.system.System</span></a><span class="p"><span class="pre">]</span></span></em><a class="headerlink" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.systems" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 2</p>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.velocity">
+<span class="sig-name descname"><span class="pre">velocity</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam_sim.features.manipulator.entities.manipulator_info.ManipulatorInfo.velocity" title="Permalink to this definition"></a></dt>
+<dd><p>Alias for field number 4</p>
+</dd></dl>
+
+</dd></dl>
+
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../base/base_info.html" class="btn btn-neutral float-left" title="&lt;no title&gt;" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../../../examples.html" class="btn btn-neutral float-right" title="Examples" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Vistor.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

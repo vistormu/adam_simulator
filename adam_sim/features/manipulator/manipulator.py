@@ -1,4 +1,4 @@
-from ...entities import Point, Vector, Configuration, System
+from ...entities import Point, Configuration, System, Velocity
 from .repository import ManipulatorRepository
 from .communication import get_manipulator_repository
 from .use_cases import Farm, ControlVisualizer
@@ -56,8 +56,16 @@ class Manipulator:
         '''
         self._repository.set_configuration(configuration)
 
-    def set_velocity_to(self, velocity: Vector) -> None:
-        raise NotImplementedError()
+    def set_velocity_to(self, velocity: Velocity) -> None:
+        '''
+        sets the manipulator velocity to the specified vector
+        
+        Parameters
+        ----------
+        velocity : ~.entities.Velocity
+            the velocity of the manipulator
+        '''
+        self._repository.set_velocity(velocity)
 
     def control(self) -> None:
         '''

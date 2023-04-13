@@ -7,3 +7,130 @@ Basic usage
 -----------
 
 The following example shows how to use the library to move the robotic manipulators.
+
+.. code-block:: Python
+
+    from adam_sim import Adam
+    from adam_sim.entities import Configuration, AdamInfo
+
+
+    def main():
+        adam: Adam = Adam()
+
+        initial_info: AdamInfo = adam.load()
+
+        left_configuration: Configuration = initial_info.left_manipulator.configuration
+        right_configuration: Configuration = initial_info.right_manipulator.configuration
+
+        for _ in range(1000):
+            adam.render()
+
+            left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
+            right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
+
+            adam.right_manipulator.set_to(right_configuration)
+            adam.left_manipulator.set_to(left_configuration)
+
+            info: AdamInfo = adam.step()
+
+        adam.close()
+
+
+    if __name__ == '__main__':
+        main()
+
+
+The following examples shows how to control the manipulator through Inverse Kinematics
+
+.. code-block:: Python
+
+    import numpy as np
+
+    from adam_sim import Adam
+    from adam_sim.entities import AdamInfo, Point
+
+
+    def main():
+        adam: Adam = Adam()
+
+        initial_info: AdamInfo = adam.load()
+
+        x_path: np.ndarray = np.linspace(0.0, 1.0, 100)
+        left_path: list[Point] = [initial_info.left_manipulator.end_effector.position + Point(x, 0.0, 0.0) for x in x_path]
+        right_path: list[Point] = [initial_info.right_manipulator.end_effector.position + Point(x, 0.0, 0.0) for x in x_path]
+
+        for left_point, right_point in zip(left_path, right_path):
+            adam.render()
+
+            adam.left_manipulator.move_to(left_point)
+            adam.right_manipulator.move_to(right_point)
+
+            info: AdamInfo = adam.step()
+
+        adam.close()
+
+
+    if __name__ == '__main__':
+        main()
+
+
+The following code lets the user control both manipulators.
+
+.. code-block:: Python
+
+    from adam_sim import Adam
+    from adam_sim.entities import AdamInfo
+
+
+    def main():
+        adam: Adam = Adam()
+
+        initial_info: AdamInfo = adam.load()
+
+        while True:
+            adam.render()
+
+            adam.left_manipulator.control()
+            adam.right_manipulator.control()
+
+            info: AdamInfo = adam.step()
+
+
+    if __name__ == '__main__':
+        main()
+
+
+DataManager usage
+-----------------
+
+The following code shoes how to load the test configurations and then save them into a file
+
+.. code-block:: Python
+
+    from adam_sim import Adam, DataManager
+    from adam_sim.entities import Configuration, AdamInfo, Point
+
+
+    def main():
+        adam: Adam = Adam()
+        initial_info: AdamInfo = adam.load()
+
+        configuration_list: list[Configuration] = DataManager.load_configurations('test')
+
+        end_effector_positions: list[Point] = [initial_info.left_manipulator.systems[-1].position]
+
+        for configuration in configuration_list:
+            adam.render()
+
+            adam.left_manipulator.set_to(configuration)
+            info: AdamInfo = adam.step()
+
+            end_effector_positions.append(info.left_manipulator.systems[-1].position)
+
+        adam.close()
+
+        DataManager.save_end_effector_positions('end_effector_positions_test.csv', end_effector_positions)
+
+
+    if __name__ == '__main__':
+        main()

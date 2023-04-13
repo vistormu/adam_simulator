@@ -7,7 +7,7 @@ from adam_sim.entities import AdamInfo, Configuration
 
 def main():
     adam: Adam = Adam()
-    initial_info: AdamInfo = adam.load('tests/assets/scene.xml')
+    initial_info: AdamInfo = adam.load('tests/adam_scene/scene.xml')
 
     configuration: Configuration = initial_info.left_manipulator.configuration
     configuration_list: list[Configuration] = [configuration]
@@ -15,7 +15,6 @@ def main():
     self_collision_counter: int = 0
     env_collision_counter: int = 0
 
-    input('press enter to start')
     for _ in range(1000):
         adam.render()
 

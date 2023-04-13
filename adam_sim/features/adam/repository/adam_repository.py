@@ -9,7 +9,7 @@ class AdamRepository(ABC):
         self.data = None
 
     @abstractmethod
-    def init(self, filename: str) -> None:
+    def init(self, *args, **kwargs) -> None:
         pass
 
     @abstractmethod

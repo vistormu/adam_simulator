@@ -1,135 +1,135 @@
 Examples
 ========
 
-Basic Usage
+In this section several examples are given to illustrate the use of the library.
+
+Basic usage
 -----------
 
-In this example, ADAM moves the left and right wrist_2 continuously.
+The following example shows how to use the library to move the robotic manipulators.
 
 .. code-block:: Python
 
-    from adam import Simulation
-    from adam.entities import Configuration, Data
+    from adam_sim import Adam
+    from adam_sim.entities import Configuration, AdamInfo
 
 
     def main():
-        sim: Simulation = Simulation()
-        initial_data: Data = sim.load_scene()
+        adam: Adam = Adam()
 
-        left_configuration: Configuration = initial_data.configuration.left_manipulator
-        right_configuration: Configuration = initial_data.configuration.right_manipulator
+        initial_info: AdamInfo = adam.load()
 
-        for _ in range(100):
+        left_configuration: Configuration = initial_info.left_manipulator.configuration
+        right_configuration: Configuration = initial_info.right_manipulator.configuration
+
+        for _ in range(1000):
+            adam.render()
+
             left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
             right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.1, 0.0)
 
-            sim.render()
-            data: Data = sim.step(left_configuration, right_configuration)
+            adam.right_manipulator.set_to(right_configuration)
+            adam.left_manipulator.set_to(left_configuration)
 
-        sim.close()
+            info: AdamInfo = adam.step()
+
+        adam.close()
 
 
     if __name__ == '__main__':
         main()
 
-ConfigurationsManager Example
------------------------------
 
-In this example, the test configurations are loaded to the left manipulator.
+The following examples shows how to control the manipulator through Inverse Kinematics
 
 .. code-block:: Python
 
-    from adam import Simulation, ConfigurationsManager
-    from adam.entities import Configuration, Data
+    import numpy as np
+
+    from adam_sim import Adam
+    from adam_sim.entities import AdamInfo, Point
 
 
     def main():
-        sim: Simulation = Simulation()
-        initial_data: Data = sim.load_scene()
+        adam: Adam = Adam()
 
-        configuration_list: list[Configuration] = ConfigurationsManager.load('test')
+        initial_info: AdamInfo = adam.load()
+
+        x_path: np.ndarray = np.linspace(0.0, 1.0, 100)
+        left_path: list[Point] = [initial_info.left_manipulator.end_effector.position + Point(x, 0.0, 0.0) for x in x_path]
+        right_path: list[Point] = [initial_info.right_manipulator.end_effector.position + Point(x, 0.0, 0.0) for x in x_path]
+
+        for left_point, right_point in zip(left_path, right_path):
+            adam.render()
+
+            adam.left_manipulator.move_to(left_point)
+            adam.right_manipulator.move_to(right_point)
+
+            info: AdamInfo = adam.step()
+
+        adam.close()
+
+
+    if __name__ == '__main__':
+        main()
+
+
+The following code lets the user control both manipulators.
+
+.. code-block:: Python
+
+    from adam_sim import Adam
+    from adam_sim.entities import AdamInfo
+
+
+    def main():
+        adam: Adam = Adam()
+
+        initial_info: AdamInfo = adam.load()
+
+        while True:
+            adam.render()
+
+            adam.left_manipulator.control()
+            adam.right_manipulator.control()
+
+            info: AdamInfo = adam.step()
+
+
+    if __name__ == '__main__':
+        main()
+
+
+DataManager usage
+-----------------
+
+The following code shoes how to load the test configurations and then save them into a file
+
+.. code-block:: Python
+
+    from adam_sim import Adam, DataManager
+    from adam_sim.entities import Configuration, AdamInfo, Point
+
+
+    def main():
+        adam: Adam = Adam()
+        initial_info: AdamInfo = adam.load()
+
+        configuration_list: list[Configuration] = DataManager.load_configurations('test')
+
+        end_effector_positions: list[Point] = [initial_info.left_manipulator.systems[-1].position]
 
         for configuration in configuration_list:
-            sim.render()
+            adam.render()
 
-            data: Data = sim.step(configuration, initial_data.configuration.right_manipulator)
+            adam.left_manipulator.set_to(configuration)
+            info: AdamInfo = adam.step()
 
-        sim.close()
+            end_effector_positions.append(info.left_manipulator.systems[-1].position)
 
+        adam.close()
 
-    if __name__ == '__main__':
-        main()
-
-
-MapMaker example
-----------------
-
-In this example, various bodies are created and then added to the scene
-
-.. code-block:: Python
-    
-    from adam import Simulation, MapMaker
-    from adam.entities import Data, Cube, Box, Capsule, Cylinder, Sphere
-
-
-    def main():
-        directory_path: str = 'tests/assets/'
-        filename: str = 'obstacles.xml'
-
-        map_maker: MapMaker = MapMaker(directory_path+filename)
-
-        # Cube 1
-        cube_1: Cube = Cube('cube_1')
-        cube_1.set_geometry(size=0.5, position=(0.5, 0.0, 0.0))
-        cube_1.set_dynamics(mass=1.0)
-        cube_1.set_appearance('#2f2f2f')
-
-        # Cube 2
-        cube_2: Cube = Cube('cube_2')
-        cube_2.set_geometry(size=0.5, position=(1.0, 0.0, 0.0))
-        cube_2.set_dynamics(mass=1.0)
-        cube_2.set_appearance(color='#b64545', alpha=0.5)
-
-        # Cube 3
-        cube_3: Cube = Cube('cube_3')
-        cube_3.set_geometry(size=0.5, position=(1.0, 0.0, 0.5))
-        cube_3.set_appearance('#c4c476')
-
-        # Cube 4
-        cube_4: Cube = Cube('cube_4')
-        cube_4.set_geometry(size=0.5, position=(0.5, 0.0, 0.5))
-
-        # Box
-        box: Box = Box('box')
-        box.set_geometry(size=(0.2, 0.2, 0.5), position=(1.0, 0.0, 1.0))
-        box.set_appearance(color=(0.2, 0.2, 0.2), alpha=0.2)
-
-        # Capsule
-        capsule: Capsule = Capsule('capsule')
-        capsule.set_geometry(size=(0.2, 0.5), position=(0.5, -0.5, 0.0))
-
-        # Cylinder
-        cylinder: Cylinder = Cylinder('cylinder')
-        cylinder.set_geometry(size=(0.2, 0.5), position=(1.0, -0.5, 0.0))
-
-        # Sphere
-        sphere: Sphere = Sphere('sphere')
-        sphere.set_geometry(size=0.25, position=(0.5, -1.0, 0.0))
-
-        map_maker.add_bodies([cube_1, cube_2, cube_3, cube_4, box, capsule, cylinder, sphere])
-        map_maker.make()
-
-        Simulation.export_scene(directory_path)
-        map_maker.add_to(directory_path + 'scene.xml')
-
-        sim: Simulation = Simulation()
-        initial_data: Data = sim.load_scene('tests/assets/scene.xml')
-
-        sim.extend_collisions({77: 'table'})
-
-        for _ in range(1000):
-            sim.step(initial_data.configuration.left_manipulator, initial_data.configuration.right_manipulator)
-            sim.render()
+        DataManager.save_end_effector_positions('tests/data/end_effector_positions_test.csv', end_effector_positions)
 
 
     if __name__ == '__main__':
