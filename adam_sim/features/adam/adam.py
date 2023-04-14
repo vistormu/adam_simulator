@@ -85,9 +85,9 @@ class Adam:
 
         self._repository.init(host, port, rate)
 
-        self.left_manipulator._repository.init()
-        self.right_manipulator._repository.init()
-        self.base._repository.init()
+        self.left_manipulator._repository.init(host, port)
+        self.right_manipulator._repository.init(host, port)
+        self.base._repository.init(host, port)
 
         self.step()
 

@@ -24,7 +24,7 @@ dependencies = [
 ]
 
 [tool.setuptools.package-data]
-"*" = ["*.csv", "*.stl", "*.xml"]
+"*" = ["*.csv", "*.stl", "*.xml", "*.yaml"]
 
 [project.urls]
 "Homepage" = "https://github.com/vistormu/adam_simulator"

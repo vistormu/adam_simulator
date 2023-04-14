@@ -48,5 +48,12 @@ cd adam_simulator
 pip install -r requirements.txt
 ```
 
+
+### Installation for the communication
+The communication uses mosquitto as a broker. For installing it on your system, follow the instructions on the [mosquitto website](https://mosquitto.org/download/).
+
+
+It is also necessary to install docker. For more information check the [docker documentation](https://docs.docker.com/get-docker/).
+
 ## Documentation
 The official documentation of the package is available on [Read the Docs](https://adam-simulator.readthedocs.io/en/latest/). Here you will find the [installation instructions](https://adam-simulator.readthedocs.io/en/latest/src/installation.html), the [API reference](https://adam-simulator.readthedocs.io/en/latest/src/api_reference.html) and some [minimal working examples](https://adam-simulator.readthedocs.io/en/latest/src/examples.html).

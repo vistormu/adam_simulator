@@ -5,7 +5,7 @@ from adam_sim.entities import Configuration, AdamInfo
 def main():
     adam: Adam = Adam('real')
 
-    initial_info: AdamInfo = adam.connect('localhost', 1883, rate=30)
+    initial_info: AdamInfo = adam.connect('localhost', 1883, rate=10)
 
     left_configuration: Configuration = initial_info.left_manipulator.configuration
     right_configuration: Configuration = initial_info.right_manipulator.configuration

@@ -1,5 +1,5 @@
 # 1.0.0
-The ADAM Simulator has seen a complete overhaul. Now instead of a simple simulation it features a framework to test and send command to the real robot (still work in progress). Now the code is more modular, offering separate controllers for each actuator: left manipulator, right manipulator and base.
+The ADAM Simulator has seen a complete overhaul. Now instead of a simple simulation it features a framework to test and send command to the real robot. Now the code is more modular, offering separate controllers for each actuator: left manipulator, right manipulator and base.
 
 New features:
 - The base can now be moved!

@@ -1,14 +1,30 @@
+import yaml
+import pkg_resources
+from paho.mqtt.client import Client
+
 from ....repository import ManipulatorRepository
 from ......entities import Configuration, System, Velocity, Acceleration, Point, Vector
 from ....entities import Collision, ManipulatorInfo
 
 
 class RealRightManipulatorRepository(ManipulatorRepository):
-    def init(self) -> None:
-        return super().init()
+    def init(self, host: str, port: int) -> None:
+        # Connect to mosquitto
+        self.client = Client()
+        self.client.connect(host, port)
+
+        # Variables
+        filename = pkg_resources.resource_filename('adam_sim', 'core/topics.yaml')
+        with open(filename, 'r') as file:
+            data: dict = yaml.safe_load(file)
+            self.configuration_topic: str = data['right_manipulator']['configuration']
+            self.velocity_topic: str = data['right_manipulator']['velocity']
 
     def set_configuration(self, configuration: Configuration) -> None:
-        return super().set_configuration(configuration)
+        data: list[str] = [str(q) for q in configuration]
+        data_string: str = yaml.dump(data)
+
+        self.client.publish(self.configuration_topic, data_string)
 
     def get_configuration(self) -> Configuration:
         return super().get_configuration()

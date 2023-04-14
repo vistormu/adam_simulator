@@ -1,0 +1,10 @@
+adam: mqtt/adam/step
+left_manipulator:
+  configuration: mqtt/adam/left_manipulator/configuration
+  velocity: mqtt/adam/left_manipulator/velocity
+right_manipulator:
+  configuration: mqtt/adam/right_manipulator/configuration
+  velocity: mqtt/adam/right_manipulator/velocity
+base:
+  velocity: mqtt/adam/base/velocity
+  orientation: mqtt/adam/base/orientation
