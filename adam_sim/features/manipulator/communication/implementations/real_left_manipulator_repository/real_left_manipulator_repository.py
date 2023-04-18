@@ -1,7 +1,6 @@
-import yaml
-import pkg_resources
-from paho.mqtt.client import Client
+import asyncio
 
+from .use_cases import MQTTClient
 from ....repository import ManipulatorRepository
 from ......entities import Configuration, System, Velocity, Acceleration, Point, Vector
 from ....entities import Collision, ManipulatorInfo
@@ -9,25 +8,13 @@ from ....entities import Collision, ManipulatorInfo
 
 class RealLeftManipulatorRepository(ManipulatorRepository):
     def init(self, host: str, port: int) -> None:
-        # Connect to mosquitto
-        self.client = Client()
-        self.client.connect(host, port)
-
-        # Variables
-        filename = pkg_resources.resource_filename('adam_sim', 'core/topics.yaml')
-        with open(filename, 'r') as file:
-            data: dict = yaml.safe_load(file)
-            self.configuration_topic: str = data['left_manipulator']['configuration']
-            self.velocity_topic: str = data['left_manipulator']['velocity']
+        self.client = MQTTClient(host, port)
 
     def set_configuration(self, configuration: Configuration) -> None:
-        data: list[str] = [str(q) for q in configuration]
-        data_string: str = yaml.dump(data)
+        self.client.publish_configuration(configuration)
 
-        self.client.publish(self.configuration_topic, data_string)
-
-    def get_configuration(self) -> Configuration:
-        return super().get_configuration()
+    async def get_configuration(self) -> Configuration:
+        return await self.client.get_configuration()
 
     def set_velocity(self, velocity: Velocity) -> None:
         return super().set_velocity(velocity)
@@ -50,14 +37,14 @@ class RealLeftManipulatorRepository(ManipulatorRepository):
     def get_info(self) -> ManipulatorInfo:
         # systems: list[System] = self.get_systems()
         # end_effector: System = systems[-1]
-        # configuration: Configuration = self.get_configuration()
+        configuration: Configuration = asyncio.gather(self.get_configuration()).result()[0]
         # velocity: Velocity = self.get_velocity()
         # acceleration: Acceleration = self.get_acceleration()
         # collision: Collision = self.get_collisions()
 
         systems: list[System] = []
         end_effector: System = System(Point(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0))
-        configuration: Configuration = Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+        # configuration: Configuration = Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
         velocity: Velocity = Velocity(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
         acceleration: Acceleration = Acceleration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
         collision: Collision = Collision.empty()

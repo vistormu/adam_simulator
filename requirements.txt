@@ -5,3 +5,4 @@ mujoco-python-viewer
 pandas
 matplotlib
 paho-mqtt
+vclog

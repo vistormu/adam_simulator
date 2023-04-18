@@ -17,14 +17,16 @@ class RealRightManipulatorRepository(ManipulatorRepository):
         filename = pkg_resources.resource_filename('adam_sim', 'core/topics.yaml')
         with open(filename, 'r') as file:
             data: dict = yaml.safe_load(file)
-            self.configuration_topic: str = data['right_manipulator']['configuration']
-            self.velocity_topic: str = data['right_manipulator']['velocity']
+            self.configuration_topic_command: str = data['right_manipulator']['configuration']['command']
+            self.configuration_topic_receive: str = data['right_manipulator']['configuration']['receive']
+            self.velocity_topic_command: str = data['right_manipulator']['velocity']['command']
+            self.velocity_topic_receive: str = data['right_manipulator']['velocity']['receive']
 
     def set_configuration(self, configuration: Configuration) -> None:
         data: list[str] = [str(q) for q in configuration]
         data_string: str = yaml.dump(data)
 
-        self.client.publish(self.configuration_topic, data_string)
+        self.client.publish(self.configuration_topic_command, data_string)
 
     def get_configuration(self) -> Configuration:
         return super().get_configuration()

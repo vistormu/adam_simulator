@@ -9,7 +9,7 @@ from ....repository import AdamRepository
 class RealAdamRepository(AdamRepository):
     def init(self, host: str, port: int, rate: int) -> None:
         # Connect to mosquitto
-        self.client = Client()
+        self.client: Client = Client()
         self.client.connect(host, port)
 
         # Variables
@@ -19,7 +19,7 @@ class RealAdamRepository(AdamRepository):
             self.topic: str = data['adam']
 
         # Variable initialization
-        self.rate = rate
+        self.rate: int = rate
 
     def step(self) -> None:
         self.client.publish(self.topic, True)

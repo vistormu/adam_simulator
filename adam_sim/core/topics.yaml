@@ -1,10 +1,22 @@
 adam: mqtt/adam/step
 left_manipulator:
-  configuration: mqtt/adam/left_manipulator/configuration
-  velocity: mqtt/adam/left_manipulator/velocity
+  configuration:
+    command: mqtt/adam/left_manipulator/configuration/command
+    receive: mqtt/adam/left_manipulator/configuration/receive
+  velocity:
+    command: mqtt/adam/left_manipulator/velocity/command
+    receive: mqtt/adam/left_manipulator/velocity/receive
 right_manipulator:
-  configuration: mqtt/adam/right_manipulator/configuration
-  velocity: mqtt/adam/right_manipulator/velocity
+  configuration:
+    command: mqtt/adam/right_manipulator/configuration/command
+    receive: mqtt/adam/right_manipulator/configuration/receive
+  velocity:
+    command: mqtt/adam/right_manipulator/velocity/command
+    receive: mqtt/adam/right_manipulator/velocity/receive
 base:
-  velocity: mqtt/adam/base/velocity
-  orientation: mqtt/adam/base/orientation
+  velocity:
+    command: mqtt/adam/base/velocity/command
+    receive: mqtt/adam/base/velocity/receive
+  orientation:
+    command: mqtt/adam/base/orientation/command
+    receive: mqtt/adam/base/orientation/receive
