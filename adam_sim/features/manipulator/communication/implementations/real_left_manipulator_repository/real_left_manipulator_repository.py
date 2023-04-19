@@ -1,5 +1,3 @@
-import asyncio
-
 from .use_cases import MQTTClient
 from ....repository import ManipulatorRepository
 from ......entities import Configuration, System, Velocity, Acceleration, Point, Vector
@@ -13,41 +11,34 @@ class RealLeftManipulatorRepository(ManipulatorRepository):
     def set_configuration(self, configuration: Configuration) -> None:
         self.client.publish_configuration(configuration)
 
-    async def get_configuration(self) -> Configuration:
-        return await self.client.get_configuration()
+    def get_configuration(self) -> Configuration:
+        return self.client.get_configuration()
 
     def set_velocity(self, velocity: Velocity) -> None:
         return super().set_velocity(velocity)
 
     def get_velocity(self) -> Velocity:
-        return super().get_velocity()
+        return Velocity(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 
     def set_acceleration(self, acceleration: Acceleration) -> None:
         return super().set_acceleration(acceleration)
 
     def get_acceleration(self) -> Acceleration:
-        return super().get_acceleration()
+        return Acceleration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
 
     def get_collisions(self) -> Collision:
-        return super().get_collisions()
+        return Collision.empty()
 
     def get_systems(self) -> list[System]:
-        return super().get_systems()
+        return []
 
     def get_info(self) -> ManipulatorInfo:
-        # systems: list[System] = self.get_systems()
-        # end_effector: System = systems[-1]
-        configuration: Configuration = asyncio.gather(self.get_configuration()).result()[0]
-        # velocity: Velocity = self.get_velocity()
-        # acceleration: Acceleration = self.get_acceleration()
-        # collision: Collision = self.get_collisions()
-
-        systems: list[System] = []
+        systems: list[System] = self.get_systems()
         end_effector: System = System(Point(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0))
-        # configuration: Configuration = Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
-        velocity: Velocity = Velocity(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
-        acceleration: Acceleration = Acceleration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
-        collision: Collision = Collision.empty()
+        configuration: Configuration = self.get_configuration()
+        velocity: Velocity = self.get_velocity()
+        acceleration: Acceleration = self.get_acceleration()
+        collision: Collision = self.get_collisions()
 
         return ManipulatorInfo(systems=systems,
                                end_effector=end_effector,

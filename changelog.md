@@ -7,6 +7,7 @@ New features:
 - The robotic manipulators can now be controlled through Inverse Kinematics
 - New entities: `Velocity`, which represents the angular velocity of a system; and `Acceleration`, which represents the angular acceleration of a system
 - Added a `connect` method to the `Adam` class to connect to the real robot
+- Added several methods to the `Configuration`, `Point` and `Vector` entities. Check out the API reference for more info
 
 API changes:
 - Now each actuator has its own controller. For that matter, the `Simulation` class has been deprecated. Check out the new API reference for more info.

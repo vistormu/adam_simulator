@@ -11,13 +11,13 @@ class AdamInfo:
 
     Attributes
     ----------
-    left_manipulator : ~.entities.ConfigurationData
+    left_manipulator : ~.entities.ManipulatorInfo
         the data referring to the left manipulator of the robot
 
-    right_manipulator : ~.entities.CollisionData
+    right_manipulator : ~.entities.ManipulatorInfo
         the data referring to the right manipulator of the robot
 
-    base : ~.entities.BaseData
+    base : ~.entities.BaseInfo
         the data referring to the base of the robot
     '''
     left_manipulator: ManipulatorInfo

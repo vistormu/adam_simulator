@@ -31,6 +31,9 @@ class Adam:
 
     Methods
     -------
+    connect:
+        connects to a given host and port
+
     load:
         loads a given MuJoCo scene. This method is mandatory to call
 
@@ -43,30 +46,27 @@ class Adam:
     close:
         closes all the visualizers
 
+    check_collisions:
+        checks if there are any collisions in the scene
+
     export_scene:
         exports the scene to the specified directory
     '''
 
-    def __init__(self, mode: str = 'simulated') -> None:
-        '''
-        Parameters
-        ----------
-        mode : str, optional
-            the mode in which to run the simulation. It can be either 'simulated' or 'real'. By default it is 'simulated'
-        '''
+    def __init__(self) -> None:
         # Features
-        self.base: Base = Base(mode)
-        self.left_manipulator: Manipulator = Manipulator('left_' + mode)
-        self.right_manipulator: Manipulator = Manipulator('right_' + mode)
+        self.base: Base = Base()
+        self.left_manipulator: Manipulator = Manipulator()
+        self.right_manipulator: Manipulator = Manipulator()
 
         # Use cases
         self._viewer: Viewer = Viewer()
 
         # Repository
-        self._repository: AdamRepository = get_adam_repository(mode)
+        self._repository: AdamRepository = None  # type: ignore
 
         # Variables
-        self._mode: str = mode
+        self._mode: str = ''
 
     def connect(self, host: str, port: int, rate: int = 30) -> AdamInfo:
         '''
@@ -80,16 +80,18 @@ class Adam:
         port : int
             the port to connect to
         '''
-        if self._mode != 'real':
-            raise Exception('The connect method is only available in real mode')
+        self._mode = 'real'
 
+        # Initialize repositories
+        self._repository = get_adam_repository('real')
         self._repository.init(host, port, rate)
 
-        self.left_manipulator._repository.init(host, port)
-        self.right_manipulator._repository.init(host, port)
-        self.base._repository.init(host, port)
+        self.left_manipulator._init_repository('left_real', host, port)
+        self.right_manipulator._init_repository('right_real', host, port)
+        self.base._init_repository('real', host, port)
 
-        self.step()
+        # Get initial info
+        self._repository.step()
 
         left_manipulator_info = self.left_manipulator._repository.get_info()
         right_manipulator_info = self.right_manipulator._repository.get_info()
@@ -111,18 +113,21 @@ class Adam:
         out : ~.entities.AdamInfo
             the initial info of the robot
         '''
-        if self._mode != 'simulated':
-            raise Exception('The load method is only available in simulation mode')
+        self._mode = 'sim'
 
         if filename is None:
             filename = pkg_resources.resource_filename('adam_sim', RESOURCE_FILE + 'scene.xml')
 
+        # Initialize repositories
+        self._repository = get_adam_repository('simulated')
         self._repository.init(filename)
-        self.left_manipulator._repository.init(self._repository.data)
-        self.right_manipulator._repository.init(self._repository.data)
-        self.base._repository.init(self._repository.data)
 
-        self.step()
+        self.left_manipulator._init_repository('left_simulated', self._repository.data)
+        self.right_manipulator._init_repository('right_simulated', self._repository.data)
+        self.base._init_repository('simulated', self._repository.data)
+
+        # Get initial info
+        self._repository.step()
 
         left_manipulator_info = self.left_manipulator._repository.get_info()
         right_manipulator_info = self.right_manipulator._repository.get_info()
@@ -156,8 +161,8 @@ class Adam:
         hide_menu : bool, optional
             whether to hide the menu or not. By default it is True
         '''
-        if self._mode != 'simulated':
-            raise Exception('The render method is only available in simulation mode')
+        if self._mode != 'sim':
+            return
 
         self._viewer.init(self._repository.model, self._repository.data)
 
@@ -177,11 +182,27 @@ class Adam:
         '''
         checks wether there are self collisions or environment collisions
 
+        Parameters
+        ----------
+        left_configurations : list[~.entities.Configuration]
+            the configurations of the left manipulator
+
+        right_configurations : list[~.entities.Configuration]
+            the configurations of the right manipulator
+
         Returns
         -------
         out : tuple[np.ndarray, np.ndarray]
             the first element is an array of the environment collisions and the second element is an array of the self collisions
+
+        Raises
+        ------
+        Exception
+            if the robot is not in simulation mode
         '''
+        if self._mode != 'sim':
+            raise Exception('The check_collisions method is only available in simulation mode')
+
         env_collisions: np.ndarray = np.zeros(len(left_configurations)).astype(bool)
         self_collisions: np.ndarray = np.zeros(len(left_configurations)).astype(bool)
         for i, (left_configuration, right_configuration) in enumerate(zip(left_configurations, right_configurations)):
@@ -203,6 +224,8 @@ class Adam:
         '''
         exports the default ADAM scene to a given directory
 
+        Parameters
+        ----------
         destination : str
             the directory in which to export the scene
 

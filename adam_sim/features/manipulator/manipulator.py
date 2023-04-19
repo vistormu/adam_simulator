@@ -21,11 +21,12 @@ class Manipulator:
 
     control:
         control the manipulator via an interface
-    '''
-
-    def __init__(self, id: str) -> None:
+    ''' 
+    def _init_repository(self, id: str, *args, **kwargs) -> None:
         self._repository: ManipulatorRepository = get_manipulator_repository(id)
         self._control_visualizer: ControlVisualizer = ControlVisualizer(id)
+        
+        self._repository.init(*args, **kwargs)
 
     def move_to(self, point: Point) -> None:
         '''

@@ -17,11 +17,11 @@ class DataManager:
     save_configurations:
         saves a list of configurations
 
-    load_end_effector_positions:
-        loads a list of end effector positions
+    load_points:
+        loads a list of points
 
-    save_end_effector_positions:
-        saves a list of end effector positions
+    save_points:
+        saves a list of points
     '''
     @staticmethod
     def load_configurations(filename: str) -> list[Configuration]:
@@ -41,11 +41,7 @@ class DataManager:
         if filename == 'test':
             filename = pkg_resources.resource_filename('adam_sim', 'features/data_manager/data/configurations_test.csv')
 
-        data_frame: pd.DataFrame = pd.read_csv(filename)
-
-        configuration_list: list[Configuration] = [Configuration(*row) for row in data_frame.to_numpy()]
-
-        return configuration_list
+        return [Configuration.from_numpy(row) for row in pd.read_csv(filename).to_numpy()]
 
     @staticmethod
     def save_configurations(filename: str, configuration_list: list[Configuration]) -> None:
@@ -69,14 +65,12 @@ class DataManager:
             'theta_6': [configuration.q6 for configuration in configuration_list],
         }
 
-        data_frame: pd.DataFrame = pd.DataFrame(data)
-
-        data_frame.to_csv(filename, index=False)
+        pd.DataFrame(data).to_csv(filename, index=False)
 
     @staticmethod
-    def load_end_effector_positions(filename: str) -> list[Point]:
+    def load_points(filename: str) -> list[Point]:
         '''
-        loads a list of end effector positions
+        loads a list of points
 
         Parameters
         ----------
@@ -86,21 +80,17 @@ class DataManager:
         Returns
         -------
         out : list[~.entities.Point]
-            a list of end effector positions
+            a list of points
         '''
         if filename == 'test':
             filename = pkg_resources.resource_filename('adam_sim', 'features/data_manager/data/end_effector_positions_test.csv')
 
-        data_frame: pd.DataFrame = pd.read_csv(filename)
-
-        end_effector_positions: list[Point] = [Point(*row) for row in data_frame.to_numpy()]
-
-        return end_effector_positions
+        return [Point.from_numpy(row) for row in pd.read_csv(filename).to_numpy()]
 
     @staticmethod
-    def save_end_effector_positions(filename: str, end_effector_positions: list[Point]) -> None:
+    def save_points(filename: str, end_effector_positions: list[Point]) -> None:
         '''
-        saves a list of end effector positions
+        saves a list of points
 
         Parameters
         ----------
@@ -108,7 +98,7 @@ class DataManager:
             the path to the file to save
 
         end_effector_positions : list[~.entities.Point]
-            a list of end effector positions
+            a list of points
         '''
         data: dict = {
             'x': [end_effector_position.x for end_effector_position in end_effector_positions],
@@ -116,6 +106,4 @@ class DataManager:
             'z': [end_effector_position.z for end_effector_position in end_effector_positions],
         }
 
-        data_frame: pd.DataFrame = pd.DataFrame(data)
-
-        data_frame.to_csv(filename, index=False)
+        pd.DataFrame(data).to_csv(filename, index=False)

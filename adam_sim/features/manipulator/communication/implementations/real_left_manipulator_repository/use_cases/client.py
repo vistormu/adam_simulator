@@ -1,9 +1,8 @@
-import asyncio
 import pkg_resources
 import yaml
 import numpy as np
 
-# from asyncio_mqtt import Client as AsyncClient
+from collections import deque
 from paho.mqtt.client import Client, MQTTMessage
 from vclog import Logger
 
@@ -35,22 +34,22 @@ class MQTTClient:
         self.client.loop_start()
 
         # Variables
-        self.configuration: Configuration | None = None
+        self.queue: deque = deque()
 
     def on_connect(self, client, userdata, flags, rc):
         self.logger.info("Connected with result code "+str(rc))
-        # Subscribe to a topic
         self.client.subscribe(configuration_topic_receive)
 
     def on_message(self, client, userdata, message: MQTTMessage):
         if message.topic == configuration_topic_receive:
-            self.configuration = Configuration(*np.array(yaml.safe_load(message.payload.decode())).astype(float))
+            self.queue.append(Configuration.from_yaml(message.payload.decode()))
+            self.client.loop_stop()
 
     def publish_configuration(self, configuration: Configuration) -> None:
-        data: list[str] = [str(q) for q in configuration]
-        data_string: str = yaml.dump(data)
+        self.client.publish(configuration.to_yaml())
 
-        self.client.publish(configuration_topic_command, data_string)
-
-    async def get_configuration(self) -> Configuration:
-        return self.configuration
+    def get_configuration(self) -> Configuration:
+        self.client.loop_forever()
+        configuration: Configuration = self.queue.popleft()
+        # self.queue.clear()
+        return configuration

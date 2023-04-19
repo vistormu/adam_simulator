@@ -18,9 +18,9 @@ def main():
 
         end_effector_positions.append(info.left_manipulator.systems[-1].position)
 
-    DataManager.save_end_effector_positions('tests/data/end_effector_positions_test.csv', end_effector_positions)
+    DataManager.save_points('tests/data/end_effector_positions_test.csv', end_effector_positions)
 
-    end_effector_positions: list[Point] = DataManager.load_end_effector_positions('tests/data/end_effector_positions_test.csv')
+    end_effector_positions: list[Point] = DataManager.load_points('tests/data/end_effector_positions_test.csv')
 
     for point in end_effector_positions:
         adam.render()

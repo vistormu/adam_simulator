@@ -18,6 +18,10 @@ class RealAdamRepository(AdamRepository):
             data: dict = yaml.safe_load(file)
             self.topic: str = data['adam']
 
+        self.client.publish(self.topic, False)
+        time.sleep(1)
+        self.client.publish(self.topic, False)
+
         # Variable initialization
         self.rate: int = rate
 

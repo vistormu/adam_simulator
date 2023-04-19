@@ -5,23 +5,17 @@ from vclog import Logger
 
 
 def main():
-    adam: Adam = Adam('real')
-    initial_info: AdamInfo = adam.connect('localhost', 1883, rate=10)
+    adam: Adam = Adam()
+    info: AdamInfo = adam.connect('localhost', 1883, rate=10)
 
-    left_configuration: Configuration = Configuration(1.5708, 0.58905, -0.098, -1.5708, 3.1415, 0.0)
-    # left_configuration: Configuration = Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
-    right_configuration: Configuration = Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.0)
+    for _ in range(100):
+        Logger.debug(info.left_manipulator.configuration)
 
-    for _ in range(10):
-        left_configuration += Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.1)
-        right_configuration -= Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.1)
+        left_configuration = info.left_manipulator.configuration + Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.1)
 
-        adam.right_manipulator.set_to(right_configuration)
         adam.left_manipulator.set_to(left_configuration)
 
-        info: AdamInfo = adam.step()
-
-        Logger.debug(info.left_manipulator.configuration)
+        info = adam.step()
 
     adam.close()
 
