@@ -11,3 +11,6 @@ class SimulatedAdamRepository(AdamRepository):
 
     def step(self) -> None:
         mujoco.mj_step(self.model, self.data)  # type: ignore
+
+    def close(self) -> None:
+        pass

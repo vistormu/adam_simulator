@@ -14,3 +14,6 @@ class SimulatedBaseRepository(BaseRepository):
         return BaseInfo(position=Point(0.0, 0.0, 0.0),
                         system=System(Point(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0), Vector(0.0, 0.0, 0.0)),
                         velocity=Vector(0.0, 0.0, 0.0))
+
+    def close(self) -> None:
+        return super().close()

@@ -172,11 +172,16 @@ class Adam:
 
     def close(self) -> None:
         '''
-        closes all the visualizers
+        closes all the visualizers and connections
         '''
         self.left_manipulator._control_visualizer.close()
         self.right_manipulator._control_visualizer.close()
         self._viewer.close()
+
+        self._repository.close()
+        self.left_manipulator._repository.close()
+        self.right_manipulator._repository.close()
+        self.base._repository.close()
 
     def check_collisions(self, left_configurations: list[Configuration], right_configurations: list[Configuration]) -> tuple[np.ndarray, np.ndarray]:
         '''

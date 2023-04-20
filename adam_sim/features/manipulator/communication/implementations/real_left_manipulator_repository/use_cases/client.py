@@ -1,6 +1,7 @@
 import pkg_resources
 import yaml
 import numpy as np
+import threading
 
 from collections import deque
 from paho.mqtt.client import Client, MQTTMessage
@@ -27,14 +28,16 @@ class MQTTClient:
 
         # Client
         self.client = Client()
-        self.client.connect(host, port)
         self.client.on_connect = self.on_connect
         self.client.on_message = self.on_message
 
-        self.client.loop_start()
+        self.client.connect(host, port)
+
+        threading.Thread(target=self.client.loop_forever).start()
 
         # Variables
-        self.queue: deque = deque()
+        self.queue: deque = deque(maxlen=12)
+        self.active: bool = True
 
     def on_connect(self, client, userdata, flags, rc):
         self.logger.info("Connected with result code "+str(rc))
@@ -43,13 +46,18 @@ class MQTTClient:
     def on_message(self, client, userdata, message: MQTTMessage):
         if message.topic == configuration_topic_receive:
             self.queue.append(Configuration.from_yaml(message.payload.decode()))
-            self.client.loop_stop()
 
     def publish_configuration(self, configuration: Configuration) -> None:
-        self.client.publish(configuration.to_yaml())
+        self.client.publish(configuration_topic_command, configuration.to_yaml())
 
     def get_configuration(self) -> Configuration:
-        self.client.loop_forever()
-        configuration: Configuration = self.queue.popleft()
-        # self.queue.clear()
+        while len(self.queue) == 0 and self.active:
+            pass
+
+        configuration: Configuration = self.queue.pop()
+        self.queue.clear()
         return configuration
+
+    def close(self) -> None:
+        self.active = False
+        self.client.disconnect()

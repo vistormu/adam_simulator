@@ -29,3 +29,6 @@ class RealAdamRepository(AdamRepository):
         self.client.publish(self.topic, True)
 
         time.sleep(1.0/self.rate)
+
+    def close(self) -> None:
+        self.client.disconnect()

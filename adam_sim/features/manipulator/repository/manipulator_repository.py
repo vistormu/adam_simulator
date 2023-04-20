@@ -44,3 +44,7 @@ class ManipulatorRepository(ABC):
     @abstractmethod
     def get_info(self) -> ManipulatorInfo:
         pass
+
+    @abstractmethod
+    def close(self) -> None:
+        pass

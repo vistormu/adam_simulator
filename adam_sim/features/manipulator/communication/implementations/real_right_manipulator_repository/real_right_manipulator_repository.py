@@ -70,3 +70,6 @@ class RealRightManipulatorRepository(ManipulatorRepository):
                                velocity=velocity,
                                acceleration=acceleration,
                                collision=collision)
+
+    def close(self) -> None:
+        return super().close()

@@ -1,7 +1,5 @@
 from abc import ABC, abstractmethod
 
-from ..entities import AdamInfo
-
 
 class AdamRepository(ABC):
     def __init__(self) -> None:
@@ -14,4 +12,8 @@ class AdamRepository(ABC):
 
     @abstractmethod
     def step(self) -> None:
+        pass
+
+    @abstractmethod
+    def close(self) -> None:
         pass

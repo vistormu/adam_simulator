@@ -46,3 +46,6 @@ class RealLeftManipulatorRepository(ManipulatorRepository):
                                velocity=velocity,
                                acceleration=acceleration,
                                collision=collision)
+
+    def close(self) -> None:
+        self.client.close()

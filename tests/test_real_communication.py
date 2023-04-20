@@ -7,9 +7,11 @@ from vclog import Logger
 def main():
     adam: Adam = Adam()
     info: AdamInfo = adam.connect('localhost', 1883, rate=10)
+    # info: AdamInfo = adam.load()
 
-    for _ in range(100):
+    for _ in range(10):
         Logger.debug(info.left_manipulator.configuration)
+        # adam.render()
 
         left_configuration = info.left_manipulator.configuration + Configuration(0.0, 0.0, 0.0, 0.0, 0.0, 0.1)
 

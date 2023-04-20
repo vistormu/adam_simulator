@@ -66,3 +66,6 @@ class SimulatedLeftManipulatorRepository(ManipulatorRepository):
                                velocity=velocity,
                                acceleration=acceleration,
                                collision=collisions)
+
+    def close(self) -> None:
+        return super().close()

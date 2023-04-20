@@ -16,3 +16,7 @@ class BaseRepository(ABC):
     @abstractmethod
     def get_info(self) -> BaseInfo:
         pass
+
+    @abstractmethod
+    def close(self) -> None:
+        pass
