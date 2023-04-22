@@ -50,6 +50,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.manipulator.Manipulator.control"><code class="docutils literal notranslate"><span class="pre">Manipulator.control()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.manipulator.Manipulator.move_to"><code class="docutils literal notranslate"><span class="pre">Manipulator.move_to()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.manipulator.Manipulator.set_to"><code class="docutils literal notranslate"><span class="pre">Manipulator.set_to()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.manipulator.manipulator.Manipulator.set_velocity_to"><code class="docutils literal notranslate"><span class="pre">Manipulator.set_velocity_to()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="data_manager.html"><code class="docutils literal notranslate"><span class="pre">DataManager</span></code></a></li>
@@ -89,7 +90,7 @@
              
   <span class="target" id="module-adam_sim.features.manipulator.manipulator"></span><dl class="py class">
 <dt class="sig sig-object py" id="adam_sim.features.manipulator.manipulator.Manipulator">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam_sim.features.manipulator.manipulator.</span></span><span class="sig-name descname"><span class="pre">Manipulator</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">id</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam_sim.features.manipulator.manipulator.Manipulator" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam_sim.features.manipulator.manipulator.</span></span><span class="sig-name descname"><span class="pre">Manipulator</span></span><a class="headerlink" href="#adam_sim.features.manipulator.manipulator.Manipulator" title="Permalink to this definition"></a></dt>
 <dd><p>the <cite>Manipulator</cite> class contains all the methods to control and render the manipulator either in simulation or in real life.</p>
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
@@ -136,6 +137,20 @@
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>configuration</strong><span class="classifier">~.entities.Configuration</span></dt><dd><p>the configuration of the manipulator</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.features.manipulator.manipulator.Manipulator.set_velocity_to">
+<span class="sig-name descname"><span class="pre">set_velocity_to</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">velocity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Velocity</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam_sim.features.manipulator.manipulator.Manipulator.set_velocity_to" title="Permalink to this definition"></a></dt>
+<dd><p>sets the manipulator velocity to the specified vector</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>velocity</strong><span class="classifier">~.entities.Velocity</span></dt><dd><p>the velocity of the manipulator</p>
 </dd>
 </dl>
 </dd>

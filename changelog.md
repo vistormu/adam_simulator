@@ -2,7 +2,6 @@
 The ADAM Simulator has seen a complete overhaul. Now instead of a simple simulation it features a framework to test and send command to the real robot. Now the code is more modular, offering separate controllers for each actuator: left manipulator, right manipulator and base.
 
 New features:
-- The base can now be moved!
 - The manipulators can be controlled with velocity now
 - The robotic manipulators can now be controlled through Inverse Kinematics
 - New entities: `Velocity`, which represents the angular velocity of a system; and `Acceleration`, which represents the angular acceleration of a system

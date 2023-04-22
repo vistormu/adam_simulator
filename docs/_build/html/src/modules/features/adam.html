@@ -47,6 +47,7 @@
 <li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Adam</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.adam.adam.Adam.check_collisions"><code class="docutils literal notranslate"><span class="pre">Adam.check_collisions()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.adam.adam.Adam.close"><code class="docutils literal notranslate"><span class="pre">Adam.close()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.adam.adam.Adam.connect"><code class="docutils literal notranslate"><span class="pre">Adam.connect()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.adam.adam.Adam.export_scene"><code class="docutils literal notranslate"><span class="pre">Adam.export_scene()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.adam.adam.Adam.load"><code class="docutils literal notranslate"><span class="pre">Adam.load()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.adam.adam.Adam.render"><code class="docutils literal notranslate"><span class="pre">Adam.render()</span></code></a></li>
@@ -92,7 +93,7 @@
              
   <span class="target" id="module-adam_sim.features.adam.adam"></span><dl class="py class">
 <dt class="sig sig-object py" id="adam_sim.features.adam.adam.Adam">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam_sim.features.adam.adam.</span></span><span class="sig-name descname"><span class="pre">Adam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">mode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">'simulated'</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam_sim.features.adam.adam.Adam" title="Permalink to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam_sim.features.adam.adam.</span></span><span class="sig-name descname"><span class="pre">Adam</span></span><a class="headerlink" href="#adam_sim.features.adam.adam.Adam" title="Permalink to this definition"></a></dt>
 <dd><p>The <cite>Adam</cite> class contains all the methods to control and render the ADAM robot either in simulation or in real life.</p>
 <dl class="field-list simple">
 <dt class="field-odd">Attributes<span class="colon">:</span></dt>
@@ -109,17 +110,23 @@
 <p class="rubric">Methods</p>
 <table class="docutils align-default">
 <tbody>
-<tr class="row-odd"><td><p><strong>load:</strong></p></td>
+<tr class="row-odd"><td><p><strong>connect:</strong></p></td>
+<td><p>connects to a given host and port</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>load:</strong></p></td>
 <td><p>loads a given MuJoCo scene. This method is mandatory to call</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>step:</strong></p></td>
+<tr class="row-odd"><td><p><strong>step:</strong></p></td>
 <td><p>advance one step in the simulation</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>render:</strong></p></td>
+<tr class="row-even"><td><p><strong>render:</strong></p></td>
 <td><p>renders the scene</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>close:</strong></p></td>
+<tr class="row-odd"><td><p><strong>close:</strong></p></td>
 <td><p>closes all the visualizers</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>check_collisions:</strong></p></td>
+<td><p>checks if there are any collisions in the scene</p></td>
 </tr>
 <tr class="row-odd"><td><p><strong>export_scene:</strong></p></td>
 <td><p>exports the scene to the specified directory</p></td>
@@ -131,9 +138,23 @@
 <span class="sig-name descname"><span class="pre">check_collisions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">left_configurations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../entities/global/configuration.html#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">adam_sim.entities.configuration.Configuration</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">right_configurations</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../entities/global/configuration.html#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">adam_sim.entities.configuration.Configuration</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">numpy.ndarray</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#adam_sim.features.adam.adam.Adam.check_collisions" title="Permalink to this definition"></a></dt>
 <dd><p>checks wether there are self collisions or environment collisions</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
+<dt><strong>left_configurations</strong><span class="classifier">list[~.entities.Configuration]</span></dt><dd><p>the configurations of the left manipulator</p>
+</dd>
+<dt><strong>right_configurations</strong><span class="classifier">list[~.entities.Configuration]</span></dt><dd><p>the configurations of the right manipulator</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
 <dt><strong>out</strong><span class="classifier">tuple[np.ndarray, np.ndarray]</span></dt><dd><p>the first element is an array of the environment collisions and the second element is an array of the self collisions</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-odd">Raises<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>Exception</dt><dd><p>if the robot is not in simulation mode</p>
 </dd>
 </dl>
 </dd>
@@ -143,15 +164,35 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="adam_sim.features.adam.adam.Adam.close">
 <span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam_sim.features.adam.adam.Adam.close" title="Permalink to this definition"></a></dt>
-<dd><p>closes all the visualizers</p>
+<dd><p>closes all the visualizers and connections</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.features.adam.adam.Adam.connect">
+<span class="sig-name descname"><span class="pre">connect</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">host</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">port</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rate</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">30</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="../entities/adam/adam_info.html#adam_sim.features.adam.entities.adam_info.AdamInfo" title="adam_sim.features.adam.entities.adam_info.AdamInfo"><span class="pre">AdamInfo</span></a></span></span><a class="headerlink" href="#adam_sim.features.adam.adam.Adam.connect" title="Permalink to this definition"></a></dt>
+<dd><p>connects to a given host and port</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>host</strong><span class="classifier">str</span></dt><dd><p>the host to connect to</p>
+</dd>
+<dt><strong>port</strong><span class="classifier">int</span></dt><dd><p>the port to connect to</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam_sim.features.adam.adam.Adam.export_scene">
 <em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">export_scene</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">destination</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam_sim.features.adam.adam.Adam.export_scene" title="Permalink to this definition"></a></dt>
 <dd><p>exports the default ADAM scene to a given directory</p>
-<dl class="simple">
-<dt>destination<span class="classifier">str</span></dt><dd><p>the directory in which to export the scene</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>destination</strong><span class="classifier">str</span></dt><dd><p>the directory in which to export the scene</p>
+</dd>
+</dl>
 </dd>
 </dl>
 <p class="rubric">Notes</p>

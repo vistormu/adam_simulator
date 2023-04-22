@@ -45,6 +45,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Examples</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#basic-usage">Basic usage</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#datamanager-usage">DataManager usage</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#communication-usage">Communication Usage</a></li>
 </ul>
 </li>
 </ul>
@@ -189,7 +190,39 @@
 
     <span class="n">adam</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
-    <span class="n">DataManager</span><span class="o">.</span><span class="n">save_end_effector_positions</span><span class="p">(</span><span class="s1">&#39;tests/data/end_effector_positions_test.csv&#39;</span><span class="p">,</span> <span class="n">end_effector_positions</span><span class="p">)</span>
+    <span class="n">DataManager</span><span class="o">.</span><span class="n">save_end_effector_positions</span><span class="p">(</span><span class="s1">&#39;end_effector_positions_test.csv&#39;</span><span class="p">,</span> <span class="n">end_effector_positions</span><span class="p">)</span>
+
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</div>
+</section>
+<section id="communication-usage">
+<h2>Communication Usage<a class="headerlink" href="#communication-usage" title="Permalink to this heading"></a></h2>
+<p>The following code shows how to use the communication library to send and receive data from the real robot.</p>
+<div class="highlight-Python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">adam_sim</span> <span class="kn">import</span> <span class="n">Adam</span>
+<span class="kn">from</span> <span class="nn">adam_sim.entities</span> <span class="kn">import</span> <span class="n">Configuration</span><span class="p">,</span> <span class="n">AdamInfo</span>
+
+<span class="kn">from</span> <span class="nn">vclog</span> <span class="kn">import</span> <span class="n">Logger</span>
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">adam</span><span class="p">:</span> <span class="n">Adam</span> <span class="o">=</span> <span class="n">Adam</span><span class="p">()</span>
+    <span class="n">info</span><span class="p">:</span> <span class="n">AdamInfo</span> <span class="o">=</span> <span class="n">adam</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="s1">&#39;localhost&#39;</span><span class="p">,</span> <span class="mi">1883</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="mi">10</span><span class="p">)</span>
+    <span class="c1"># info: AdamInfo = adam.load()</span>
+
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">10</span><span class="p">):</span>
+        <span class="n">Logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="n">info</span><span class="o">.</span><span class="n">left_manipulator</span><span class="o">.</span><span class="n">configuration</span><span class="p">)</span>
+        <span class="c1"># adam.render()</span>
+
+        <span class="n">left_configuration</span> <span class="o">=</span> <span class="n">info</span><span class="o">.</span><span class="n">left_manipulator</span><span class="o">.</span><span class="n">configuration</span> <span class="o">+</span> <span class="n">Configuration</span><span class="p">(</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)</span>
+
+        <span class="n">adam</span><span class="o">.</span><span class="n">left_manipulator</span><span class="o">.</span><span class="n">set_to</span><span class="p">(</span><span class="n">left_configuration</span><span class="p">)</span>
+
+        <span class="n">info</span> <span class="o">=</span> <span class="n">adam</span><span class="o">.</span><span class="n">step</span><span class="p">()</span>
+
+    <span class="n">adam</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 
 <span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>

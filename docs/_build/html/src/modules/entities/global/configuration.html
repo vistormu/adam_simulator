@@ -46,15 +46,21 @@
 <li class="toctree-l2"><a class="reference internal" href="../../../api_reference.html#features">Features</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../../../api_reference.html#global-entities">Global entities</a><ul class="current">
 <li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">Configuration</span></code></a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.from_list"><code class="docutils literal notranslate"><span class="pre">Configuration.from_list()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.from_numpy"><code class="docutils literal notranslate"><span class="pre">Configuration.from_numpy()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.from_yaml"><code class="docutils literal notranslate"><span class="pre">Configuration.from_yaml()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.q1"><code class="docutils literal notranslate"><span class="pre">Configuration.q1</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.q2"><code class="docutils literal notranslate"><span class="pre">Configuration.q2</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.q3"><code class="docutils literal notranslate"><span class="pre">Configuration.q3</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.q4"><code class="docutils literal notranslate"><span class="pre">Configuration.q4</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.q5"><code class="docutils literal notranslate"><span class="pre">Configuration.q5</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.q6"><code class="docutils literal notranslate"><span class="pre">Configuration.q6</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.round"><code class="docutils literal notranslate"><span class="pre">Configuration.round()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.to_degrees"><code class="docutils literal notranslate"><span class="pre">Configuration.to_degrees()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.to_list"><code class="docutils literal notranslate"><span class="pre">Configuration.to_list()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.to_numpy"><code class="docutils literal notranslate"><span class="pre">Configuration.to_numpy()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.to_radians"><code class="docutils literal notranslate"><span class="pre">Configuration.to_radians()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration.to_yaml"><code class="docutils literal notranslate"><span class="pre">Configuration.to_yaml()</span></code></a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="point.html"><code class="docutils literal notranslate"><span class="pre">Point</span></code></a></li>
@@ -96,7 +102,7 @@
   <span class="target" id="module-adam_sim.entities.configuration"></span><dl class="py class">
 <dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">adam_sim.entities.configuration.</span></span><span class="sig-name descname"><span class="pre">Configuration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">q1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q3</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q4</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q5</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">q6</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration" title="Permalink to this definition"></a></dt>
-<dd><p>the Configuration class is a NamedTuple that contains the values of the joint angles</p>
+<dd><p>the Configuration class is a NamedTuple that contains the values of the joint angles. Unit: rad</p>
 <p class="rubric">Notes</p>
 <p>the Configuration class supports addition, subtraction, division and multiplication</p>
 <dl class="field-list simple">
@@ -126,11 +132,89 @@
 <tr class="row-even"><td><p><strong>to_radians(self) -&gt; ~.entities.Configuration</strong></p></td>
 <td><p>converts a configuration instance from degrees to radians</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>to_numpy(self) -&gt; np.ndarray</strong></p></td>
+<tr class="row-odd"><td><p><strong>round(self, ndigits: int) -&gt; ~.entities.Configuration</strong></p></td>
+<td><p>rounds a configuration instance to a given number of digits</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>to_numpy(self) -&gt; np.ndarray</strong></p></td>
 <td><p>converts a configuration instance to a numpy array</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>to_list(self) -&gt; list[float]</strong></p></td>
+<td><p>converts a configuration instance to a list</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>to_yaml(self) -&gt; str</strong></p></td>
+<td><p>converts a configuration instance to a yaml string</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>from_yaml(self, yaml_string: str) -&gt; ~.entities.Configuration</strong></p></td>
+<td><p>converts a yaml string to a configuration instance</p></td>
+</tr>
+<tr class="row-even"><td><p><strong>from_numpy(self, array: np.ndarray) -&gt; ~.entities.Configuration</strong></p></td>
+<td><p>converts a numpy array to a configuration instance</p></td>
+</tr>
+<tr class="row-odd"><td><p><strong>from_list(self, list: list[float]) -&gt; ~.entities.Configuration</strong></p></td>
+<td><p>converts a list to a configuration instance</p></td>
 </tr>
 </tbody>
 </table>
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.from_list">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_list</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.from_list" title="Permalink to this definition"></a></dt>
+<dd><p>converts a list to a Configuration instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>list</strong><span class="classifier">list</span></dt><dd><p>the list to convert</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>~.entities.Configuration</dt><dd><p>the Configuration instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.from_numpy">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_numpy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">array</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">ndarray</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.from_numpy" title="Permalink to this definition"></a></dt>
+<dd><p>converts a numpy array to a Configuration instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>array</strong><span class="classifier">np.ndarray</span></dt><dd><p>the numpy array to convert</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>~.entities.Configuration</dt><dd><p>the Configuration instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.from_yaml">
+<em class="property"><span class="pre">classmethod</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">from_yaml</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">yaml_string</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.from_yaml" title="Permalink to this definition"></a></dt>
+<dd><p>converts a yaml string to a Configuration instance</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>yaml_string</strong><span class="classifier">str</span></dt><dd><p>the yaml string to convert</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>~.entities.Configuration</dt><dd><p>the Configuration instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py attribute">
 <dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.q1">
 <span class="sig-name descname"><span class="pre">q1</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="pre">float</span></em><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.q1" title="Permalink to this definition"></a></dt>
@@ -168,21 +252,93 @@
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.round">
+<span class="sig-name descname"><span class="pre">round</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">n</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">4</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.round" title="Permalink to this definition"></a></dt>
+<dd><p>rounds the instance to n decimal places</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>n</strong><span class="classifier">int, optional</span></dt><dd><p>the number of decimal places to round to. Default: 4</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt>~.entities.Configuration</dt><dd><p>the rounded instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.to_degrees">
-<span class="sig-name descname"><span class="pre">to_degrees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_degrees" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_degrees</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_degrees" title="Permalink to this definition"></a></dt>
 <dd><p>converts the instance from radians to degrees</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>~.entities.Configuration</dt><dd><p>the instance in degrees</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.to_list">
+<span class="sig-name descname"><span class="pre">to_list</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_list" title="Permalink to this definition"></a></dt>
+<dd><p>converts the instance to a list</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>list</dt><dd><p>the list representation of the instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.to_numpy">
 <span class="sig-name descname"><span class="pre">to_numpy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">ndarray</span></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_numpy" title="Permalink to this definition"></a></dt>
 <dd><p>converts the instance to a numpy array</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>np.ndarray</dt><dd><p>the numpy array representation of the instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.to_radians">
-<span class="sig-name descname"><span class="pre">to_radians</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_radians" title="Permalink to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">to_radians</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#adam_sim.entities.configuration.Configuration" title="adam_sim.entities.configuration.Configuration"><span class="pre">Configuration</span></a></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_radians" title="Permalink to this definition"></a></dt>
 <dd><p>converts the instance from degrees to radians</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>~.entities.Configuration</dt><dd><p>the instance in radians</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="adam_sim.entities.configuration.Configuration.to_yaml">
+<span class="sig-name descname"><span class="pre">to_yaml</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#adam_sim.entities.configuration.Configuration.to_yaml" title="Permalink to this definition"></a></dt>
+<dd><p>converts the instance to a yaml string</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt>str</dt><dd><p>the yaml string representation of the instance</p>
+</dd>
+</dl>
+</dd>
+</dl>
 </dd></dl>
 
 </dd></dl>

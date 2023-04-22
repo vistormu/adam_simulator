@@ -49,9 +49,9 @@
 <li class="toctree-l3"><a class="reference internal" href="manipulator.html"><code class="docutils literal notranslate"><span class="pre">Manipulator</span></code></a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#"><code class="docutils literal notranslate"><span class="pre">DataManager</span></code></a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.data_manager.data_manager.DataManager.load_configurations"><code class="docutils literal notranslate"><span class="pre">DataManager.load_configurations()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.data_manager.data_manager.DataManager.load_end_effector_positions"><code class="docutils literal notranslate"><span class="pre">DataManager.load_end_effector_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.data_manager.data_manager.DataManager.load_points"><code class="docutils literal notranslate"><span class="pre">DataManager.load_points()</span></code></a></li>
 <li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.data_manager.data_manager.DataManager.save_configurations"><code class="docutils literal notranslate"><span class="pre">DataManager.save_configurations()</span></code></a></li>
-<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.data_manager.data_manager.DataManager.save_end_effector_positions"><code class="docutils literal notranslate"><span class="pre">DataManager.save_end_effector_positions()</span></code></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#adam_sim.features.data_manager.data_manager.DataManager.save_points"><code class="docutils literal notranslate"><span class="pre">DataManager.save_points()</span></code></a></li>
 </ul>
 </li>
 </ul>
@@ -101,11 +101,11 @@
 <tr class="row-even"><td><p><strong>save_configurations:</strong></p></td>
 <td><p>saves a list of configurations</p></td>
 </tr>
-<tr class="row-odd"><td><p><strong>load_end_effector_positions:</strong></p></td>
-<td><p>loads a list of end effector positions</p></td>
+<tr class="row-odd"><td><p><strong>load_points:</strong></p></td>
+<td><p>loads a list of points</p></td>
 </tr>
-<tr class="row-even"><td><p><strong>save_end_effector_positions:</strong></p></td>
-<td><p>saves a list of end effector positions</p></td>
+<tr class="row-even"><td><p><strong>save_points:</strong></p></td>
+<td><p>saves a list of points</p></td>
 </tr>
 </tbody>
 </table>
@@ -130,9 +130,9 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="adam_sim.features.data_manager.data_manager.DataManager.load_end_effector_positions">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_end_effector_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../entities/global/point.html#adam_sim.entities.point.Point" title="adam_sim.entities.point.Point"><span class="pre">adam_sim.entities.point.Point</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#adam_sim.features.data_manager.data_manager.DataManager.load_end_effector_positions" title="Permalink to this definition"></a></dt>
-<dd><p>loads a list of end effector positions</p>
+<dt class="sig sig-object py" id="adam_sim.features.data_manager.data_manager.DataManager.load_points">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">load_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../entities/global/point.html#adam_sim.entities.point.Point" title="adam_sim.entities.point.Point"><span class="pre">adam_sim.entities.point.Point</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#adam_sim.features.data_manager.data_manager.DataManager.load_points" title="Permalink to this definition"></a></dt>
+<dd><p>loads a list of points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
@@ -142,7 +142,7 @@
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>out</strong><span class="classifier">list[~.entities.Point]</span></dt><dd><p>a list of end effector positions</p>
+<dt><strong>out</strong><span class="classifier">list[~.entities.Point]</span></dt><dd><p>a list of points</p>
 </dd>
 </dl>
 </dd>
@@ -166,15 +166,15 @@
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="adam_sim.features.data_manager.data_manager.DataManager.save_end_effector_positions">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_end_effector_positions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_effector_positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../entities/global/point.html#adam_sim.entities.point.Point" title="adam_sim.entities.point.Point"><span class="pre">adam_sim.entities.point.Point</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam_sim.features.data_manager.data_manager.DataManager.save_end_effector_positions" title="Permalink to this definition"></a></dt>
-<dd><p>saves a list of end effector positions</p>
+<dt class="sig sig-object py" id="adam_sim.features.data_manager.data_manager.DataManager.save_points">
+<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">save_points</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">filename</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_effector_positions</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="../entities/global/point.html#adam_sim.entities.point.Point" title="adam_sim.entities.point.Point"><span class="pre">adam_sim.entities.point.Point</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">None</span></span></span><a class="headerlink" href="#adam_sim.features.data_manager.data_manager.DataManager.save_points" title="Permalink to this definition"></a></dt>
+<dd><p>saves a list of points</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>filename</strong><span class="classifier">str</span></dt><dd><p>the path to the file to save</p>
 </dd>
-<dt><strong>end_effector_positions</strong><span class="classifier">list[~.entities.Point]</span></dt><dd><p>a list of end effector positions</p>
+<dt><strong>end_effector_positions</strong><span class="classifier">list[~.entities.Point]</span></dt><dd><p>a list of points</p>
 </dd>
 </dl>
 </dd>

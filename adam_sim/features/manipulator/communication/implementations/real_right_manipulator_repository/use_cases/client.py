@@ -11,8 +11,8 @@ from .......entities import Configuration
 filename = pkg_resources.resource_filename('adam_sim', 'core/topics.yaml')
 with open(filename, 'r') as file:
     data: dict = yaml.safe_load(file)
-    configuration_topic_command: str = data['left_manipulator']['configuration']['command']
-    configuration_topic_receive: str = data['left_manipulator']['configuration']['receive']
+    configuration_topic_command: str = data['right_manipulator']['configuration']['command']
+    configuration_topic_receive: str = data['right_manipulator']['configuration']['receive']
 
 
 class MQTTClient:
