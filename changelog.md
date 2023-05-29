@@ -1,3 +1,6 @@
+# 1.0.1
+- Fixed a bug where the textures where not uploaded to PiPy.
+
 # 1.0.0
 The ADAM Simulator has seen a complete overhaul. Now instead of a simple simulation it features a framework to test and send command to the real robot. Now the code is more modular, offering separate controllers for each actuator: left manipulator, right manipulator and base.
 

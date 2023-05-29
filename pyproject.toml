@@ -3,7 +3,7 @@ requires = ["setuptools>=61.0"]
 build-backend = "setuptools.build_meta"
 
 name = "adam_sim"
-version = "1.0.0"
+version = "1.0.1"
 authors = [{ name = "Vistor" }]
 description = "A simulator of ADAM (Autonomous Domestic Ambidextrous Manipulator), a mobile robot manipulator consisting of a base with two Degrees of Freedom (DoF) and two Universal Robots UR3 of 6 DoF each."
 readme = "README.md"
@@ -25,7 +25,7 @@ dependencies = [
 ]
 
 [tool.setuptools.package-data]
-"*" = ["*.csv", "*.stl", "*.xml", "*.yaml"]
+"*" = ["*.csv", "*.stl", "*.xml", "*.yaml", "*.png"]
 
 [project.urls]
 "Homepage" = "https://github.com/vistormu/adam_simulator"
